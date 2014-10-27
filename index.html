@@ -1,9 +1,22 @@
----
-layout: default
-title: 美哉仙來的博客
----
+<!DOCTYPE html>
+<html>
+<head>
+   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+   <title>美哉仙來</title>
 
-<div id="home">
+   <!-- Homepage CSS -->
+   <link rel="stylesheet" href="/blog/css/screen.css" type="text/css" media="screen, projection" />
+
+</head>
+<body>
+
+<div class="site">
+  <div class="title">
+    <a href="/blog">美哉仙來的博客</a>
+    <a class="extra" href="/blog">home</a>
+  </div>
+  
+  <div id="home">
   <h1>Blog Posts</h1>
   <ul class="posts">
     {% for post in site.posts %}
@@ -11,3 +24,23 @@ title: 美哉仙來的博客
     {% endfor %}
   </ul>
 </div>
+  
+  <div class="footer">
+    <div class="contact">
+      <p>
+         Giants:<a href="http://223.3.90.132" target="_blank"> Group Disscuss </a>|<a href="http://223.3.90.132/2014" target="_blank"> 2014 </a>
+      </p>
+    </div>
+    <div class="contact">
+      <p>
+         <a href="http://wpa.qq.com/msgrd?V=3&uin=1357037184">he110建</a> &copy; since 2014-10-27
+      </p>
+    </div>
+  </div>
+</div>
+
+<a href="http://github.com/he110jian"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub" /></a>
+
+</body>
+</html>
+
