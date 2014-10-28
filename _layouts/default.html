@@ -34,39 +34,24 @@
 
 <a href="http://github.com/he110jian"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub" /></a>
 
-<div class="returnTop">
+<div class="returnTop"><a onclick="pageScroll()">
   <span class="s"></span>
   <span class="b"></span>
-  重返巅峰
+   重返巅峰
+   </a>
 </div>
 </body>
 <script>
-	$(function(){
-  // 给 window 对象绑定 scroll 事件
-  $(window).bind("scroll", function(){
-
-      // 获取网页文档对象滚动条的垂直偏移
-      var scrollTopNum = $(document).scrollTop(),
-          // 获取浏览器当前窗口的高度
-          winHeight = $(window).height(),
-          returnTop = $("div.returnTop");
-
-      // 滚动条的垂直偏移大于 0 时显示，反之隐藏
-      (scrollTopNum > 0) ? returnTop.fadeIn("fast") : returnTop.fadeOut("fast");
-
-      // 给 IE6 定位
-      if (!-[1,]&&!window.XMLHttpRequest) {
-          returnTop.css("top", scrollTopNum + winHeight - 200);
-      }
-
-  });
-
-  // 点击按钮后，滚动条的垂直方向的值逐渐变为0，也就是滑动向上的效果
-  $("div.returnTop").click(function() {
-      $("html, body").animate({ scrollTop: 0 }, 999);
-  });
-
-});
+	function pageScroll(){
+    //把内容滚动指定的像素数（第一个参数是向右滚动的像素数，第二个参数是向下滚动的像素数）
+    window.scrollBy(0,-100);
+    //延时递归调用，模拟滚动向上效果
+    scrolldelay = setTimeout('pageScroll()',100);
+    //获取scrollTop值，声明了DTD的标准网页取document.documentElement.scrollTop，否则取document.body.scrollTop；因为二者只有一个会生效，另一个就恒为0，所以取和值可以得到网页的真正的scrollTop值
+    var sTop=document.documentElement.scrollTop+document.body.scrollTop;
+    //判断当页面到达顶部，取消延时代码（否则页面滚动到顶部会无法再向下正常浏览页面）
+    if(sTop==0) clearTimeout(scrolldelay);
+}
 </script>
     <script type="text/javascript">
         /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
