@@ -152,11 +152,8 @@ ul.posts {
 
   /* standard */
  #post pre {
-    background-color: #eef;
-    padding: 0 .4em;
-    white-space: pre-wrap;
-    word-wrap: break-word;
     border: 1px solid black;
+    padding: 0.4em;
     background-color: #333;
     color: white; 
   }
