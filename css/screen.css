@@ -88,6 +88,10 @@ ul.posts {
   line-height: 1.5em;
   background-color: rgba(203, 205, 187, 0.15);
   padding: 0.5em;
+border-radius: 15px;
+-moz-border-radius: 15px;
+border: 1px solid #ccc;
+box-shadow: 2px 2px 3px #aaa;
 }
 
 .title {
