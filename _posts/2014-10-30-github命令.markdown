@@ -1,0 +1,27 @@
+---
+layout: post
+---
+
+<h2>{{ page.title }}</h2>
+<p class='meta'>{{ page.date | date_to_string }} - NanJing</p>
+
+---
+
+![此处输入图片的描述][1]
+
+    $ git remote add <主机名> <网址>
+    $ git clone <版本库的网址> <本地目录名>
+    $ git branch -a(查看分支) -d(删除)
+    $ git checkout -b newBrach(origin/master)
+    $ git push origin --delete master
+    $ git push origin gh-pahes
+    $ git checkout --orphan gh-pages
+    $ git add .
+    $ git commit -m "post1"
+    $ git reset 版本号
+
+
+---
+
+
+  [1]: http://f.hiphotos.baidu.com/baike/w=268;g=0/sign=3c4e049cc1cec3fd8b3ea073eeb3b302/6159252dd42a2834b1c7cf5b59b5c9ea15cebf79.jpg
