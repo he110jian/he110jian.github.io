@@ -8,45 +8,38 @@ layout: post
 ---
 ![IPV6TV][1]
 
-来自USTC的IPV6高清电视，*windows media player* “打开url" 观看.
-[mms://\[2001:da8:d800::44\]/tv2][2] CCTV5.
-[mms://\[2001:da8:d800::44\]/tv34][3] 湖南卫视.
-[mms://\[2001:da8:d800::44\]/tv7][4] 凤凰资讯.
-[mms://\[2001:da8:d800::44\]/tv49][5] CCTV-新闻频道.
-[mms://\[2001:da8:d800::44\]/tv1][6] CCTV-电影频道.
-[mms://\[2001:da8:d800::44\]/tv5][7] CCTV-探索频道.
+来自USTC的IPV6高清电视，*windows media player* “打开url" 观看
 
-PS:广播.
-[mms://livexwb.cri.com.cn/am846.wsx][8] 中国国际广播.
-[mms://live.cri.cn/pop/][9] 流行音乐台.
-[mms://live.cri.cn/oldies/][10] 经典音乐.
+[mms://\[2001:da8:d800::44\]/tv2][2] CCTV5
 
-#### 代码块
-``` python
-@requires_authorization
-def somefunc(param1='', param2=0):
-    '''A docstring'''
-    if param1 > param2: # interesting
-        print 'Greater'
-    return (param2 - param1 + 1) or None
-class SomeClass:
-    pass
->>> message = '''interpreter
-... prompt'''
-```
+[mms://\[2001:da8:d800::44\]/tv34][3] 湖南卫视
 
-#### LaTex 公式
-$$	x = \dfrac{-b \pm \sqrt{b^2 - 4ac}}{2a} $$
+[mms://\[2001:da8:d800::44\]/tv7][4] 凤凰资讯
+
+[mms://\[2001:da8:d800::44\]/tv49][5] CCTV-新闻频道
+
+[mms://\[2001:da8:d800::44\]/tv1][6] CCTV-电影频道
+
+[mms://\[2001:da8:d800::44\]/tv5][7] CCTV-探索频道
+
+
+PS:广播
+
+[mms://livexwb.cri.com.cn/am846.wsx][8] 中国国际广播
+
+[mms://live.cri.cn/pop/][9] 流行音乐台
+
+[mms://live.cri.cn/oldies/][10] 经典音乐
 
 ---
 
   [1]: https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRz1WYFXX6wm4_-nlTWOb0_Ge4BbBGvhXIrnfkW1oarLmBNVUCN0w
-  [2]: mms://%5B2001:da8:d800::44%5D/tv2
-  [3]: mms://%5B2001:da8:d800::44%5D/tv34
-  [4]: mms://%5B2001:da8:d800::44%5D/tv7
-  [5]: mms://%5B2001:da8:d800::44%5D/tv49
-  [6]: mms://%5B2001:da8:d800::44%5D/tv1
-  [7]: mms://%5B2001:da8:d800::44%5D/tv5
+  [2]: mms://[2001:da8:d800::44]/tv2
+  [3]: mms://[2001:da8:d800::44]/tv34
+  [4]: mms://[2001:da8:d800::44]/tv7
+  [5]: mms://[2001:da8:d800::44]/tv49
+  [6]: mms://[2001:da8:d800::44]/tv1
+  [7]: mms://[2001:da8:d800::44]/tv5
   [8]: mms://livexwb.cri.com.cn/am846.wsx
   [9]: mms://live.cri.cn/pop/
   [10]: mms://live.cri.cn/oldies/
