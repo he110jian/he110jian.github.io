@@ -10,19 +10,19 @@ layout: post
 
 来自USTC的IPV6高清电视，*windows media player* “打开url" 观看
 
--[mms://\[2001:da8:d800::44\]/tv2][2] CCTV5
--[mms://\[2001:da8:d800::44\]/tv34][3] 湖南卫视
--[mms://\[2001:da8:d800::44\]/tv7][4] 凤凰资讯
--[mms://\[2001:da8:d800::44\]/tv49][5] CCTV-新闻频道
--[mms://\[2001:da8:d800::44\]/tv1][6] CCTV-电影频道
--[mms://\[2001:da8:d800::44\]/tv5][7] CCTV-探索频道
+ - [mms://\[2001:da8:d800::44\]/tv2][2] CCTV5
+ - [mms://\[2001:da8:d800::44\]/tv34][3] 湖南卫视
+ - [mms://\[2001:da8:d800::44\]/tv7][4] 凤凰资讯
+ - [mms://\[2001:da8:d800::44\]/tv49][5] CCTV-新闻频道
+ - [mms://\[2001:da8:d800::44\]/tv1][6] CCTV-电影频道
+ - [mms://\[2001:da8:d800::44\]/tv5][7] CCTV-探索频道
 
 
 PS:广播
 
--[mms://livexwb.cri.com.cn/am846.wsx][8] 中国国际广播
--[mms://live.cri.cn/pop/][9] 流行音乐台
--[mms://live.cri.cn/oldies/][10] 经典音乐
+ - [mms://livexwb.cri.com.cn/am846.wsx][8] 中国国际广播
+ - [mms://live.cri.cn/pop/][9] 流行音乐台
+ - [mms://live.cri.cn/oldies/][10] 经典音乐
 
 ---
 
