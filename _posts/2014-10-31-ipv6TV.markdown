@@ -1,0 +1,26 @@
+---
+layout: post
+---
+
+<h2>{{ page.title }}</h2>
+<p class='meta'>{{ page.date | date_to_string }} - NanJing</p>
+
+---
+![IPV6TV][1]
+
+来自USTC的IPV6高清电视，*windows media player* “打开url" 观看：
+`mms://[2001:da8:d800::44]/tv2` CCTV5
+`mms://[2001:da8:d800::44]/tv34` 湖南卫视
+`mms://[2001:da8:d800::44]/tv7` 凤凰资讯
+`mms://[2001:da8:d800::44]/tv49` CCTV-新闻频道
+`mms://[2001:da8:d800::44]/tv1` CCTV-电影频道
+`mms://[2001:da8:d800::44]/tv5` CCTV-探索频道
+
+PS:广播
+`mms://livexwb.cri.com.cn/am846.wsx` 中国国际广播
+`mms://live.cri.cn/pop/` 流行音乐台
+`mms://live.cri.cn/oldies/` 经典音乐
+
+---
+
+  [1]: https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRz1WYFXX6wm4_-nlTWOb0_Ge4BbBGvhXIrnfkW1oarLmBNVUCN0w
