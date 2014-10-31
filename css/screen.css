@@ -17,7 +17,7 @@ html, body {
 
 body {
   background-color: white;
-  font: 13.34px Georgia, "Times New Roman", 
+  font: 0.8em Georgia, "Times New Roman", 
              "Microsoft YaHei", "微软雅黑", 
              STXihei, "华文细黑", 
              sans-serif;
@@ -52,10 +52,11 @@ table {
 .returnTop {
     position: fixed;
     _position: absolute;
-    right: 50px;
-    bottom: 100px;
+    right: 4em;
+    bottom: 4em;
     _bottom: auto;
 }
+img { max-width: 100%;}
 /*****************************************************************************/
 /*
 /* Home
