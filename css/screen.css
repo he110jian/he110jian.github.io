@@ -57,26 +57,6 @@ table {
     _bottom: auto;
 }
 img { display:block;max-width:100%;height:auto}
-div#music{
-top: 30em;
-position: fixed;
-left: -13.75em;
-text-align: center;
-}
-div#music
-{
-transition: left 1s;
--moz-transition: left 1s;	/* Firefox 4 */
--webkit-transition: left 1s;	/* Safari 和 Chrome */
--o-transition: left 1s;	/* Opera */
-}
-div#music:hover{
-top: 30em;
-position: fixed;
-z-index:1; 
-left: 0px;
-text-align: center;
-}
 /*****************************************************************************/
 /*
 /* Home
