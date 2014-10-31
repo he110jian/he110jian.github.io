@@ -7,7 +7,9 @@ layout: post
 
 ----------
 ![jsj](http://pic.baike.soso.com/p/20130717/20130717142914-893252179.jpg)
+
 power by 阮一峰
+
 ## 密码学 ##
 对称密码：加密和解密过程都用同一套密码，例如 DES（Data Encryption Standard）。
 
