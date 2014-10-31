@@ -56,7 +56,7 @@ table {
     bottom: 4em;
     _bottom: auto;
 }
-img { max-width: 100%;}
+img { display:block;max-width:100%;height:auto}
 /*****************************************************************************/
 /*
 /* Home
