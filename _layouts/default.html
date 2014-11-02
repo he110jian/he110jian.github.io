@@ -50,6 +50,14 @@
 </div>
 
 </body>
+window.onscroll = function () { 
+if (document.documentElement.scrollTop + document.body.scrollTop > 100) { 
+document.getElementById("returnTop").style.display = "block"; 
+} 
+else { 
+document.getElementById("returnTop").style.display = "none"; 
+} 
+} 
     <script type="text/javascript">
         /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
         var disqus_shortname = 'he110jianblog'; // required: replace example with your forum shortname
