@@ -107,7 +107,7 @@ box-shadow: 2px 2px 3px #aaa;
     text-decoration: none;
     margin-left: 1em;
   }
-  .site .title p{
+  .site .title span{
 	font-size:1.9em;
 	font-family: YouYuan;
   }
