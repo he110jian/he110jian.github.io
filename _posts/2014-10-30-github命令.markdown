@@ -20,6 +20,15 @@ layout: post
     $ git commit -m "post1"
     $ git reset 版本号
 
+{% highlight c %}
+/* hello world demo */
+#include <stdio.h>
+int main(int argc, char **argv)
+{
+    printf("Hello, World!\n");
+    return 0;
+}
+{% endhighlight %}
 
 ---
 
