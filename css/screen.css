@@ -96,6 +96,9 @@ box-shadow: 2px 2px 3px #aaa;
   .site {
      width:100%;
   }
+  .forkMe{
+  	display:none;
+  }
 }
 
 .title {
