@@ -40,7 +40,7 @@
 </div>
 
 <a href="http://github.com/he110jian"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub" /></a>
-<div class="returnTop" id="returnTop">
+<div id="returnTop" class="returnTop" >
   <span class="s"></span>
   <span class="b"></span>
 </div>
@@ -56,10 +56,10 @@
     //注册当页面发生滚动事件的时候，判断他有没有滚动条，如果有滚动条就显示“返回”，如果没有就不返回  
     window.onscroll=sb;  
     function sb(){  
-        if(document.documentElement.scrollTop>0){  
-            idTest.style.display="block";  
+        if(document.documentElement.scrollTop==0){  
+            idTest.style.display="none";  
             }else{  
-                idTest.style.display="none";  
+                idTest.style.display="block";  
                 }  
         }  
 </script> 
