@@ -100,6 +100,7 @@ right: 0;
 @media screen and (max-width:600px) {
   .site {
      width:100%;
+     margin:0;
   }
   .forkMe{
   	display:none;
