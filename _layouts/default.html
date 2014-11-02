@@ -44,24 +44,24 @@
   <span class="s"></span>
   <span class="b"></span>
 </div>
-<script type="text/javascript">  
-    idTest=document.getElementById("turnTop");  
-    //注册当点击返回顶部的时候，回到网页顶部  
-    idTest.onclick=function (){  
-        document.documentElement.scrollTop=0;  
-        sb();
-        }  
-          
-    //注册当页面发生滚动事件的时候，判断他有没有滚动条，如果有滚动条就显示“返回”，如果没有就不返回  
-    window.onscroll=sb;  
-    function sb(){  
-        if(document.documentElement.scrollTop==0){  
-            idTest.style.display="none";  
-            }else{  
-                idTest.style.display="block";  
-                }  
-        }
-</script> 
+<script type="text/javascript">
+	idTest=document.getElementById('turnTop');
+	//注册当点击返回顶部的时候，回到网页顶部
+	idTest.onclick=function (){
+		document.documentElement.scrollTop=0;
+		sb();
+		}
+		
+	//注册当页面发生滚动事件的时候，判断他有没有滚动条，如果有滚动条就显示“返回”，如果没有就不返回
+	window.onscroll=sb;
+	function sb(){
+		if(document.documentElement.scrollTop==0){
+			idTest.style.display="none";
+			}else{
+				idTest.style.display="block";
+				}
+		}
+</script>
 </body>
     <script type="text/javascript">
         /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
