@@ -106,10 +106,8 @@ box-shadow: 2px 2px 3px #aaa;
     color: #aaa;
     text-decoration: none;
     margin-left: 1em;
-    float:right;
   }
   .site .title p{
-	text-align:center;
 	font-size:1.9em;
 	font-family: YouYuan;
   }
