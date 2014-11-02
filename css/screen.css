@@ -11,10 +11,6 @@
   padding: 0;
 }
 
-html, body {
-  height: 100%;
-}
-
 body {
   background-color: white;
   font: 0.8em Georgia, "Times New Roman", 
