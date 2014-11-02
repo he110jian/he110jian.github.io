@@ -5,11 +5,8 @@ layout: post
 <h2>{{ page.title }}</h2>
 <p class='meta'>{{ page.date | date_to_string }} - NanJing</p>
 
-
 ---
 
-
-###面试题精选###
 - [C/C++/C#面试题精选](http://blog.csdn.net/cadcisdhht/article/category/785138 "csdnblog") 
 - [程序员面试题精选100题](http://zhedahht.blog.163.com/blog/#m=0 "163blog") 
 
