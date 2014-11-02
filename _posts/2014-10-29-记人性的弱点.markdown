@@ -6,6 +6,7 @@ layout: post
 <p class='meta'>{{ page.date | date_to_string }} - NanJing</p>
 
 ---
+
 ![人性的弱点](http://ec4.images-amazon.com/images/I/51mfgvGGp3L.jpg)
 
 In a Nutshell

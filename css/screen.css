@@ -211,8 +211,3 @@ box-shadow: 2px 2px 3px #aaa;
     width: 8px;
     background: #3592DD;
 }
-@media screen and (max-device-width: 400px) {
-　　　　.site{
-　　　　	width:100%;
-　　　　}
-　　}

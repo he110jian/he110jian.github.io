@@ -6,6 +6,8 @@ layout: post
 <p class='meta'>{{ page.date | date_to_string }} - NanJing,  powered by 阮一峰</p>
 
 ----------
+
+
 ![jsj](http://pic.baike.soso.com/p/20130717/20130717142914-893252179.jpg)
 
 
