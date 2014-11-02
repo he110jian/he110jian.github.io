@@ -37,7 +37,7 @@ a {
   color: #00a;
 }
 hr{
- margin:0.5em auto;
+ margin:0.7em auto;
 }
 a:hover {
   color: black;
