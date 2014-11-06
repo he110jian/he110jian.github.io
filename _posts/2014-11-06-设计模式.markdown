@@ -26,7 +26,7 @@ layout: post
 
 ### 单例模式 ###
 单例的一般实现比较简单，下面是代码和UML图。由于构造函数是私有的，因此无法通过构造函数实例化，唯一的方法就是通过调用静态函数GetInstance。
-{% highlight c %}
+{% highlight cpp %}
 /* 单例模式 */
 //Singleton.h  
 class Singleton    
