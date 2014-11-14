@@ -1,0 +1,118 @@
+---
+layout: post
+---
+
+<h2>{{ page.title }}</h2>
+<p class='meta'>{{ page.date | date_to_string }} - NanJing</p>
+----------
+
+### LeetCode O ###
+####Two Sum####
+
+Given an array of integers, find two numbers such that they add up to a specific target number.
+
+The function twoSum should return indices of the two numbers such that they add up to the target, where index1 must be less than index2. Please note that your returned answers (both index1 and index2) are not zero-based.
+
+You may assume that each input would have exactly one solution.
+
+Input: numbers={2, 7, 11, 15}, target=9
+
+Output: index1=1, index2=2
+
+#####solution1#####
+{% highlight cpp %}
+class Solution {
+public:
+	void swap(vector<int> &arr, int l, int h, vector<int> &index)
+	{
+		if (l == h)
+			return;
+		int t;
+		t = arr[l];
+		arr[l] = arr[h];
+		arr[h] = t;
+		t = index[l];
+		index[l] = index[h];
+		index[h] = t;
+	}
+
+	void quicksort(vector<int> &arr, int l, int h, vector<int> &index)
+	{
+		if (l >= h)
+			return;
+		int r = (rand() % (h - l + 1)) + l;
+		swap(arr, l, r, index);
+		int m = l;
+		for (int i = l + 1; i <= h; ++i)
+		{
+			if (arr[i] <= arr[l])
+			{
+				swap(arr, ++m, i, index);
+			}
+		}
+		swap(arr, l, m, index);
+		quicksort(arr, l, m - 1, index);
+		quicksort(arr, m + 1, h, index);
+	}
+
+	vector<int> twoSum(vector<int> &numbers, int target) 
+	{
+		int count = 0;
+		vector<int> result;
+		vector<int> index;
+		for (int i = 0; i < numbers.size(); )
+		{
+			index.push_back(++i);
+		}
+		quicksort(numbers, 0, numbers.size() - 1, index);
+		vector<int>::iterator index1 = numbers.begin();
+		vector<int>::iterator index2 = numbers.end() - 1;
+		int temp;
+		while (index1 < index2)
+		{
+			temp = *index1 + *index2;
+			if (temp == target)
+			{
+			    if(index[index1-numbers.begin()]>index[index2-numbers.begin()])
+				{
+				    result.push_back(index[index2-numbers.begin()]);
+				    result.push_back(index[index1-numbers.begin()]);
+				}
+				else
+				{
+				    result.push_back(index[index1-numbers.begin()]);
+				    result.push_back(index[index2-numbers.begin()]);
+				}
+				--index2;
+				++index1;
+			}
+			else if (temp > target)
+				--index2;
+			else
+				++index1;
+		}
+		return result;
+	}
+};
+{% endhighlight %}
+
+###solution 2###
+
+O(n) runtime, O(n) space – Hash table:
+
+{% highlight cpp %}
+public int[] twoSum(int[] numbers, int target) {
+	Map<Integer, Integer> map = new HashMap<>();
+	for (int i = 0; i < numbers.length; i++) {
+		int x = numbers[i];
+		if (map.containsKey(target - x)) {
+		return new int[] { map.get(target - x) + 1, i + 1 };
+		}
+	map.put(x, i);
+	}
+	throw new IllegalArgumentException("No two sum solution");
+}
+{% endhighlight %}
+
+
+----------
