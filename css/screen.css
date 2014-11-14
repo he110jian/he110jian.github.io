@@ -210,7 +210,6 @@ right: 0;
     box-shadow: 0 0 5px #F5F5F5;
     text-indent: -9999px;
     cursor: pointer;
-	z-index:1000;
 }
 .returnTop .s {
     position: absolute;
