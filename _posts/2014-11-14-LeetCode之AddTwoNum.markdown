@@ -16,83 +16,44 @@ Output: 7 -> 0 -> 8
 #####solution1#####
 {% highlight cpp %}
 /**
- * Definition for singly-linked list.
- * struct ListNode {
- *     int val;
- *     ListNode *next;
- *     ListNode(int x) : val(x), next(NULL) {}
- * };
- */
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
 class Solution {
 public:
-    ListNode *addTwoNumbers(ListNode *l1, ListNode *l2) {
-		ListNode *result = new ListNode(0);
-		ListNode *cur = result;
-		int t,add=0;
-		while (l1 && l2)
-		{
-			ListNode *pnew = new ListNode(0);
-			t = l1->val + l2->val + add;
-			if (t >= 10)
-			{
-				pnew->val = t - 10;
-				add = 1;
-			}
-			else
-			{
-				pnew->val = t;
-				add = 0;
-			}
-			cur->next = pnew;
-			cur = pnew;
-			l1 = l1->next;
-			l2 = l2->next;
-		}
-		while (l1)
-		{
-			ListNode *pnew = new ListNode(0);
-			t = l1->val + add;
-			if (t >= 10)
-			{
-				pnew->val = t - 10;
-				add = 1;
-			}
-			else
-			{
-				pnew->val = t;
-				add = 0;
-			}
-			cur->next = pnew;
-			cur = pnew;
-			l1 = l1->next;
-		}
-		while (l2)
-		{
-			ListNode *pnew = new ListNode(0);
-			t = l2->val + add;
-			if (t >= 10)
-			{
-				pnew->val = t - 10;
-				add = 1;
-			}
-			else
-			{
-				pnew->val = t;
-				add = 0;
-			}
-			cur->next = pnew;
-			cur = pnew;
-			l2 = l2->next;
-		}
-		if (add)
-		{
-			ListNode *pnew = new ListNode(0);
-			pnew->val = add;
-			cur->next = pnew;
-			cur = pnew;
-		}
-		return result->next;
-	}
+    ListNode *addTwoNumbers(ListNode *l1, ListNode *l2) {
+        int t1, t2, carry = 0;
+        ListNode* tail = new ListNode(0);
+        ListNode* ptr = tail;
+        
+        while(l1 != NULL || l2 != NULL){
+            t1 = 0;
+            if(l1 != NULL){
+                t1 = l1->val;
+                l1 = l1->next;
+            }
+            
+            t2 = 0;
+            if(l2 != NULL){
+                t2 = l2->val;
+                l2 = l2->next;
+            }
+            
+            int tmp = t1 + t2 + carry;
+            ptr->next = new ListNode(tmp % 10);
+            carry = tmp / 10;
+            ptr = ptr->next;
+        }
+        
+        if(carry == 1){
+            ptr->next = new ListNode(1);
+        }
+        return tail->next;
+    }
 };
 {% endhighlight %}
 
