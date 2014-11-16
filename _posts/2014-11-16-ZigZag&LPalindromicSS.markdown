@@ -1,0 +1,107 @@
+---
+layout: post
+---
+
+<h2>{{ page.title }}</h2>
+<p class='meta'>{{ page.date | date_to_string }} - NanJing</p>
+----------
+
+### ZigZag Conversion ###
+
+The string "PAYPALISHIRING" is written in a zigzag pattern on a given number of rows like this: (you may want to display this pattern in a fixed font for better legibility).And then read line by line: "PAHNAPLSIIGYIR".
+convert("PAYPALISHIRING", 3) should return "PAHNAPLSIIGYIR".
+
+#####solution1#####
+{% highlight cpp %}
+class Solution {
+public:
+    string convert(string s, int nRows) {
+    
+    	if (nRows <= 1 || s.length() == 0)
+    		return s;
+    
+    	string result = "";
+    	int length = s.length();
+    	for (int i = 0; i < length && i < nRows; ++i)
+    	{
+    		int cur = i;
+    		result += s[cur];
+    
+    		for (int k = 1; cur < length; ++k)
+    		{
+    			if (i == 0 || i == nRows - 1)
+    			{
+    				cur += 2 * nRows - 2;
+    			}
+    			else
+    			{
+    				if (k & 0x1)
+    					cur += 2 * (nRows - 1 - i);
+    				else cur += 2 * i;
+    			}
+    			if (cur < length)
+    			{
+    				result += s[cur];
+    			}
+    		}
+    	}
+    	return result;
+    }
+};
+{% endhighlight %}
+
+### Longest Palindromic Substring ###
+Given a string S, find the longest palindromic substring in S. You may assume that the maximum length of S is 1000, and there exists one unique longest palindromic substring.
+
+{% highlight cpp %}
+class Solution {
+public:
+    string longestPalindrome(string s) {
+    
+    string result="";
+	if (!s.length())
+		return result;
+	
+	int begin = 0, end = s.length() - 1;
+	int cur = begin;
+	int length = 0, start = 0;
+	while (cur <= end)
+	{
+		int pFirst = cur - 1, pLast = cur + 1;
+		int curlen = 1;
+		while (pFirst >= begin && pLast <= end && s[pFirst] == s[pLast])
+		{
+			curlen = curlen + 2;
+			start = pFirst;
+			--pFirst;
+			++pLast;
+		}
+		if (curlen > length)
+		{
+			length = curlen;
+			result = s.substr(start, length);
+		}
+		pFirst = cur;
+		pLast = cur + 1;
+		curlen = 0;
+		while (pFirst >= begin && pLast <= end && s[pFirst] == s[pLast])
+		{
+			curlen = curlen + 2;
+			start = pFirst;
+			--pFirst;
+			++pLast;
+		}
+		if (curlen > length)
+		{
+			length = curlen;
+			result = s.substr(start, length);
+		}
+		++cur;
+	}
+	return result;
+    }
+};
+{% endhighlight %}
+
+
+----------
