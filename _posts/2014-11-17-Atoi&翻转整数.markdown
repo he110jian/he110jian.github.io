@@ -12,27 +12,22 @@ layout: post
 class Solution {
 public:
     int reverse(int x) 
-    {
-    	bool flag = false, flag1 = false;
-    	int flag2 = x > 0 ? 1 : -1;
-    	int result = 0, cur = 1;
-    	while (x != 0)
-    	{
-    		cur = x % 10;
-    		if (flag)
-    			return 0;
-    		if (flag1 && cur>7)
-    			return 0;
-    		x = (x - cur) / 10;
-    		result = result*10 + cur;
-    		int a = flag2*result - 214748364;
-    		if ( a > 0 )
-    			flag = true;
-    		if (a == 0)
-    			flag1 = true;
-    	}
-    	return result;
-    }
+	{
+		int flag = x > 0 ? 1 : -1;
+		int result = 0, cur = 1;
+		while (x != 0)
+		{
+			cur = x % 10;
+			x = (x - cur) / 10;
+			if (result*flag > INT_MAX / 10||
+				(result*flag == INT_MAX / 10 &&
+				cur > INT_MAX % 10)) {
+				return 0;
+			}
+			result = result*10 + cur;
+		}
+		return result;
+	}
 };
 {% endhighlight %}
 
