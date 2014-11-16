@@ -25,8 +25,13 @@ body {
   text-align: center;
 }
 
-h2, h3{
+h2{
   margin-bottom: 1em;
+}
+
+h2{
+	margin-top: 0.5em;
+  margin-bottom: 0.5em;
 }
 
 p {
