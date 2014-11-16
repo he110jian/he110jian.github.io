@@ -1,0 +1,71 @@
+---
+layout: post
+---
+
+<h2>{{ page.title }}</h2>
+<p class='meta'>{{ page.date | date_to_string }} - NanJing</p>
+----------
+
+### Reverse Integer  ###
+
+{% highlight cpp %}
+class Solution {
+public:
+    int reverse(int x) 
+    {
+    	bool flag = false, flag1 = false;
+    	int flag2 = x > 0 ? 1 : -1;
+    	int result = 0, cur = 1;
+    	while (x != 0)
+    	{
+    		cur = x % 10;
+    		if (flag)
+    			return 0;
+    		if (flag1 && cur>7)
+    			return 0;
+    		x = (x - cur) / 10;
+    		result = result*10 + cur;
+    		int a = flag2*result - 214748364;
+    		if ( a > 0 )
+    			flag = true;
+    		if (a == 0)
+    			flag1 = true;
+    	}
+    	return result;
+    }
+};
+{% endhighlight %}
+
+### atoi ###
+
+{% highlight cpp %}
+int atoi(const char *str) 
+{
+	int num = 0;
+	int sign = 1;
+	int i = 0;
+	while (str[i] == ' ' && str[i]!='\0')
+		++i;
+	if (str[i] == '+') {
+		++i;
+	}
+	else if (str[i] == '-') {
+		sign = -1;
+		++i;
+	}
+	for (; str[i] != '\0'; i++) {
+		if (str[i] < '0' || str[i] > '9')
+			break;
+		if (num > INT_MAX / 10 ||
+			(num == INT_MAX / 10 &&
+			(str[i] - '0') > INT_MAX % 10)) {
+			return sign == -1 ? INT_MIN : INT_MAX;
+		}
+		num = num * 10 + str[i] - '0';
+	}
+	return num * sign;
+}
+{% endhighlight %}
+
+
+----------
