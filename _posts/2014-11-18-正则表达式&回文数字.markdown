@@ -1,0 +1,68 @@
+---
+layout: post
+---
+
+<h2>{{ page.title }}</h2>
+<p class='meta'>{{ page.date | date_to_string }} - NanJing</p>
+----------
+
+### Palindrome Number ###
+Determine whether an integer is a palindrome. Do this without extra space.
+
+{% highlight cpp %}
+class Solution {
+public:
+    bool isPalindrome(int x) {
+        if(x < 0)
+            return false;
+    	int d = 1, front, rear;
+    	while (x / d >= 10)
+    	{
+    		d *= 10;
+    	}
+    	while (x)
+    	{
+    		front = x%10;
+    		rear = x / d;
+    		if (front != rear)
+    			return false;
+    		x = x % d / 10;
+    		d = d / 100;
+    	}
+    	return true;
+    }
+};
+{% endhighlight %}
+
+### Regular Expression Matching ###
+Implement regular expression matching with support for '.' and '*'.
+
+{% highlight cpp %}
+class Solution {
+public:
+    bool isMatch(const char *s, const char *p) {
+        if(*p=='\0')
+            return *s=='\0';
+        if(*(p+1)!='*')
+        {
+            if(*p==*s || *p=='.'&&*s!='\0')
+                return isMatch(s+1,p+1);
+            else
+                return false;
+        }
+        else
+        {
+            while(*p==*s || *p=='.'&&*s!='\0')
+            {
+                if(isMatch(s,p+2))
+                    return true;
+                ++s;
+            }
+            return isMatch(s,p+2);
+        }
+    }
+};
+{% endhighlight %}
+
+
+----------
