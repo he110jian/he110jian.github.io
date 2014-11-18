@@ -51,7 +51,8 @@ public:
 	}
 private:
 	list<CacheNode> cacheList;
-	hash_map<int, list<CacheNode>::iterator> cacheMap;
+	unordered_map<int, list<CacheNode>::iterator> cacheMap;
+	//#include <unordered_map>,需要有序时则选择hash_map（#include <hash_map>）
 	int capacity;
 };
 {% endhighlight %}
