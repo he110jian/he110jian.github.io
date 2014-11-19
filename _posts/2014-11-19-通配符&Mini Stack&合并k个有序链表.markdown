@@ -104,5 +104,59 @@ public:
 };
 {% endhighlight %}
 
+### Merge k Sorted Lists  ###
+
+{% highlight cpp %}
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode *mergeTwoList(ListNode *l1, ListNode *l2) {
+        if(l1 == NULL)
+            return l2;
+        if(l2 == NULL)
+            return l1;
+        ListNode *merge = new ListNode(0);
+		ListNode *pcur = merge;
+		while (l1&&l2)
+		{
+			if (l1->val > l2->val)
+			{
+				pcur->next = l2;
+				l2 = l2->next;
+			}
+			else
+			{
+			    pcur->next = l1;
+				l1 = l1->next;
+			}
+			pcur = pcur->next;
+		}
+		pcur->next = l1==NULL?l2:l1;
+		return merge->next;
+    }
+    
+    ListNode *mergeKLists(vector<ListNode *> &lists) {
+        if(!lists.size())
+            return NULL;
+        
+        for(int i = 1;i<lists.size();i*=2)
+        {
+            for(int j=0;j<lists.size()&&(i+j)<lists.size();)
+            {
+                lists[j] = mergeTwoList(lists[j],lists[i+j]);
+                j=j+i*2;
+            }
+        }
+        return lists[0];
+    }
+};
+{% endhighlight %}
 
 ----------
