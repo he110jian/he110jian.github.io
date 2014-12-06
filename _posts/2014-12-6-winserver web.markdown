@@ -18,6 +18,7 @@ layout: post
 
 ### FTP ###
 windows server服务器端安装IIS自带的FTP功能，如果防火墙关闭才可以通过FTP正常访问，打开FTP则不能访问，解决办法如下:
+
  - IIS6：
 控制面板 》系统和安全 》Windows 防火墙 》允许的程序”，在“允许另一个程序”中添加 “C:\WINDOWS\system32\inetsrv\inetinfo.exe”这个程序，添加完成即可
  - IIS7：
