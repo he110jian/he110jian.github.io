@@ -7,6 +7,8 @@ layout: post
 
 ---
 
+![](http://www.directitcorp.com/wp-content/uploads/2011/10/windows_server_system_logo.jpg)
+
 ## PHP ##
 1. php配置 
 1. 配置 IIS 使其支持 PHP ：首先必须确定系统中已经正确安装 IIS ，如果没有安装，需要先安装 IIS PHP 支持 CGI 和 ISAPI 两种安装模式，推荐使用 ISAPI 模式。这里只解介绍 ISAPI 模式安装方法。
@@ -17,7 +19,9 @@ layout: post
 	- 选择“ISAPI筛选器”选项卡---“添加”，筛选器名称：php，可执行文件：X:\php\php5isapi.dll 确定。
 	- 选择“处理程序映射”，“添加”：X:\php\php5isapi.dll，扩展名：*.php。
 
+
 ## FTP ##
+
 windows server服务器端安装IIS自带的FTP功能，如果防火墙关闭才可以通过FTP正常访问，打开FTP则不能访问，解决办法如下：
 
  - IIS6：
