@@ -12,8 +12,12 @@ layout: post
 ### PHP ###
 1. php配置 
  - 打开php.ini，查找“extension_dir =”，去掉分号，配置扩展路径。
- - 搜索“windows extension”,把你需要的扩展放开即可。“extension=php_gd2.dll”“extension=php_mbstring.dll”
-“extension=php_mcrypt.dll”“extension=php_mysql.dll”“extension=php_pdo_mysql.dll”。
+ - 搜索“windows extension”，把你需要的扩展放开即可。
+“extension=php_gd2.dll”
+“extension=php_mbstring.dll”
+“extension=php_mcrypt.dll”
+“extension=php_mysql.dll”
+“extension=php_pdo_mysql.dll”。
  - 配置完成后，需要将php.ini拷贝到c：\windows目录下。
  
 1. 配置 IIS 使其支持 PHP ：首先必须确定系统中已经正确安装 IIS ，如果没有安装，需要先安装 IIS PHP 支持 CGI 和 ISAPI 两种安装模式，推荐使用 ISAPI 模式。这里只解介绍 ISAPI 模式安装方法。ISAPI 模式安装步骤：
