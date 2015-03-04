@@ -1,0 +1,95 @@
+---
+layout: post
+---
+
+<h2>{{ page.title }}</h2>
+<p class='meta'>{{ page.date | date_to_string }} - NanJing</p>
+
+---
+
+
+### 等概率取数 ###
+
+{% highlight cpp %}
+void randK(int n, int m)
+{ 
+    srand((unsigned int)time(0)); 
+    for (int i = 0; i < n; i++) { 
+        if (rand()%(n-i)<m) { 
+            cout << i << endl; 
+            m--; 
+        } 
+     } 
+}
+{% endhighlight %}
+
+### 分解质因数 ###
+
+{% highlight cpp %}
+void prim(int m, int n)
+ {
+     if (m > n)
+     {
+         while (m%n) n++;
+         m/=n;
+         prim(m, n);
+         cout << n << endl;
+     }
+ }
+{% endhighlight %}
+
+### Q1 ###
+unsigned char *p1;  
+unsigned long *p2;  
+p1=(unsigned char *)0x801000;  
+p2=(unsigned long *)0x810000;  
+请问p1+5= 什么？ p2+5= 什么？  
+1代表的是一个单位量  
+p1+5=p1+5*1=p1+5*sizeof(unsigned char)=p1+5*1=0x801000+ox5=0x801005  
+p2+5=p2+5*1=p2+5*sizeof(unsigned long)=p1+5*4=0x810000+20=0x810000+0x14=0x810014  
+
+### Q2 ###
+
+{% highlight cpp %}
+void example(char acWelcome[]){
+    printf("%d",sizeof(acWelcome));
+    return;
+}
+void main(){
+    char acWelcome[]="Welcome to Huawei Test";
+printf("%d",sizeof(acWelcome));
+    example(acWelcome);
+    return;
+}  
+{% endhighlight %}  
+Output: 23 4
+
+### Q3 ###
+
+{% highlight cpp %}
+char str[] = "glad to test something";
+char *p = str;
+p++;
+int *p1 = static_cast(p);
+p1++;
+p = static_cast(p1);
+printf("result is %s\n", p); 
+{% endhighlight %}  
+执行p++，移动一个字符得到“lad to test something”，转换为int型，移动四位得到“to test something”
+
+### Q4 ###
+
+设已经有A,B,C,D4个类的定义，程序中A,B,C,D析构函数调用顺序为？
+C c;
+{% highlight cpp %}
+void main()
+{
+    A*pa=new A();
+    B b;
+    static D d;
+    delete pa;
+}
+{% endhighlight %}  
+ABDC
+
+---
