@@ -39,6 +39,8 @@ void prim(int m, int n)
 {% endhighlight %}
 
 ### Q1 ###
+
+{% highlight cpp %}
 unsigned char *p1;  
 unsigned long *p2;  
 p1=(unsigned char *)0x801000;  
@@ -47,6 +49,7 @@ p2=(unsigned long *)0x810000;
 1代表的是一个单位量  
 p1+5=p1+5*1=p1+5*sizeof(unsigned char)=p1+5*1=0x801000+ox5=0x801005  
 p2+5=p2+5*1=p2+5*sizeof(unsigned long)=p1+5*4=0x810000+20=0x810000+0x14=0x810014  
+{% endhighlight %}
 
 ### Q2 ###
 
