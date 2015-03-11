@@ -12,21 +12,6 @@ layout: post
 
 [http://mp.weixin.qq.com/s?__biz=MzA3MTIxNzkyNg==&mid=203560984&idx=1&sn=756f01f2c5b55e8c30bcaba47120cffb&scene=4#wechat_redirect](http://mp.weixin.qq.com/s?__biz=MzA3MTIxNzkyNg==&mid=203560984&idx=1&sn=756f01f2c5b55e8c30bcaba47120cffb&scene=4#wechat_redirect)
 
-### 分解质因数 ###
-
-{% highlight cpp %}
-void prim(int m, int n)
- {
-     if (m > n)
-     {
-         while (m%n) n++;
-         m/=n;
-         prim(m, n);
-         cout << n << endl;
-     }
- }
-{% endhighlight %}
-
 ### 小知识点 ###
 
 linux命令：man；touch；cat and less；sort and grep ；cut ；sed；tar ；find ；diff ；uniq ；chmod ；grep工具【该工具用于匹配】 ；sed 工具 【该工具用于行间的内容操作，如增删改，查找替换】 ；awk 工具【该工具用于处理有字段规则的行内内容，并支持格式化输出】
