@@ -1,0 +1,99 @@
+---
+layout: post
+---
+
+<h2>{{ page.title }}</h2>
+<p class='meta'>{{ page.date | date_to_string }} - NanJing</p>
+
+---
+
+
+### 【程序员之路】分享：程序员面试——电话面试问答40个问题 ###
+
+[http://mp.weixin.qq.com/s?__biz=MzA3MTIxNzkyNg==&mid=203560984&idx=1&sn=756f01f2c5b55e8c30bcaba47120cffb&scene=4#wechat_redirect](http://mp.weixin.qq.com/s?__biz=MzA3MTIxNzkyNg==&mid=203560984&idx=1&sn=756f01f2c5b55e8c30bcaba47120cffb&scene=4#wechat_redirect)
+
+### 分解质因数 ###
+
+{% highlight cpp %}
+void prim(int m, int n)
+ {
+     if (m > n)
+     {
+         while (m%n) n++;
+         m/=n;
+         prim(m, n);
+         cout << n << endl;
+     }
+ }
+{% endhighlight %}
+
+### 小知识点 ###
+
+linux命令：man；touch；cat and less；sort and grep ；cut ；sed；tar ；find ；diff ；uniq ；chmod ；grep工具【该工具用于匹配】 ；sed 工具 【该工具用于行间的内容操作，如增删改，查找替换】 ；awk 工具【该工具用于处理有字段规则的行内内容，并支持格式化输出】
+
+字符串匹配：KMP算法、BM算法、正则表达式
+
+主键（保持数据完整）、外键（与其它表建立联系）：约束作用（插入禁止空）；级联（主键记录删除、外键记录也删除）
+
+int to string:
+stringstream ss;
+ss << timeCount << i;
+reutrn ss.str();
+
+类型安全CPP:new 返回确切对象类型；malloc返回的是(void *)， 需显示转化，(chat *)行，但(int *)有问题
+
+数据库范式：
+一范式：需要保持每一列的原子性。例：电话号码：86-010-11111111
+如果要符合一范式，那么需要把电话号码拆分为国家号码、区号、电话号码进行存储，达到每一列不能够再拆分。符合原子性的标准即为一范式。
+二范式：首先必须符合一范式。另外需要满足，每一个表必须有主键，除主键外其他的列必须和主键相关，不能只与主键的某一个部分相关。例如一个表有一个联合主键，而部分数据是与联合主键相关而不与主键相关，那么这时需要把表拆开，使得每一列都与主键相关。
+三范式：首先必须符合二范式，另外需要满足，每一个非主键列必须直接依赖主键，而不能存在传递依赖。
+一原子二相关三依赖
+
+泊松分布：
+（1）顾客购买水果罐头是小概率事件。
+（2）购买水果罐头的顾客是独立的，不会互相影响。
+（3）顾客购买水果罐头的概率是稳定的。
+
+1、::是c++域操作符，C中不能编译通过。
+2、避免float、double用“==”或“！=”与数字比较，应设法转化为“>=”或“<=”的形式（精度范围内允许的误差）。表达式中存在有符号数和无符号数时，自动转为无符号类型。数在内存中以补码存在。
+3、extern "C"：以C的编译习惯编译文件，解决名字匹配问题。例如重载函数C++中可能是_foo_int_int和_foo_int_float，而C不支持重载，只是_foo。
+4、stdlib.h中的atexit(void(*) (void))函数用来注册程序正常终止时要调用的函数，并且调用顺序与注册顺序相反。
+5、宏中使用#将宏参数变为字符串，##把两个宏参数连接起来。#define STR(s) #s，则STR(string)则打印string。#define CON(a,b) (int)(a##e##b)，则CON(2,3)表示2000。
+6、static全局变量只初始化一次，防止在其他文件中被引用，局部变量初始化一次，下一次依据上一次的值，static函数内存中只一份。类的static属于类不属于类的实例，可在所有类的实例间共享。类名::静态方法()。
+7、inline放在函数定义处方能发挥作用。
+8、变量声明与定义区别：是否分配了内存。int a是定义式声明，分配内存；extern int a是非定义式声明，不分配内存
+9、vector<int> ivec;
+vector<int>::const_iterator citer1 = ivec.begin();
+const vector<int>::iterator citer2 = ivec.begin();
+*citer1 = 1; //error
+*citer2 = 1; //right
+++citer1; //right
+++citer2; //error
+10、const成员函数内不能改变成员变量
+
+海量数据处理：http://blog.csdn.net/v_july_v/article/details/7382693 [所谓海量数据处理，无非就是基于海量数据上的存储、处理、操作。何谓海量，就是数据量太大，所以导致要么是无法在较短时间内迅速解决，要么是数据太大，导致无法一次性装入内存。 那解决办法呢?针对时间，我们可以采用巧妙的算法搭配合适的数据结构，如Bloom filter/Hash/bit-map/堆/数据库或倒排索引/trie树，针对空间，无非就一个办法：大而化小，分而治之（hash映射），你不是说规模太大嘛，那简单啊，就把规模大化为规模小的，各个击破不就完了嘛。]
+无非就是分而治之/hash映射 + hash统计 + 堆/快速/归并排序，说白了，就是先映射（一次可装进内存则跳过），而后统计，最后排序：
+
+堆排序：在每台电脑上求出TOP10，可以采用包含10个元素的堆完成（TOP10小，用最大堆，TOP10大，用最小堆，比如求TOP10大，我们首先取前10个元素调整成最小堆，如果发现，然后扫描后面的数据，并与堆顶元素比较，如果比堆顶元素大，那么用该元素替换堆顶，然后再调整为最小堆。最后堆中的元素就是TOP10大）
+
+STL:序列式容器(vector/list/deque/stack/queue/heap)；关联式容器。关联式容器又分为set(集合)和map(映射表)两大类，也就是说，set/map/multiset/multimap都内含一个RB-tree，而hash_set/hash_map/hash_multiset/hash_multimap都内含一个hashtable
+
+这两个函数是差不多的，但由于优化方案不同，通常NOT Exists要比NOT IN要快，因为NOT EXISTS可以使用结合算法二NOT IN就不行了，而EXISTS则不如IN快，因为这时候IN可能更多的使用结合算法。
+
+Select * from tableA Where exists(Select * From tableB Where tableB.ID=tableA.ID)
+
+这句相当于：Select * from tableA Where id in (Select ID From tableB)
+
+对于表tableA的每一条数据，都执行Select * From tableB Where tableB.ID=tableA.ID的存在性判断，如果表tableB中存在表tableA当前行相同的ID，则Exists为真，该行显示，否则不显示。
+
+IN适合于外表大而内表小的情况；EXISTS适合于外表小而内表大的情况
+In确定给定的值是否与子查询或列表中的值相匹配
+Exists指定一个子查询，检测行的存在
+
+临界存储区是一段代码，同一时间只允许一个线程访问执行，通过信号量或互斥锁实现线程安全。
+
+死锁：互斥条件、请求和保持条件、不剥夺条件、环路等待
+
+共享锁（读锁）、排他锁（写锁）。
+
+---

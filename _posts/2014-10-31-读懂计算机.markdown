@@ -69,4 +69,10 @@ Stack的三种方式：
 
 上网四参数：本机的IP地址、子网掩码、网关的IP地址、DNS的IP地址。
 
+### 精品网站 ###
+OpenDrive 永久免费直链云盘  
+http://geek.csdn.net/ 极客头条  
+http://www.waqiang.com/index.php/url/shorten 短网址生成  
+http://www.careercup.com/
+
 ----------
