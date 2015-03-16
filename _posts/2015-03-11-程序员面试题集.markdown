@@ -14,20 +14,20 @@ layout: post
 
 ### 小知识点 ###
 
-linux命令：man；touch；cat and less；sort and grep ；cut ；sed；tar ；find ；diff ；uniq ；chmod ；grep工具【该工具用于匹配】 ；sed 工具 【该工具用于行间的内容操作，如增删改，查找替换】 ；awk 工具【该工具用于处理有字段规则的行内内容，并支持格式化输出】
+**linux命令**：man；touch；cat and less；sort and grep ；cut ；sed；tar ；find ；diff ；uniq ；chmod ；grep工具【该工具用于匹配】 ；sed 工具 【该工具用于行间的内容操作，如增删改，查找替换】 ；awk 工具【该工具用于处理有字段规则的行内内容，并支持格式化输出】wc(Word Count)命令的功能为统计指定文件中的字节数、字数、行数，并将统计结果显示输出。  
 
-字符串匹配：KMP算法、BM算法、正则表达式
+**字符串匹配**：KMP算法、BM算法、正则表达式
 
-主键（保持数据完整）、外键（与其它表建立联系）：约束作用（插入禁止空）；级联（主键记录删除、外键记录也删除）
+**主键**（保持数据完整）、**外键**（与其它表建立联系）：约束作用（插入禁止空）；级联（主键记录删除、外键记录也删除）
 
-int to string:
+**int to string**:
 stringstream ss;
 ss << timeCount << i;
 reutrn ss.str();
 
-类型安全CPP:new 返回确切对象类型；malloc返回的是(void *)， 需显示转化，(chat *)行，但(int *)有问题
+**类型安全** CPP:new 返回确切对象类型；malloc返回的是(void *)， 需显示转化，(chat *)行，但(int *)有问题
 
-数据库范式：
+**数据库范式**：
 一范式：需要保持每一列的原子性。例：电话号码：86-010-11111111
 如果要符合一范式，那么需要把电话号码拆分为国家号码、区号、电话号码进行存储，达到每一列不能够再拆分。符合原子性的标准即为一范式。
 二范式：首先必须符合一范式。另外需要满足，每一个表必须有主键，除主键外其他的列必须和主键相关，不能只与主键的某一个部分相关。例如一个表有一个联合主键，而部分数据是与联合主键相关而不与主键相关，那么这时需要把表拆开，使得每一列都与主键相关。
@@ -41,12 +41,12 @@ reutrn ss.str();
 
 1、::是c++域操作符，C中不能编译通过。  
 2、避免float、double用“==”或“！=”与数字比较，应设法转化为“>=”或“<=”的形式（精度范围内允许的误差）。表达式中存在有符号数和无符号数时，自动转为无符号类型。数在内存中以补码存在。  
-3、extern "C"：以C的编译习惯编译文件，解决名字匹配问题。例如重载函数C++中可能是_foo_int_int和_foo_int_float，而C不支持重载，只是_foo。  
+3、**extern "C"**：以C的编译习惯编译文件，解决名字匹配问题。例如重载函数C++中可能是_foo_int_int和_foo_int_float，而C不支持重载，只是_foo。  
 4、stdlib.h中的atexit(void(*) (void))函数用来注册程序正常终止时要调用的函数，并且调用顺序与注册顺序相反。  
 5、宏中使用#将宏参数变为字符串，##把两个宏参数连接起来。#define STR(s) #s，则STR(string)则打印string。#define CON(a,b) (int)(a##e##b)，则CON(2,3)表示2000。  
-6、static全局变量只初始化一次，防止在其他文件中被引用，局部变量初始化一次，下一次依据上一次的值，static函数内存中只一份。类的static属于类不属于类的实例，可在所有类的实例间共享。类名::静态方法()。  
+6、**static**全局变量只初始化一次，防止在其他文件中被引用，局部变量初始化一次，下一次依据上一次的值，static函数内存中只一份。类的static属于类不属于类的实例，可在所有类的实例间共享。类名::静态方法()。  
 7、inline放在函数定义处方能发挥作用。  
-8、变量声明与定义区别：是否分配了内存。int a是定义式声明，分配内存；extern int a是非定义式声明，不分配内存  
+8、变量**声明与定义**区别：是否分配了内存。int a是定义式声明，分配内存；extern int a是非定义式声明，不分配内存  
 9、vector<int> ivec;
 vector<int>::const_iterator citer1 = ivec.begin();
 const vector<int>::iterator citer2 = ivec.begin();
@@ -56,32 +56,26 @@ const vector<int>::iterator citer2 = ivec.begin();
 ++citer2; //error  
 10、const成员函数内不能改变成员变量
 
-海量数据处理：http://blog.csdn.net/v_july_v/article/details/7382693 [所谓海量数据处理，无非就是基于海量数据上的存储、处理、操作。何谓海量，就是数据量太大，所以导致要么是无法在较短时间内迅速解决，要么是数据太大，导致无法一次性装入内存。 那解决办法呢?针对时间，我们可以采用巧妙的算法搭配合适的数据结构，如Bloom filter/Hash/bit-map/堆/数据库或倒排索引/trie树，针对空间，无非就一个办法：大而化小，分而治之（hash映射），你不是说规模太大嘛，那简单啊，就把规模大化为规模小的，各个击破不就完了嘛。]
+**海量数据处理**：http://blog.csdn.net/v_july_v/article/details/7382693 [所谓海量数据处理，无非就是基于海量数据上的存储、处理、操作。何谓海量，就是数据量太大，所以导致要么是无法在较短时间内迅速解决，要么是数据太大，导致无法一次性装入内存。 那解决办法呢?针对时间，我们可以采用巧妙的算法搭配合适的数据结构，如Bloom filter/Hash/bit-map/堆/数据库或倒排索引/trie树，针对空间，无非就一个办法：大而化小，分而治之（hash映射），你不是说规模太大嘛，那简单啊，就把规模大化为规模小的，各个击破不就完了嘛。]
 无非就是分而治之/hash映射 + hash统计 + 堆/快速/归并排序，说白了，就是先映射（一次可装进内存则跳过），而后统计，最后排序：
 
 堆排序：在每台电脑上求出TOP10，可以采用包含10个元素的堆完成（TOP10小，用最大堆，TOP10大，用最小堆，比如求TOP10大，我们首先取前10个元素调整成最小堆，如果发现，然后扫描后面的数据，并与堆顶元素比较，如果比堆顶元素大，那么用该元素替换堆顶，然后再调整为最小堆。最后堆中的元素就是TOP10大）
 
 STL:序列式容器(vector/list/deque/stack/queue/heap)；关联式容器。关联式容器又分为set(集合)和map(映射表)两大类，也就是说，set/map/multiset/multimap都内含一个RB-tree，而hash_set/hash_map/hash_multiset/hash_multimap都内含一个hashtable
 
-这两个函数是差不多的，但由于优化方案不同，通常NOT Exists要比NOT IN要快，因为NOT EXISTS可以使用结合算法二NOT IN就不行了，而EXISTS则不如IN快，因为这时候IN可能更多的使用结合算法。
-
-Select * from tableA Where exists(Select * From tableB Where tableB.ID=tableA.ID)
-
-这句相当于：Select * from tableA Where id in (Select ID From tableB)
-
-对于表tableA的每一条数据，都执行Select * From tableB Where tableB.ID=tableA.ID的存在性判断，如果表tableB中存在表tableA当前行相同的ID，则Exists为真，该行显示，否则不显示。
-
-IN适合于外表大而内表小的情况；EXISTS适合于外表小而内表大的情况
+这两个函数是差不多的，但由于优化方案不同，通常NOT Exists要比NOT IN要快，因为NOT EXISTS可以使用结合算法二NOT IN就不行了，而EXISTS则不如IN快，因为这时候IN可能更多的使用结合算法。  
+Select * from tableA Where exists(Select * From tableB Where tableB.ID=tableA.ID)  
+这句相当于：Select * from tableA Where id in (Select ID From tableB)  
+对于表tableA的每一条数据，都执行Select * From tableB Where tableB.ID=tableA.ID的存在性判断，如果表tableB中存在表tableA当前行相同的ID，则Exists为真，该行显示，否则不显示。  
+**IN? EXISTS**:IN适合于外表大而内表小的情况；EXISTS适合于外表小而内表大的情况
 In确定给定的值是否与子查询或列表中的值相匹配
 Exists指定一个子查询，检测行的存在
 
-临界存储区是一段代码，同一时间只允许一个线程访问执行，通过信号量或互斥锁实现线程安全。
+临界存储区是一段代码，同一时间只允许一个线程访问执行，通过信号量或互斥锁实现线程安全。  
+死锁：互斥条件、请求和保持条件、不剥夺条件、环路等待  
+共享**锁**（读锁）、排他锁（写锁）。
 
-死锁：互斥条件、请求和保持条件、不剥夺条件、环路等待
-
-共享锁（读锁）、排他锁（写锁）。
-
-尾递归：如果一个函数中所有递归形式的调用都出现在函数的末尾，我们称这个递归函数是尾递归的。当递归调用是整个函数体中最后执行的语句且它的返回值不属于表达式的一部分时，这个递归调用就是尾递归。尾递归函数的特点是在回归过程中不用做任何操作，这个特性很重要，因为大多数现代的编译器会利用这种特点自动生成优化的代码。。尾递归是极其重要的，不用尾递归，函数的堆栈耗用难以估量，需要保存很多中间函数的堆栈。比如f(n, sum) = f(n-1) + value(n) + sum; 会保存n个函数调用堆栈，而使用尾递归f(n, sum) = f(n-1, sum+value(n)); 这样则只保留后一个函数堆栈即可，之前的可优化删去。是一种变形迭代。  
+**尾递归**：如果一个函数中所有递归形式的调用都出现在函数的末尾，我们称这个递归函数是尾递归的。当递归调用是整个函数体中最后执行的语句且它的返回值不属于表达式的一部分时，这个递归调用就是尾递归。尾递归函数的特点是在回归过程中不用做任何操作，这个特性很重要，因为大多数现代的编译器会利用这种特点自动生成优化的代码。。尾递归是极其重要的，不用尾递归，函数的堆栈耗用难以估量，需要保存很多中间函数的堆栈。比如f(n, sum) = f(n-1) + value(n) + sum; 会保存n个函数调用堆栈，而使用尾递归f(n, sum) = f(n-1, sum+value(n)); 这样则只保留后一个函数堆栈即可，之前的可优化删去。是一种变形迭代。  
 
 &a是一个指向数组的指针（行指针），a的步长就是数组的长度。也就是说执行a+1时，a要跨过n个整型数据的长度，输出*ptr就会发现越界了，是一个随机值，那么ptr-1的值就是数组的最后一个值了。
 
@@ -89,32 +83,74 @@ Exists指定一个子查询，检测行的存在
 
 三元表达式“?:”问号后面的两个操作数必须为同一类型
 
-SOLID:
-单一责任原则、开放封闭原则、里氏替换原则、依赖倒置原则、接口分离原则
+**OPP设计原则**：SOLID:单一责任原则、开放封闭原则、里氏替换原则、依赖倒置原则、接口分离原则
 
-网站静态化处理:静态网页的资源基本是不会发生变化的。减少http请求（合并精简css、js文件、图片预加载）、浏览器缓存(http协议之cache-control)、脚本放页面底部、传输数据压缩、CDN。但是动态网页不易缓存，这是应该拆分网页了，把网页做一个动静分离，让静态的部分（菜单、页首和页尾）当做不变的静态资源进行处理，动态的内容还是动态处理，然后在合适的地方将动静内容合并在一起。
+**网站优化**，静态化处理:静态网页的资源基本是不会发生变化的。减少http请求（合并精简css、js文件、图片预加载）、浏览器缓存(http协议之cache-control)、脚本放页面底部、传输数据压缩、CDN。但是动态网页不易缓存，这是应该拆分网页了，把网页做一个动静分离，让静态的部分（菜单、页首和页尾）当做不变的静态资源进行处理，动态的内容还是动态处理，然后在合适的地方将动静内容合并在一起。
 
-Linux系统中的wc(Word Count)命令的功能为统计指定文件中的字节数、字数、行数，并将统计结果显示输出。  
+**单例模式**注意：在多线程的情况下，需要让方法互斥，才能保证只会创建一个实例，如果不加synchronized，当多个线程同时获取实例时，就有可能创建多个实例。(可以测试一下)  
 
-单例模式注意：在多线程的情况下，需要让方法互斥，才能保证只会创建一个实例，如果不加synchronized，当多个线程同时获取实例时，就有可能创建多个实例。(可以测试一下)  
-
-TCP三次握手建立连接（socket中connect）  
+**TCP三次握手**建立连接（socket中connect）  
   （1）第一次握手：Client将标志位SYN（新连接）置为1，随机产生一个值seq=J，并将该数据包发送给Server，Client进入SYN_SENT状态，等待Server确认。  
   （2）第二次握手：Server收到数据包后由标志位SYN=1知道Client请求建立连接，Server将标志位SYN和ACK都置为1，ack=J+1，随机产生一个值seq=K，并将该数据包发送给Client以确认连接请求，Server进入SYN_RCVD状态。  
-  （3）第三次握手：Client收到确认后，检查ack是否为J+1，ACK是否为1，如果正确则将标志位ACK置为1，ack=K+1，并将该数据包发送给Server，Server检查ack是否为K+1，ACK是否为1，如果正确则连接建立成功，Client和Server进入ESTABLISHED状态，完成三次握手，随后Client与Server之间可以开始传输数据了。    
-TCP四次挥手断开连接（socket中close）  
+  （3）第三次握手：Client收到确认后，检查ack是否为J+1，ACK是否为1，如果正确则将标志位ACK置为1，ack=K+1，并将该数据包发送给Server，Server检查ack是否为K+1，ACK是否为1，如果正确则连接建立成功，Client和Server进入ESTABLISHED状态，完成三次握手，随后Client与Server之间可以开始传输数据了。     
+**TCP四次挥**手断开连接（socket中close）  
  （1）第一次挥手：Client发送一个FIN，用来关闭Client到Server的数据传送，Client进入FIN_WAIT_1状态。  
   （2）第二次挥手：Server收到FIN后，发送一个ACK给Client，确认序号为收到序号+1（与SYN相同，一个FIN占用一个序号），Server进入CLOSE_WAIT状态。  
  （3）第三次挥手：Server发送一个FIN，用来关闭Server到Client的数据传送，Server进入LAST_ACK状态。  
   （4）第四次挥手：Client收到FIN后，Client进入TIME_WAIT状态，接着发送一个ACK给Server，确认序号为收到序号+1，Server进入CLOSED状态，完成四次挥手。  
 
-这是因为服务端在LISTEN状态下，收到建立连接请求的SYN报文后，把ACK和SYN放在一个报文里发送给客户端。而关闭连接时，当收到对方的FIN报文时，仅仅表示对方不再发送数据了但是还能接收数据，己方也未必全部数据都发送给对方了，所以己方可以立即close，也可以发送一些数据给对方后，再发送FIN报文给对方来表示同意现在关闭连接，因此，己方ACK和FIN一般都会分开发送。
+**三次？四次？**这是因为服务端在LISTEN状态下，收到建立连接请求的SYN报文后，把ACK和SYN放在一个报文里发送给客户端。而关闭连接时，当收到对方的FIN报文时，仅仅表示对方不再发送数据了但是还能接收数据，己方也未必全部数据都发送给对方了，所以己方可以立即close，也可以发送一些数据给对方后，再发送FIN报文给对方来表示同意现在关闭连接，因此，己方ACK和FIN一般都会分开发送。
 
-类中默认生成的函数有：无参构造函数、拷贝、赋值（=）和西构函数。不需要可将其声明为private。
+**类中默认生成的函数**有：无参构造函数、拷贝、赋值（=）和西构函数。不需要可将其声明为private。
 
-为防止资源泄漏，使用RAII（资源取的便初始化），智能智能（shared_ptr计数和auto_ptr替换).，且前者支持定制删除器，可用来自动解除互斥锁等。使用shared_ptr时应注意：资源管理类中提供对原始数据的访问15；以独立语句将new对象置入智能指针17。
+为防止资源泄漏，使用RAII（资源取的便初始化），**智能指针**（shared_ptr计数和auto_ptr替换).，且前者支持定制删除器，可用来自动解除互斥锁等。使用shared_ptr时应注意：资源管理类中提供对原始数据的访问15；以独立语句将new对象置入智能指针17。
 
-转型：const_cast:去吃常量；dynamic_cast:安全向下转型，唯一无法由旧语句完成；reinterpret_cast:pointer to int;static_cast:
+**转型**：const_cast:去吃常量；dynamic_cast:安全向下转型，唯一无法由旧语句完成；reinterpret_cast:pointer to int;static_cast:  
+
+**接口继承和实现继承**：在public继承之下，derived classes总是继承base class的接口；virtual函数一般需要覆盖（动态）：pure virtual 函数总是只具体制定接口继承；impure virtual函数具体指定接口继承和缺省实现继承；non-virtual函数具体指定接口继承以及强制性实现继承。  
+
+**private继承**：不能自动将一个derived class对象转换为base claass  
+继承而来的皆为private属性。可以将对象尺寸最小化。  
+
+**多重继承**：虚继承消除共享继承带来的副本二义性。
+
+**多态**：通过virtual函数发生在运行期。Shape *ptr = new Rectangle();ptr的动态类型是Rectangle.
+
+**HAVING**支持所有where操作，但前者可用于分组过滤，而后者仅指定行。  
+
+**sql语句顺序**：SELECT FROM WHERE GROUP HAVING ORDER LIMIT
+
+**视图**：虚拟表，包装sql语句
+
+**索引**：数据库查询时，会为查询条件加一个索引并缓存建立索引查找树，因此对经常查询的字段加上索引是个好习惯。B树：多叉查找树。
+
+**B+**：  
+![](http://blog.codinglabs.org/uploads/pictures/theory-of-mysql-index/4.png)
+
+**B-**:  
+![](http://blog.codinglabs.org/uploads/pictures/theory-of-mysql-index/2.png)
+
+**const**：代替预处理阶段的#define，处于编译器，有数据类型，可进行安全性检查
+
+**inline**：编译、类型检查、函数、二义性；但以代码膨胀为代价，代码较长或循环时慎用
+
+**引用、指针**初始化、可修改、可空值
+
+int* a[10]	int (*a)[10]	int(*a)(int) = fun(int)
+
+编译程序产生目标代码，解释程序逐句输入、翻译、执行
+
+**fork**一个进程将执行与父进程相同的代码，只是在不同内存空间，而生成一个线程会产生新的代码执行，同时共享内存。
+
+堆内存被所有线程共享，而每个线程都有自己的栈
+
+**强类型**语言只能将兼容的值存入相应的类型中。不变类：String
+
+**大数据**：在于数据之大，更在于全。即多维度、多角度数据进行交叉对比以预测某些不确定性。汽车保险公司手机汽车行车记录、智能电表用电特征匹配、商品RFID记录（购买、试衣）分析、推荐系统
+
+**qsort**: void qsort(void *base,int nelem,int width,int (*fcmp)(const void *,const void *))
+
+
 
 ### 算法分类 ###
 排序：选择、快速、堆、希尔 |前述不稳定| 归并、插入、冒泡、基数、位图、多路归并  
