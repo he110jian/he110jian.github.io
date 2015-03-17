@@ -61,7 +61,7 @@ const vector<int>::iterator citer2 = ivec.begin();
 
 堆排序：在每台电脑上求出TOP10，可以采用包含10个元素的堆完成（TOP10小，用最大堆，TOP10大，用最小堆，比如求TOP10大，我们首先取前10个元素调整成最小堆，如果发现，然后扫描后面的数据，并与堆顶元素比较，如果比堆顶元素大，那么用该元素替换堆顶，然后再调整为最小堆。最后堆中的元素就是TOP10大）
 
-STL:序列式容器(vector/list/deque/stack/queue/heap)；关联式容器。关联式容器又分为set(集合)和map(映射表)两大类，也就是说，set/map/multiset/multimap都内含一个RB-tree，而hash_set/hash_map/hash_multiset/hash_multimap都内含一个hashtable
+STL:序列式**容器**(vector/list/deque/stack/queue/heap)；关联式容器。关联式容器又分为set(集合)和map(映射表)两大类，也就是说，set/map/multiset/multimap都内含一个RB-tree，而hash_set/hash_map/hash_multiset/hash_multimap都内含一个hashtable
 
 这两个函数是差不多的，但由于优化方案不同，通常NOT Exists要比NOT IN要快，因为NOT EXISTS可以使用结合算法二NOT IN就不行了，而EXISTS则不如IN快，因为这时候IN可能更多的使用结合算法。  
 Select * from tableA Where exists(Select * From tableB Where tableB.ID=tableA.ID)  
@@ -86,6 +86,9 @@ Exists指定一个子查询，检测行的存在
 **OPP设计原则**：SOLID:单一责任原则、开放封闭原则、里氏替换原则、依赖倒置原则、接口分离原则
 
 **网站优化**，静态化处理:静态网页的资源基本是不会发生变化的。减少http请求（合并精简css、js文件、图片预加载）、浏览器缓存(http协议之cache-control)、脚本放页面底部、传输数据压缩、CDN。但是动态网页不易缓存，这是应该拆分网页了，把网页做一个动静分离，让静态的部分（菜单、页首和页尾）当做不变的静态资源进行处理，动态的内容还是动态处理，然后在合适的地方将动静内容合并在一起。
+
+**http状态码**  
+消息（1字头）、成功（2字头）、重定向（3字头）（304请求内容未改变，可以去读浏览器缓存）、请求错误（4字头）（401权限、404未找到）、服务器错误（5字头）。[http://www.cnblogs.com/loveyakamoz/archive/2011/09/03/2165266.html](http://http://www.cnblogs.com/loveyakamoz/archive/2011/09/03/2165266.html)
 
 **单例模式**注意：在多线程的情况下，需要让方法互斥，才能保证只会创建一个实例，如果不加synchronized，当多个线程同时获取实例时，就有可能创建多个实例。(可以测试一下)  
 
