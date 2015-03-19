@@ -6,12 +6,10 @@ layout: post
 <p class='meta'>{{ page.date | date_to_string }} - NanJing</p>
 
 ---
+###巨人的肩膀###
+[程序员之路】分享：程序员面试——电话面试问答40个问题](http://mp.weixin.qq.com/s?__biz=MzA3MTIxNzkyNg==&mid=203560984&idx=1&sn=756f01f2c5b55e8c30bcaba47120cffb&scene=4#wechat_redirect)
 
-
-### 【程序员之路】分享：程序员面试——电话面试问答40个问题 ###
-
-[http://mp.weixin.qq.com/s?__biz=MzA3MTIxNzkyNg==&mid=203560984&idx=1&sn=756f01f2c5b55e8c30bcaba47120cffb&scene=4#wechat_redirect](http://mp.weixin.qq.com/s?__biz=MzA3MTIxNzkyNg==&mid=203560984&idx=1&sn=756f01f2c5b55e8c30bcaba47120cffb&scene=4#wechat_redirect)
-
+[C++应用程序性能优化](http://www.cnblogs.com/cswuyg/category/258646.html)
 ### 小知识点 ###
 
 **linux命令**：man；touch；cat and less；sort and grep ；cut ；sed；tar ；find ；diff ；uniq ；chmod ；grep工具【该工具用于匹配】 ；sed 工具 【该工具用于行间的内容操作，如增删改，查找替换】 ；awk 工具【该工具用于处理有字段规则的行内内容，并支持格式化输出】wc(Word Count)命令的功能为统计指定文件中的字节数、字数、行数，并将统计结果显示输出。  
@@ -170,7 +168,14 @@ int* a[10]	int (*a)[10]	int(*a)(int) = fun(int)
 
 **qsort**: void qsort(void *base,int nelem,int width,int (*fcmp)(const void *,const void *))
 
-**编译原理**：预处理、编译、链接。其中编译过程包括：词法分析（识别）、语法分析（结构）、语义分析（逻辑）
+**编译原理**：预处理、编译、链接。其中编译过程包括：词法分析（识别）、语法分析（结构）、语义分析（逻辑）  
+
+**内存池**  
+[http://www.ibm.com/developerworks/cn/linux/l-cn-ppp/index6.html](http://www.ibm.com/developerworks/cn/linux/l-cn-ppp/index6.html)  
+利用默认的内存管理函数new/delete或malloc/free在堆上分配和释放内存会有一些额外的开销,池的做法是：在真正使用内存之前，先申请分配一定数量的、大小相等(一般情况下)的内存块留作备用。当有新的内存需求时，就从内存池中分出一部分内存块，若内存块不够再继续申请新的内存。这样做的一个显著优点是，使得内存分配效率得到提升。链表实现。
+
+**红黑树**  
+红黑树，一种二叉查找树，但在每个结点上增加一个存储位表示结点的颜色，可以是Red或Black。通过对任何一条从根到叶子的路径上各个结点着色方式的限制，红黑树确保没有一条路径会比其他路径长出俩倍，因而是接近平衡的。二叉查找树最坏O（n），而红黑树，能保证在最坏情况下，基本的动态几何操作的时间均为O（lgn）。特征：1）每个结点要么是红的，要么是黑的。2）根结点是黑的。3）每个叶结点，即空结点（NIL）是黑的。4）如果一个结点是红的，那么它的俩个儿子都是黑的。5）对每个结点，从该结点到其子孙结点的所有路径上包含相同数目的黑结点。
 
 ### 算法分类 ### 
 排序：选择、快速、堆、希尔 |前述不稳定| 归并、插入、冒泡、基数、位图、多路归并  
@@ -212,10 +217,14 @@ APP点击时进入模拟莫名其妙地停止运行
 **最享受的过程**   
 将想法一步一步实现的过程和解决bug的时候。  
 
-**书籍的影响**  
-浪潮之巅、数学之美、编程珠玑  
+**书籍的影响**
+历史科幻：明朝那些事儿、三体等    
+计算机：浪潮之巅、数学之美、编程珠玑等  
+网上资源：极客头条、IBM developerWork、博客（ruanyifeng）等   
+
 寻找是否存在，开始使用普通扫描,然后改用哨兵方法，最后使用hashMap（定位位置变化）查找多，一次载入。  
 区域内很多节点，找到某一移动节点通信范围内的其他所有节点，普通算法是用欧式距离公式每个都要算。用坐标轴投影法减少计算次数。  
+
 拿来主义、完美主义、极简主义。借鉴兼创新、功能要实现、界面要精简、结构要清晰。  
 
 **软件设计步骤**  
