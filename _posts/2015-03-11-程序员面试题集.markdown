@@ -158,6 +158,33 @@ int* a[10]	int (*a)[10]	int(*a)(int) = fun(int)
 
 编译程序产生目标代码，解释程序逐句输入、翻译、执行
 
+**大端、小端**
+很多情况下我们都是用一小段测试代码来判断CPU的大小端模式的。
+程序1：
+{% highlight cpp %}
+int checkEnd()
+{
+int i=0x12345678;
+char *c=(char *)&i; 
+return(*c==0x12)
+}
+//返回值：大端返回1，小段返回0
+//程序2：
+int checkEnd()
+{
+union
+{
+long a;
+char b
+}u;
+
+u.a = 1;
+if (u.b == 1) return 0;
+else return 1;
+}
+//返回值：大端返回1，小段返回0
+{% endhighlight %}
+
 **fork**一个进程将执行与父进程相同的代码，只是在不同内存空间，而生成一个线程会产生新的代码执行，同时共享内存。
 
 堆内存被所有线程共享，而每个线程都有自己的栈
