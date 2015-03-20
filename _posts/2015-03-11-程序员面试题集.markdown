@@ -10,6 +10,7 @@ layout: post
 [程序员之路】分享：程序员面试——电话面试问答40个问题](http://mp.weixin.qq.com/s?__biz=MzA3MTIxNzkyNg==&mid=203560984&idx=1&sn=756f01f2c5b55e8c30bcaba47120cffb&scene=4#wechat_redirect)
 
 [C++应用程序性能优化](http://www.cnblogs.com/cswuyg/category/258646.html)
+
 ### 小知识点 ###
 
 **linux命令**：man；touch；cat and less；sort and grep ；cut ；sed；tar ；find ；diff ；uniq ；chmod ；grep工具【该工具用于匹配】 ；sed 工具 【该工具用于行间的内容操作，如增删改，查找替换】 ；awk 工具【该工具用于处理有字段规则的行内内容，并支持格式化输出】wc(Word Count)命令的功能为统计指定文件中的字节数、字数、行数，并将统计结果显示输出。  
@@ -31,6 +32,11 @@ reutrn ss.str();
 二范式：首先必须符合一范式。另外需要满足，每一个表必须有主键，除主键外其他的列必须和主键相关，不能只与主键的某一个部分相关。例如一个表有一个联合主键，而部分数据是与联合主键相关而不与主键相关，那么这时需要把表拆开，使得每一列都与主键相关。
 三范式：首先必须符合二范式，另外需要满足，每一个非主键列必须直接依赖主键，而不能存在传递依赖。
 一原子二相关三依赖
+
+**SQL优化（索引）**  
+[http://www.vaikan.com/what-do-you-know-about-sql-performance/](http://www.vaikan.com/what-do-you-know-about-sql-performance/)  
+当表字段放到函数里执行查询时，索引将不起作用;  
+like对应的查询字符如果是以通配符开头的，索引将无法发挥效能
 
 泊松分布：
 （1）顾客购买水果罐头是小概率事件。
@@ -194,6 +200,9 @@ else return 1;
 **大数据**：在于数据之大，更在于全。即多维度、多角度数据进行交叉对比以预测某些不确定性。汽车保险公司手机汽车行车记录、智能电表用电特征匹配、商品RFID记录（购买、试衣）分析、推荐系统
 
 **qsort**: void qsort(void *base,int nelem,int width,int (*fcmp)(const void *,const void *))
+
+**子串**
+素数相乘；
 
 **编译原理**：预处理、编译、链接。其中编译过程包括：词法分析（识别）、语法分析（结构）、语义分析（逻辑）  
 
