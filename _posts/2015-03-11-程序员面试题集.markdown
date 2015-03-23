@@ -9,7 +9,9 @@ layout: post
 ###巨人的肩膀###
 [程序员之路】分享：程序员面试——电话面试问答40个问题](http://mp.weixin.qq.com/s?__biz=MzA3MTIxNzkyNg==&mid=203560984&idx=1&sn=756f01f2c5b55e8c30bcaba47120cffb&scene=4#wechat_redirect)
 
-[C++应用程序性能优化](http://www.cnblogs.com/cswuyg/category/258646.html)
+[C++应用程序性能优化](http://www.cnblogs.com/cswuyg/category/258646.html)  
+
+[http://blog.csdn.net/v_july_v/article/details/6543438/](http://blog.csdn.net/v_july_v/article/details/6543438/)
 
 ### 小知识点 ###
 
@@ -59,6 +61,13 @@ const vector<int>::iterator citer2 = ivec.begin();
 ++citer1; //right
 ++citer2; //error  
 10、const成员函数内不能改变成员变量
+
+瀑布模型：前一阶段完成后,才能开始后一阶段；开始需要把需求做到最全  
+原型模型：克服瀑布模型的缺点,减少由于软件需求不明确带来的开发风险。  
+static类方法无this指针  
+除了整型，枚举类型，字符型，其他的都不行。譬如：字符串，浮点型这些都不可以作为switch的参数类型。  
+float一位符号位(x)，8位偏移位(2^x)，23位尾数（1.xxxx）  
+
 
 **构造函数顺序**  
 当派生类中含有对象成员时，在定义派生类对象时，构造函数的执行顺序：基类的构造函数→对象成员的构造函数→派生类的构造函数；
