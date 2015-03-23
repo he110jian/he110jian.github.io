@@ -6,6 +6,9 @@ layout: post
 <p class='meta'>{{ page.date | date_to_string }} - NanJing</p>
 
 ---
+
+![](http://www.goabroadchina.org/attached/image/20120418/20120418185343_0805.jpg)
+
 ###巨人的肩膀###
 
 [程序员之路】分享：程序员面试——电话面试问答40个问题](http://mp.weixin.qq.com/s?__biz=MzA3MTIxNzkyNg==&mid=203560984&idx=1&sn=756f01f2c5b55e8c30bcaba47120cffb&scene=4#wechat_redirect)
