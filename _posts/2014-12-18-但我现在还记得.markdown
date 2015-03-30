@@ -101,5 +101,9 @@ Everybody up 严阵以待
 面：1：R'U2RUR'UR；2：U'RU2R'U'RU'R'（三个上下对称、两个对称）  
 角：RB'RF2R'BRF2R2  
 棱：RU'RURURU'R'U'R2  
+
+### 百度动画 ###
+黑洞，旋转，抖动，反转，跳跃，闪烁，打雷，旋转  
+
 ---
 
