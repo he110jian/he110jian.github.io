@@ -20,9 +20,10 @@ layout: post
 i++现产生一个临时变量，记录i的值，而后给i加1，接着返回临时变量，然后临时变量不存在了，所以，不能再被赋值，因此是右值表达式
 -  C++ 是一门静态类型语言，在编译时会作类型检查。在大多数语言中，对象的类型限制了对象可以执行的操作。如果某种类型不支持某种操作，那么这种类型的对象也就不能执行该操作。
 -  C++ 程序员经常随意地使用术语对象。一般而言，对象就是内存中具有类型的区域。说得更具体一些，计算左值表达式就会产生对象。
--  全局作用域、局部、语句
+-  全局作用域、局部（函数和类）、语句（for）
 -  非 const 变量默认为 extern。要使 const 变量能够在其他的文件中访问，必须地指定它为 extern（在所有地方）。 
 -  非 const 引用只能绑定到与该引用同类型的对象。const 引用则可以绑定到不同但相关的类型的对象或绑定到右值。  
+{% highlight cpp %}
 	int &refVal3 = 10; // error: initializer must be an object  
 	int i = 42;
 	// legal for const references only  
@@ -30,6 +31,70 @@ i++现产生一个临时变量，记录i的值，而后给i加1，接着返回�
 	const int &r2 = r + i;  
 	double dval = 3.14;
 	const int &ri = dval; 
+{% endhighlight %}
+- 默认地，第一个枚举成员赋值为 0，后面的每个枚举成员赋的值比前面的大1。 枚举成员值可以是不唯一的。    
+{% highlight cpp %}
+	// point2d is 2, point2w is 3, point3d is 3, point3w is 4  
+	enum Points { point2d = 2, point2w,	point3d = 3, point3w }; 
+{% endhighlight %}
+- 使用 class 还是 struct 关键字来定义类，仅仅影响默认的初始访问级别（前者private，后者public）。 
+- 当设计头文件时，记住定义和声明的区别是很重要的。定义只可以出现一次，而声明则可以出现多次（第 2.3.5 节）。下列语句是一些定义，所以不应该放在头文件里：  
+{% highlight cpp %}
+	extern int ival = 10; // initializer, so it's a definition  
+	double fica_rate; // no extern, so it's a definition 
+{% endhighlight %}
+对于头文件不应该含有定义这一规则，有三个例外。头文件可以定义类、值在编译时就已知道的 const 对象和 inline 函数（第 7.6 节介绍 inline 函数）。这些实体可在多个源文件中定义，只要每个源文件中的定义是相同的。
+- cin>>string空格为界，getline（）以换行符为界。   
+{% highlight cpp %}  
+	int main()
+	 {
+		 string line;
+		 // read line at time until end-of-file
+		 while (getline(cin, line))
+		 cout << line << endl;
+		 return 0;
+	 }
+	//string支持下标操作
+	string str("some string");
+	for (string::size_type ix = 0; ix != str.size(); ++ix)
+		cout << str[ix] << endl; 
+{% endhighlight %}
+- vector：push_back、pop_back、erase  
+{% highlight cpp %}  
+    for(vector<int>::iterator it=arr.begin(); it!=arr.end(); )
+    {
+        if(* it == 8)
+        {
+            it = arr.erase(it);
+        }
+        else
+        {
+            ++it;
+        }
+    }
+
+	//注意上面不能写成
+    /*
+        for(vector<int>::iterator it=arr.begin(); it!=arr.end(); it ++)
+        {
+            if(* it == 8)
+            {
+                arr.erase(it);     //在erase后，it失效，并不是指向vector的下一个元素，it成了一个“野指针”。
+            }
+        }
+	*/
+{% endhighlight %}  
+- 迭代器是一种检查容器内元素并遍历元素的数据类型。 
+{% highlight cpp %}  
+	for (vector<string>::const_iterator iter = text.begin();
+	 iter != text.end(); ++ iter)
+		*iter = " "; // error: *iter is const
+
+	vector<int> nums(10); // nums is nonconst
+	const vector<int>::iterator cit = nums.begin();
+	*cit = 1; // ok: cit can change its underlying element
+	++cit; // error: can't change the value of cit 
+{% endhighlight %} 
 - TBC
 
 ----------
