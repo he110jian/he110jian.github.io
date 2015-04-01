@@ -77,7 +77,8 @@ Stack的三种方式：
 OpenDrive 永久免费直链云盘  
 http://geek.csdn.net/ 极客头条  
 http://www.waqiang.com/index.php/url/shorten 短网址生成  
-http://www.careercup.com/  
+http://www.careercup.com/
+https://ideone.com/    
 http://makethisinanhour.com/ 
 
 ----------
