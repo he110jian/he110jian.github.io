@@ -9,7 +9,8 @@ layout: post
 
 ![jsj](http://he110jean.opendrive.com/files/MzdfMzU1MF9aVjlVTw/book.jpg)
 
-### C++ Prime ###
+## C++ Prime ##
+###数据类型###
 - while (std::cin >> value)读取未知个数输入  
 - 要让地址为 736425 的字节具有意义，必须要知道存储在该地址的值的
 - 类型。一旦知道了该地址的值的类型，就知道了表示该类型的值需要多
@@ -44,6 +45,8 @@ i++现产生一个临时变量，记录i的值，而后给i加1，接着返回�
 	double fica_rate; // no extern, so it's a definition 
 {% endhighlight %}
 对于头文件不应该含有定义这一规则，有三个例外。头文件可以定义类、值在编译时就已知道的 const 对象和 inline 函数（第 7.6 节介绍 inline 函数）。这些实体可在多个源文件中定义，只要每个源文件中的定义是相同的。
+
+###标准库（类模板）###
 - cin>>string空格为界，getline（）以换行符为界。   
 {% highlight cpp %}  
 	int main()
@@ -95,6 +98,21 @@ i++现产生一个临时变量，记录i的值，而后给i加1，接着返回�
 	*cit = 1; // ok: cit can change its underlying element
 	++cit; // error: can't change the value of cit 
 {% endhighlight %} 
-- TBC
+- bitset：
+{% highlight cpp %} 
+	bitset<32> bitvec; // 32 bits, all zero
+	// bitvec1 is smaller than the initializer
+	bitset<16> bitvec1(0xffff); // bits 0 ... 15 are set to 1
+	// bitvec2 same size as initializer
+	bitset<32> bitvec2(0xffff); // bits 0 ... 15 are set to 1; 16 ... 31 are 0
+	// on a 32-bit machine, bits 0 to 31 initialized from 0xffff
+	bitset<128> bitvec3(0xffff); // bits 32 through 127 initialized to zero 
+	string str("1111111000000011001101");
+	bitset<32> bitvec5(str, 5, 4); // 4 bits starting at str[5], 1100
+	bitset<32> bitvec6(str, str.size() - 4); // use last 4 characters 
+{% endhighlight %} 
+string 对象和 bitsets 对象之间是反向转化的：string 对象的最右边字符（即下标最大的那个字符）用来初始化 bitset 对象的低阶位（即下标为 0 的位）。当用 string 对象初始化 bitset 对象时，记住这一差别很重要。
+
+###数组和指针###
 
 ----------
