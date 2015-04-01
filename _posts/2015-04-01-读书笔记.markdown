@@ -1,0 +1,35 @@
+---
+layout: post
+---
+
+<h2>{{ page.title }}</h2>
+<p class='meta'>{{ page.date | date_to_string }} - NanJing,  powered by 阮一峰</p>
+
+----------
+
+![jsj](http://he110jean.opendrive.com/files/MzdfMzU1MF9aVjlVTw/book.jpg)
+
+### C++ Prime ###
+- while (std::cin >> value)读取未知个数输入  
+- 要让地址为 736425 的字节具有意义，必须要知道存储在该地址的值的
+- 类型。一旦知道了该地址的值的类型，就知道了表示该类型的值需要多
+- 少位和如何解释这些位。   
+- bool 类型表示真值 true 和 false。可以将算术类型的任何值赋给 bool对象。0 值算术类型代表 false，任何非 0 的值都代表 true。 
+- 其中long 和 int 范围是[-2^31,2^31)，即-2147483648~2147483647。而unsigned范围是[0,2^32)，即0~4294967295。也就是说，常规的32位整数只能够处理40亿以下的数。long long 与 unsigned long long：[-2^63, 2^63)与[0,2^64)  
+-  左值（发音为 ell-value）：左值可以出现在赋值语句的左边或右边。右值（发音为 are-value）：右值只能出现在赋值的右边，不能出现在赋值语句的左边。 变量是左值，数字是右值。++i是直接给i变量加1，然后返回i本身，因为i是变量，所以可以被赋值，因此是左值表达式
+i++现产生一个临时变量，记录i的值，而后给i加1，接着返回临时变量，然后临时变量不存在了，所以，不能再被赋值，因此是右值表达式
+-  C++ 是一门静态类型语言，在编译时会作类型检查。在大多数语言中，对象的类型限制了对象可以执行的操作。如果某种类型不支持某种操作，那么这种类型的对象也就不能执行该操作。
+-  C++ 程序员经常随意地使用术语对象。一般而言，对象就是内存中具有类型的区域。说得更具体一些，计算左值表达式就会产生对象。
+-  全局作用域、局部、语句
+-  非 const 变量默认为 extern。要使 const 变量能够在其他的文件中访问，必须地指定它为 extern（在所有地方）。 
+-  非 const 引用只能绑定到与该引用同类型的对象。const 引用则可以绑定到不同但相关的类型的对象或绑定到右值。  
+	int &refVal3 = 10; // error: initializer must be an object  
+	int i = 42;
+	// legal for const references only  
+	const int &r = 42;  
+	const int &r2 = r + i;  
+	double dval = 3.14;
+	const int &ri = dval; 
+- TBC
+
+----------
