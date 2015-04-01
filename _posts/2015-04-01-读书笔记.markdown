@@ -122,4 +122,22 @@ string 对象和 bitsets 对象之间是反向转化的：string 对象的最右
 - 用 typedef 简化指向多维数组的指针，比如typedef int int_array[4];如果去掉前面的typedef那么定义的是一个叫做int_array的含有4个元素的数组。前面加上typedef以后，int_array就变成了含有4个元素的数组类型的替代名。以后要有int_array ia;这句话我们就知道它等同于int ia[4];
 
 ###表达式###
+###语句###
+###函数###
+- 当函数执行完毕时，将释放分配给局部对象的存储空间。此时，对局部对象
+的引用就会指向不确定的内存。考虑下面的程序：
+{% highlight cpp %} 
+ // Disaster: Function returns a reference to a local object
+ const string &manip(const string& s)
+ {
+ string ret = s;
+ // transform ret in some way
+ return ret; // Wrong: Returning reference to a local object!
+ }
+{% endhighlight %} 
+这个函数会在运行时出错，因为它返回了局部对象的引用。当函数执行完毕，字符串 ret 占用的储存空间被释放，函数返回值指向了对于这个程序来说不再有效的内存空间。确保返回引用安全的一个好方法是：请自问，这个引用指向哪个在此之前存在的对象？ 
+###序列容器###
+###关联容器###
+###泛型算法###
+###类和数据抽象###
 ----------
