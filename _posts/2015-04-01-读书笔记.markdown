@@ -145,5 +145,20 @@ string 对象和 bitsets 对象之间是反向转化的：string 对象的最右
 ###泛型算法###
 
 ###类和数据抽象###
+- 类用来定义自己的抽象数据类型。定义了一个新的类型和一个新的作用域。
+- const 成员不能改变其所操作的对象的数据成员。const 必须同时出现在声明和定义中，若只出现在其中一处，就会出现一个编译时错误。 
+- 数据抽象：一种依赖于接口和实现分离的编程技术。 封装是一项低层次的元素组合起来的形成新的、高层次技术。函数是一种封装的形式。
+- 定义对象时，将为其分配存储空间，但（一般而言）定义类型时不进行存储分配
+- 尽管在成员函数内部显式引用 this 通常是不必要的，但有一种情况下必须这样做：当我们需要将一个对象作为整体引用而不是引用对象的一个成员时。最常见的情况是在这样的函数中使用 this：该函数返回对调用该函数的对象的引用。
+{% highlight cpp %} 
+	Screen& Screen::move(index r, index c)
+	{	
+		index row = r * width; // row location
+		cursor = row + c;
+		return *this;
+	}
+{% endhighlight %} 
+- 如果将 display 定义为 const 成员，就可以在非 const 对象上调用 display，但不能将对 display 的调用嵌入到一个长表达式中(myScreen.display().set('*');)。问题在于这个表达式是在由 display 返回的对象上运行 set。该对象是const，因为 display 将其对象作为 const 返回。我们不能在 const 对象上调用 set。 为了解决这个问题，我们必须定义两个 display 操作：一个是 const，另一个不是 const。
+- 可变数据成员（mutable data member）永远都不能为 const，甚至当它是const 对象的成员时也如此。因此，const 成员函数可以改变 mutable 成员。要将数据成员声明为可变的，必须将关键字 mutable 放在成员声明之前：
 
 ----------
