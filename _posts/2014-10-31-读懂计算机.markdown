@@ -73,12 +73,15 @@ Stack的三种方式：
 10M宽带单位是bit，因此下载速度约为10M/8，即1.25MB/s。  
 
 
-### 精品网站 ###
-OpenDrive 永久免费直链云盘  
-http://geek.csdn.net/ 极客头条  
-http://www.waqiang.com/index.php/url/shorten 短网址生成  
-http://www.careercup.com/
-https://ideone.com/    
-http://makethisinanhour.com/ 
+### 巨人的肩膀 ###
+[阮一峰的博客](http://www.ruanyifeng.com/home.html)  
+[新浪云计算](http://www.sinaapp.com/)  
+[永久免费直链云盘](https://www.opendrive.com/)  
+[极客头条](http://geek.csdn.net/)  
+[伯乐在线](http://blog.jobbole.com/category/it-tech/)   
+[短网址生成](http://www.waqiang.com/index.php/url/shorten)  
+[careercup](http://www.careercup.com/)  
+[在线编译器](https://ideone.com/)  
+[githubPage个人主页](http://makethisinanhour.com/)  
 
 ----------
