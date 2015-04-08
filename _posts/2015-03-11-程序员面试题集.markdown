@@ -344,4 +344,25 @@ execution unit:在关系数据库中，一个事务可以是一条SQL语句，�
 atomic, consistent, isolated and durable  
 原子性、一致性、隔离性、持续性
 
+**类和对象**  
+类和对象的区别类是对象的抽象，对象是类的具体实例（specific instance）。类是抽象的，不占用内存，而对象是具体的，占有内存空间。例如：类就是水果，对象就是苹果。A is to B what C is to D   
+封装(wrap)、继承(inheritance)、重载(override)还是多态(polymorphism)  
+多态：一个接口interface（基类base），多种实现implement（派生类derived）
+
+**quicksort**  
+Quicksort (sometimes called partition-exchange sort) is an  efficient sorting algorithm, serving as a systematic method for placing the elements of an array in order. 
+Quicksort is a divide and conquer algorithm
+
+**Binary search algorithm**  
+In computer science, a binary search or half-interval search algorithm finds the position of a specified input value (the search "key") within an array sorted by key value.
+
+**饥饿Starvation&deadlock死锁**  
+In computer science, starvation is a problem encountered in multitasking where a process is perpetually denied necessary resources.  
+In concurrent programming, a deadlock is a situation in which two or more competing actions are each waiting for the other to finish, and thus neither ever does. 
+
+- Circular Wait
+- Mutual Exclusion 互斥（资源独占）
+- Hold and Wait or Resource Holding（一个进程在申请新的资源的同时保持对原有资源的占有）
+- No Preemption 不可剥夺
+
 ---
