@@ -166,7 +166,8 @@ int (*p)[3] = a;
 
 **视图**：虚拟表，包装sql语句
 
-**索引**：数据库查询时，会为查询条件加一个索引并缓存建立索引查找树，因此对经常查询的字段加上索引是个好习惯。B树：多叉查找树。
+**索引**：数据库查询时，会为查询条件加一个索引并缓存建立索引查找树，因此对经常查询的字段加上索引是个好习惯。B树：多叉查找树。  
+如果表用于经常查询可建索引，但是如果修改频繁，维护索引将给数据库加大负担。
 
 **B+**：  
 ![](http://blog.codinglabs.org/uploads/pictures/theory-of-mysql-index/4.png)
@@ -333,5 +334,14 @@ APP点击时进入模拟莫名其妙地停止运行
 
 **软件设计步骤**  
 需求分析、软件设计、程序编码、软件测试、运行维护
+
+**并发、并行**
+parallel（并行）：一起。together  
+concurrent（并发）：交替。alternately
+
+**事务/Transaction**
+execution unit:在关系数据库中，一个事务可以是一条SQL语句，一组SQL语句或整个程序  
+atomic, consistent, isolated and durable  
+原子性、一致性、隔离性、持续性
 
 ---
