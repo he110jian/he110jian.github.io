@@ -376,4 +376,10 @@ In concurrent programming, a deadlock is a situation in which two or more compet
 - Hold and Wait or Resource Holding（一个进程在申请新的资源的同时保持对原有资源的占有）
 - No Preemption 不可剥夺
 
+**英文自我介绍**  
+I am Jean, born in XinYu City in JiangXi province. I will be  graduated from SouthEast university in the next year. My major is Computer technology, and i got my bachelor degree from  Nanjing University of Aeronautics and Astronautics in the year of 2013.   I spend most of my time on study, and i have also acquired basic knowledge of other Information Technology such as website and  linux during my school time.  
+In July 2012, I began work for a small private company as a software engineer intern in NanJing and develop a task manager- like program with MFC.   
+In spare time, i usually do some sport like basketball and football with friends, also i like to go to the gym before having supper.  
+I've always had an interest in some new stuff. I think I'm a good team player and I'm a person of great honesty to others. That is the reason why I come here to compete for this position. That’s all. Thank you for your listening.
+
 ---
