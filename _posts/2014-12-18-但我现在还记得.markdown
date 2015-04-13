@@ -96,11 +96,7 @@ Everybody up 严阵以待
 52724 89122 79381 83011 94912  
 
 ### 魔方秘籍 ###
-左：（F→左）U'F'UFURU'R'  
-右：（F→右）URU'R'U'F'UF  
-面：1：R'U2RUR'UR；2：U'RU2R'U'RU'R'（三个上下对称、两个对称）  
-角：RB'RF2R'BRF2R2  
-棱：RU'RURURU'R'U'R2  
+![](http://www.opendrive.com/files/MzdfNDIyNF9IREEwOA/magicCube.jpg)
 
 ### 百度动画 ###
 黑洞，旋转，抖动，反转，跳跃，闪烁，打雷  
