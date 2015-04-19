@@ -102,8 +102,9 @@ printf("result is %s\n", p);
 ### Q4 ###
 
 设已经有A,B,C,D4个类的定义，程序中A,B,C,D析构函数调用顺序为？
-C c;
+
 {% highlight cpp %}
+C c;
 void main()
 {
     A*pa=new A();
@@ -111,7 +112,35 @@ void main()
     static D d;
     delete pa;
 }
+cout：ABDC
 {% endhighlight %}  
-ABDC
+
+
+### 内存泄露检测 ###  
+{% highlight cpp %}
+	#include “stdafx.h”
+	#include 
+	#ifdef _DEBUG
+	#define DEBUG_CLIENTBLOCK   new( _CLIENT_BLOCK, __FILE__, __LINE__)
+	#else
+	#define DEBUG_CLIENTBLOCK
+	#endif
+	#define _CRTDBG_MAP_ALLOC
+	#include 
+	#ifdef _DEBUG
+	#define new DEBUG_CLIENTBLOCK
+	#endif
+	void Exit()
+	{
+	    int i = _CrtDumpMemoryLeaks();
+	    assert( i == 0);
+	}
+	int _tmain(int argc, _TCHAR* argv[])
+	{
+	    atexit(Exit);
+	    int* p = new int();
+	    return 0;
+	}
+{% endhighlight %} 
 
 ---
