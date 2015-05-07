@@ -42,7 +42,13 @@ reutrn ss.str();
 **SQL优化（索引）**  
 [http://www.vaikan.com/what-do-you-know-about-sql-performance/](http://www.vaikan.com/what-do-you-know-about-sql-performance/)  
 当表字段放到函数里执行查询时，索引将不起作用;  
-like对应的查询字符如果是以通配符开头的，索引将无法发挥效能
+like对应的查询字符如果是以通配符开头的，索引将无法发挥效能  
+1.mysql嵌套子查询效率确实比较低  
+2.可以将其优化成连接查询  
+3.连接表时，可以先用where条件对表进行过滤，然后做表连接
+（虽然mysql会对连表语句做优化）  
+4.建立合适的索引    
+5.学会分析sql执行计划，mysql会对sql进行优化，所以分析执行计划很重要
 
 泊松分布：
 （1）顾客购买水果罐头是小概率事件。
