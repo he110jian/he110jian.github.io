@@ -334,6 +334,10 @@ void *p;
 MFC：状态信息不断更新，记录选择条目和位置，更新时载入选中状态。      
 APP：定位显示、画圈（开始想的是载入图片，以图片做背景，再在图片上画圈；二是实现画好所有圈，再显示位置圈）、缩放（开始准备触摸缩放，后面用seekbar进行缩放1.25×0.8）
 
+For a better user experience, the first method to realize map zoom coming to my mind is by touching, but it doesn't work somehow, Because time limited, then i decide to adopt the seekbar and let the zoom index be 0.8.
+
+Because the AP selection function is called freauently, when there are considerable APs in our scene, and traversing method can lead to a poor performance, so we store the nearby APs in a hashtable for a faster reaction.
+
 **有什么收获**  
 学习新技术、看技术文档、开拓眼界、入门的了解、有助于开发更高大上的东西。
 
@@ -402,5 +406,8 @@ I am Jean, born in XinYu City in JiangXi province. I will be  graduated from Sou
 In July 2012, I began work for a small private company as a software engineer intern in NanJing and develop a task manager- like program with MFC.   
 In spare time, i usually do some sport like basketball and football with friends, also i like to go to the gym before having supper.  
 I've always had an interest in some new stuff. I think I'm a good team player and I'm a person of great honesty to others. That is the reason why I come here to compete for this position. That’s all. Thank you for your listening.
+
+**职业规划**  
+I am in favour of Information Technology and i have learnt many basic knowledges about it, digging wide makes hole deeper, and now i need a deeper understanding of one or more specific field. So in the first few years, i am willing to do some coding job and try to learn some experiences from the mentors in company. After that, i am honored to be a project leader to guide my member well and make a contribution to the company.
 
 ---
