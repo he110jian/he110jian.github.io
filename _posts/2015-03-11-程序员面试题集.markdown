@@ -378,7 +378,11 @@ atomic, consistent, isolated and durable
 **类和对象**  
 类和对象的区别类是对象的抽象，对象是类的具体实例（specific instance）。类是抽象的，不占用内存，而对象是具体的，占有内存空间。例如：类就是水果，对象就是苹果。A is to B what C is to D   
 封装(wrap)、继承(inheritance)、重载(override)还是多态(polymorphism)  
-多态：一个接口interface（基类base），多种实现implement（派生类derived）
+多态：一个接口interface（基类base），多种实现implement（派生类derived）  
+封装：良好的封装能减少耦合；类内部的实现可以自由修改；类具有清晰的对外接口。  
+继承：使得所有子类公共接口部分都放在了父类，避免重复，便与修改，可以扩展父类没有的属性功能，也可以重写方法。父类的构造方法不能被继承只能被调用【fish（）：Animal（fishname）{}】。 然而，父类破坏了本身的封装性，增加了类之间的耦合关系，父类的改变将引起子类的变化。  
+多态：多态表示不同对象可以执行相同的动作，但要通过它们自己的实现代码来执行。  
+
 
 **quicksort**  
 Quicksort (sometimes called partition-exchange sort) is an  efficient sorting algorithm, serving as a systematic method for placing the elements of an array in order. 
