@@ -348,7 +348,12 @@ MFC：加入定时关机等功能、一键关闭所有应用程序和摘要状�
 APP:根据学生专业提供推荐馆藏
 
 **最难解的bug**  
-APP点击时进入模拟莫名其妙地停止运行
+we design this indoor localization project based on the idea that the user's position can be indicated by the nearby wifi hotspot named access point(AP), and the static AP 's location is available. 
+it starts periodically wifi scanning(RSSI measuring) of the neighbor APs in the indoor localization field. 
+Then it selects the AP with the largest (signal strength)RSSI; 
+Finally it finds the location of the selected AP and presents the place on the map.
+The most hard part to me is the way how we handle the situation where the signal  affect by the environment. 
+At last, we try to filter some ap whose singal changes dramatically and use modified triangulation location for further position estimation.
 
 **最享受的过程**   
 将想法一步一步实现的过程和解决bug的时候。  
