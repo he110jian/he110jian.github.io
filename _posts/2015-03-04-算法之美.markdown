@@ -5,7 +5,7 @@ layout: post
 <h2>{{ page.title }}</h2>
 <p class='meta'>{{ page.date | date_to_string }} - NanJing</p>
 
----
+----------
 
 ###斐波那契数列###
 ![](http://www.opendrive.com/files/MzdfNDIyM19pUDJaVF85MDJm/斐波那契数列.jpg)
@@ -164,4 +164,4 @@ cout：ABDC
     =>a = nr - x;  
 由上式可知：若在头结点和相遇结点分别设一指针，同步(单步)前进，则最后一定相遇在环入口结点，搞掂！
 
----
+----------
