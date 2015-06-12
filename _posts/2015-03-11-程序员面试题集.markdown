@@ -155,6 +155,24 @@ int (*p)[3] = a;
 **http状态码**  
 消息（1字头）、成功（2字头）、重定向（3字头）（304请求内容未改变，可以去读浏览器缓存）、请求错误（4字头）（401权限、404未找到）、服务器错误（5字头）。[http://www.cnblogs.com/loveyakamoz/archive/2011/09/03/2165266.html](http://http://www.cnblogs.com/loveyakamoz/archive/2011/09/03/2165266.html)
 
+**shell**
+{% highlight cpp %}
+//存储 统计
+#!/bin/bash
+while true
+do
+read -p "Phone number: " phone
+now=`date "+%Y.%m.%d %H:%M:%S"`
+read -p "Name: " name
+read -p "Issue: " issue
+echo "$now/$phone/$name/$issue">>data.txt
+echo "===== We got calls from ====="
+cat data.txt | cut -d"/" -f2 | sort | uniq -c
+echo "--------------------------------"
+done
+{% endhighlight %}
+
+
 **单例模式**注意：在多线程的情况下，需要让方法互斥，才能保证只会创建一个实例，如果不加synchronized，当多个线程同时获取实例时，就有可能创建多个实例。(可以测试一下)  
 
 **TCP三次握手**建立连接（socket中connect）  
