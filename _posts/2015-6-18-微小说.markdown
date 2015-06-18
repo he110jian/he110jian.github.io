@@ -1,0 +1,40 @@
+---
+layout: post
+---
+
+<h2>{{ page.title }}</h2>
+<p class='meta'>{{ page.date | date_to_string }} - NanJing,  powered by 阮一峰</p>
+
+----------
+
+
+sorry soldier, shoes sold in pairs.
+
+Mom taught me how to shave.
+
+Introduced myself to mother again today.
+
+Siri，deleted Mom from my contactsSiri.
+
+Birth certificate. Death certificate. One pen
+
+Finally spoke to her.Left flowers
+
+Strangers. Friends. Best friends. Lovers. Strangers
+
+I met my soulmate. She didn’t.
+
+The photos laughed, the eyes cried
+
+Tow lovers. One parachute. No survivors.
+
+张爱玲曾写道：于千万人之中，遇见你要遇见的人。于千万年之中，时间无涯的荒野里，没有早一步，也没有迟一步，遇上了也只能轻轻地说一句：“哦，你也在这里吗？” 相遇，已实属不易。在人生面前，在亲情面前，在友情面前，在爱情面前，每个人都是诗人。 
+
+The greatest happiness in lifeis that you find the one you love is loving you as well.
+
+“可以做个朋友吗？”
+是一段感情的开始，
+“还能再做朋友吗？”
+是一段感情的结束
+
+----------
