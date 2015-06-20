@@ -6,7 +6,7 @@ layout: post
 <p class='meta'>{{ page.date | date_to_string }} - NanJing powered by 新浪博客：【雨花石】</p>
 
 ----------
-![](http://img3.douban.com/mpic/s27102925.jpg)
+![](http://g-ec4.images-amazon.com/images/G/28/BOOK-Catalog/content/B00FXONTU6_01_AMZN.jpg)
 
 所谓私人书摘，即正文的一字一句都是敲出来的，任凭泪水沾染键盘。
 或感动、或寂寞、或悲伤、或快乐，这些让人心碎的文字伴随着匆匆那年随风逝去。
