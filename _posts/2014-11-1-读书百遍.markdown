@@ -1,0 +1,20 @@
+---
+layout: post
+---
+
+<h2>{{ page.title }}</h2>
+<p class='meta'>{{ page.date | date_to_string }} - NanJing</p>
+
+---
+
+![](http://img11.360buyimg.com/n1/g14/M05/0D/15/rBEhVVIhQfAIAAAAAAMiuW82EnEAACrGADQNYgAAyLR569.jpg)
+
+![](http://g-ec4.images-amazon.com/images/G/28/BOOK-Catalog/content/B00FXONTU6_01_AMZN.jpg)
+
+![](http://static01.nyt.com/images/2014/05/27/t-magazine/tc27liucixin-1/tc27liucixin-1-articleLarge.jpg)
+
+![](http://img.xxdm.com/allimg/131122/5-1311221030350-L.jpg)
+
+![](http://mmdays.com/wp-content/uploads/2011/03/ming.jpg)
+
+---
