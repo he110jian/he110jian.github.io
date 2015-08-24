@@ -8,11 +8,11 @@ layout: post
 ---
 
 ###KMP###
-[http://kb.cnblogs.com/page/176818/](http://)
+[http://kb.cnblogs.com/page/176818/](http://kb.cnblogs.com/page/176818/)
 
 ###Catalan数###
 
-[http://blog.csdn.net/duanruibupt/article/details/6869431](http://)
+[http://blog.csdn.net/duanruibupt/article/details/6869431](http://blog.csdn.net/duanruibupt/article/details/6869431)
 
 ---
 
