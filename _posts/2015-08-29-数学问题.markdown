@@ -8,7 +8,7 @@ layout: post
 ---
 
 ###KMP###
-[http://kb.cnblogs.com/page/176818/](http://kb.cnblogs.com/page/176818/)
+[http://blog.csdn.net/hackbuteer1/article/details/7450250](http://blog.csdn.net/hackbuteer1/article/details/7450250)
 
 ###Catalan数###
 
