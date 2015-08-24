@@ -1,0 +1,18 @@
+---
+layout: post
+---
+
+<h2>{{ page.title }}</h2>
+<p class='meta'>{{ page.date | date_to_string }} - NanJing</p>
+
+---
+
+###KMP###
+[http://kb.cnblogs.com/page/176818/](http://)
+
+###Catalan数###
+
+[http://blog.csdn.net/duanruibupt/article/details/6869431](http://)
+
+---
+
