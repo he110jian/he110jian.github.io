@@ -267,5 +267,7 @@ long double,double,	float,unsigned long int,long int,unsigned int, int(最低)�
 [vector\set\map\istringstream\ostringstream](http://blog.jobbole.com/87586/)
 [stl应用](http://blog.jobbole.com/88310/)
 
+###堆排序###
+[堆排序](http://www.cnblogs.com/dolphin0520/archive/2011/10/06/2199741.html)
 
 ----------
