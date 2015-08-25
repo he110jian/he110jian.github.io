@@ -245,4 +245,21 @@ string 对象和 bitsets 对象之间是反向转化的：string 对象的最右
 ###c++多线程总结###
 [http://www.cnblogs.com/zhiranok/archive/2012/05/13/cpp_multi_thread.html](http://www.cnblogs.com/zhiranok/archive/2012/05/13/cpp_multi_thread.html)
 
+###c++注意事项###
+- 变量初始化
+- 输入合法性检查
+- delete后记得NULL指针（句柄）
+- malloc或new申请的内存需大于0
+- assert调试模式可以，release模式下自动清除
+
+###单例模式###
+只维持一个实例。  
+适用场景：
+- 资源共享情况下，避免由于资源操作时导致的性能和损耗，如日志文件和应用配置；
+- 控制资源的情况下，方便资源的互相通讯，如线程池。  
+- windows 任务管理器、回收站、网站计数器、数据库连接池。。。
+
+###类型提升###
+long double,double,	float,unsigned long int,long int,unsigned int, int(最低)，向高处转型
+
 ----------
