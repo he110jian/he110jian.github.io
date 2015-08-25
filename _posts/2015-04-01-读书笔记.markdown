@@ -262,4 +262,10 @@ string 对象和 bitsets 对象之间是反向转化的：string 对象的最右
 ###类型提升###
 long double,double,	float,unsigned long int,long int,unsigned int, int(最低)，向高处转型
 
+###STL###
+
+[vector\set\map\istringstream\ostringstream](http://blog.jobbole.com/87586/)
+[stl应用](http://blog.jobbole.com/88310/)
+
+
 ----------
