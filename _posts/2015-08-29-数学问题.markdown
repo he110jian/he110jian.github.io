@@ -9,6 +9,7 @@ layout: post
 
 ###KMP###
 [http://www.cnblogs.com/c-cloud/p/3224788.html](http://www.cnblogs.com/c-cloud/p/3224788.html)
+[next数组](http://www.cnblogs.com/goagent/archive/2013/05/16/3068442.html)
 
 ###Catalan数###
 
