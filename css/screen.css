@@ -68,7 +68,6 @@ ul.posts {
 
   ul.posts li {
     line-height: 1.75em;
-    margin-bottom: 2em;
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
