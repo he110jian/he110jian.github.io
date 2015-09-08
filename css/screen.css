@@ -64,14 +64,14 @@ img { display:block;max-width:100%;height:auto}
 
 ul.posts {
   list-style-type: none;
-  margin-bottom: 2em;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  overflow: hidden;
 }
 
   ul.posts li {
     line-height: 1.75em;
+    margin-bottom: 2em;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
   }
 
   ul.posts span {
