@@ -154,12 +154,15 @@ right: 0;
   }
 
     .site .footer .contact {
-    -moz-box-flex:1.0; /* Firefox */
-    -webkit-box-flex:1.0; /* Safari 和 Chrome */
-    box-flex:1.0;
+    padding:0 0.5em 0 0.5em;
+    display: -webkit-flex;
+    flex-flow: row wrap;
+    align-items: stretch;
     text-align: center;
     }
-
+.ontactItem{
+  width:33%;
+}
       .site .footer .contact a {
         color: #8085C1;
       }
