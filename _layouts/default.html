@@ -10,6 +10,18 @@
    <link rel="stylesheet" href="/css/syntax.css" type="text/css" />
    <link rel="stylesheet" href="/css/screen.css" type="text/css" media="screen, projection" />
    <link rel="shortcut icon" href="/images/logo.png">
+   <style>
+            .contact{
+                padding:0 0 0.5em 0;
+                display: -webkit-flex;
+                flex-flow: row wrap;
+                align-items: stretch;
+              }
+            .detail{
+                width: 33%;
+            }
+            
+        </style>
 </head>
 <body>
 <div class="site">
@@ -24,22 +36,20 @@
   {{ content }}
   
   <div class="footer">
-    <div class="contact">
-      <p>
-         Giants:<a href="http://livenote.sinaapp.com/draw.php" target="_blank"> MainPage </a>|<a href="http://223.3.85.5" target="_blank"> Group Disscuss </a>|<a href="http://223.3.85.5/2014" target="_blank"> 2014 </a>
-      </p>
-    </div>
-    <div class="contact">
-      <p>
-         <a href="http://wpa.qq.com/msgrd?V=3&uin=908984017">he110建</a> &copy; since 2014-10-27
-      </p>
-    </div>
-     <div class="contact">
-	<!-- Site Meter -->
-	<a href="http://s30.sitemeter.com/stats.asp?site=s30he110jian" target="_top">
-	<img src="http://s30.sitemeter.com/meter.asp?site=s30he110jian" alt="Site Meter" border="0"/></a>
-	<!-- Copyright (c)2009 Site Meter -->
-    </div>
+
+    <p class="contact">
+      <span class="detail">Giants:<a href="http://livenote.sinaapp.com/draw.php" target="_blank"> MainPage </a>|<a href="http://223.3.85.5" target="_blank"> Group Disscuss </a>|<a href="http://223.3.85.5/2014" target="_blank"> 2014 </a></span>
+      <span class="detail"><a href="http://wpa.qq.com/msgrd?V=3&uin=908984017">he110建</a> &copy; since 2014-10-27</span>
+      <span class="detail"> <!-- Site Meter -->
+  <a href="http://s30.sitemeter.com/stats.asp?site=s30he110jian" target="_top">
+  <img src="http://s30.sitemeter.com/meter.asp?site=s30he110jian" alt="Site Meter" border="0"/></a>
+  <!-- Copyright (c)2009 Site Meter --></span>
+      
+    </p>
+
+
+
+
   </div>
 </div>
 <div id="turnTop" class="returnTop" >
