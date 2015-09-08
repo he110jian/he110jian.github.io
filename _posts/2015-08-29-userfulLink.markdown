@@ -15,5 +15,11 @@ layout: post
 
 [http://blog.csdn.net/duanruibupt/article/details/6869431](http://blog.csdn.net/duanruibupt/article/details/6869431)
 
+###HTML5###
+[http://blog.jobbole.com/78346/](http://blog.jobbole.com/78346/)
+
+###CSS3###
+[https://www.ibm.com/developerworks/cn/web/1202_zhouxiang_css3/](https://www.ibm.com/developerworks/cn/web/1202_zhouxiang_css3/?)
+
 ---
 
