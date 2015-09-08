@@ -154,8 +154,10 @@ right: 0;
   }
 
     .site .footer .contact {
-      float: left;
-      margin-right: 3em;
+    -moz-box-flex:1.0; /* Firefox */
+    -webkit-box-flex:1.0; /* Safari 和 Chrome */
+    box-flex:1.0;
+    text-align: center;
     }
 
       .site .footer .contact a {
