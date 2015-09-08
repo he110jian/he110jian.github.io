@@ -154,7 +154,7 @@ right: 0;
   }
 
     .site .footer .contact {
-    padding:0 0.5em 0 0.5em;
+    
     display: -webkit-flex;
     flex-flow: row wrap;
     align-items: stretch;
@@ -162,6 +162,7 @@ right: 0;
     }
 .contactItem{
   width:33%;
+  padding:0 0.1em 0 0.1em;
 }
       .site .footer .contact a {
         color: #8085C1;
