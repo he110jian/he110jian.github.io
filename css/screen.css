@@ -26,7 +26,6 @@ body {
 
 h2{
   margin-bottom: 1em;    
-  word-break: break-all;
 }
 
 h3{
@@ -94,7 +93,7 @@ ul.posts {
   padding: 0.5em;
   text-align:left;
 border-radius: 15px;
-word-wrap:	break-word;
+word-break: break-all;
 -moz-border-radius: 15px;
 box-shadow: 2px 2px 3px #aaa;
 }
@@ -185,10 +184,6 @@ right: 0;
     padding: 0.4em;
     background-color: #333;
     color: white;
-	white-space:pre-wrap;
-	white-space:-moz-pre-wrap;
-	white-space:-pre-wrap;
-	white-space:-o-pre-wrap;
 	word-wrap:break-word;
   }
 
