@@ -94,7 +94,6 @@ ul.posts {
   padding: 0.5em;
   text-align:left;
 border-radius: 15px;
-word-break: break-all;
 -moz-border-radius: 15px;
 box-shadow: 2px 2px 3px #aaa;
 }
