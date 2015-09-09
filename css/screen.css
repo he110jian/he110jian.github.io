@@ -25,7 +25,8 @@ body {
 }
 
 h2{
-  margin-bottom: 1em;
+  margin-bottom: 1em;    
+  word-break: break-all;
 }
 
 h3{
