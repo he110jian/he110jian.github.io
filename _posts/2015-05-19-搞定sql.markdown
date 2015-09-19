@@ -16,7 +16,7 @@ DROP TABLE IF EXISTS `users`;CREATE TABLE `users` (  `id` bigint(20) NOT NULL 
 
 http://m.jb51.net/article/30655.htm  
 在 SQL 中增加 HAVING 子句原因是，WHERE 关键字无法与合计函数一起使用。
-
+{% highlight sql %}
 create table school(  
 id int unsigned primary key auto_increment,  
 Sno char(6),  
@@ -552,5 +552,6 @@ SELECT S# FROM SC WHERE C#='004'and score <60 ORDER BY score desc;
 50、删除“”同学的“”课程的成绩
 
 delete FROM Sc WHERE S#='001'and C#='001'
+{% endhighlight %}
 
 ---
