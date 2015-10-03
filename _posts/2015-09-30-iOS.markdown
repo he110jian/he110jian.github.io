@@ -1,0 +1,13 @@
+---
+layout: post
+---
+
+<h2>{{ page.title }}</h2>
+<p class='meta'>{{ page.date | date_to_string }} - NanJing</p>
+----------
+
+[assign、retain、copy](http://www.cnblogs.com/csj007523/archive/2012/07/23/2605662.html)
+
+[swift](http://swifter.tips/)
+
+----------
