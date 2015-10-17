@@ -12,6 +12,15 @@ layout: post
 
 [多线程](http://www.cnblogs.com/kenshincui/p/3983982.html)
 
-[内存管理，WEAK 和 UNOWNED](http://swifter.tips/retain-cycle/)
+[内存管理，WEAK 和 UNOWNED](http://swifter.tips/retain-cycle/)  
+
+[OC关键字](http://www.cnblogs.com/linyawen/archive/2012/05/10/2494773.html)
+
+assign：简单赋值，不更改索引计数  
+copy：建立一个索引数为1的对象，然后释放旧对象  
+retain：释放（release）旧对象，将旧对象的值赋予输入对象，再提高输入对象的索引计数为1
+使用assign：对基础数据类型（NSInteger）和C数据类型（int ,float,double,char等）  
+使用copy：对NSString  
+使用retain：对其他NSObject和其子类。
 
 ----------
