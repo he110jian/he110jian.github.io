@@ -9,6 +9,8 @@ layout: post
 
 ![IPV6TV][1]
 
+http://tv.byr.cn/desktop/	北邮IPV6电视
+  
 来自USTC的IPV6高清电视，*windows media player* “打开url" 观看
 
  - [mms://\[2001:da8:d800::44\]/tv2][2] CCTV5
