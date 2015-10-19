@@ -16,6 +16,8 @@ layout: post
 
 [OC关键字](http://www.cnblogs.com/linyawen/archive/2012/05/10/2494773.html)
 
+[http://www.jianshu.com/p/20f8d59eb8fb](http://www.jianshu.com/p/20f8d59eb8fb)
+
 assign：简单赋值，不更改索引计数  
 copy：建立一个索引数为1的对象，然后释放旧对象  
 retain：释放（release）旧对象，将旧对象的值赋予输入对象，再提高输入对象的索引计数为1
