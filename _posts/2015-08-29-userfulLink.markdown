@@ -24,5 +24,13 @@ layout: post
 ###面经###
 [link](http://mp.weixin.qq.com/s?__biz=MjM5NDYxMzk1Nw==&mid=217438019&idx=1&sn=9e9b95f1a5daa00dd0096bbe00ad2e78&scene=23&srcid=1003rdwCM4MEZC4w3LANv5xp#rd)
 
+###线程安全###
+[http://blog.csdn.net/luoweifu/article/details/46701167](http://blog.csdn.net/luoweifu/article/details/46701167)
+
+###消息机制###
+[http://blog.csdn.net/luoweifu/article/details/45568411](http://blog.csdn.net/luoweifu/article/details/45568411)
+
+[http://blog.csdn.net/luoweifu/article/list/](http://blog.csdn.net/luoweifu/article/list/)
+
 ---
 
