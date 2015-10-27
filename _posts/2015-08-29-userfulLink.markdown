@@ -32,5 +32,8 @@ layout: post
 
 [http://blog.csdn.net/luoweifu/article/list/](http://blog.csdn.net/luoweifu/article/list/)
 
+###jquery###
+[http://segmentfault.com/a/1190000003902322](http://segmentfault.com/a/1190000003902322)
+
 ---
 
