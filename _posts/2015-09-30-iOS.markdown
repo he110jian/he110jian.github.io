@@ -26,4 +26,7 @@ retain：释放（release）旧对象，将旧对象的值赋予输入对象，�
 使用retain：对其他NSObject和其子类。  
 
 Java中所说的按引用传递实质上是传递该对象的地址，该地址其实是按值传递的，通过这个地址可以修改其指向内存处对象的值。改变该地址的值毫无意义，只会失去对真实对象的掌控。
+
+[app应该这样设计](http://www.raywenderlich.com/90773/introducing-ios-design-patterns-in-swift-part-2)
+
 ----------
