@@ -35,5 +35,8 @@ layout: post
 ###jquery###
 [http://segmentfault.com/a/1190000003902322](http://segmentfault.com/a/1190000003902322)
 
+###初始化列表###
+[http://www.cnblogs.com/graphics/archive/2010/07/04/1770900.html](http://www.cnblogs.com/graphics/archive/2010/07/04/1770900.html)
+
 ---
 
