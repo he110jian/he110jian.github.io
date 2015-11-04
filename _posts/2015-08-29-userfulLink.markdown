@@ -38,5 +38,8 @@ layout: post
 ###初始化列表###
 [http://www.cnblogs.com/graphics/archive/2010/07/04/1770900.html](http://www.cnblogs.com/graphics/archive/2010/07/04/1770900.html)
 
+###智能指针###
+[http://blog.csdn.net/lpmygod/article/details/38976603](http://blog.csdn.net/lpmygod/article/details/38976603)
+
 ---
 
