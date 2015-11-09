@@ -42,5 +42,8 @@ layout: post
 ###智能指针###
 [http://blog.csdn.net/lpmygod/article/details/38976603](http://blog.csdn.net/lpmygod/article/details/38976603)
 
+###linux C编程###
+[http://songjinshan.com/akabook/](http://songjinshan.com/akabook/)
+
 ---
 
