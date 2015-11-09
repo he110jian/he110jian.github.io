@@ -11,6 +11,7 @@ layout: post
 
 ### 巨人的肩膀 ###
 [阮一峰的博客](http://www.ruanyifeng.com/home.html)  
+[coolshell](http://www.coolshell.cn)  
 [新浪云计算](http://www.sinaapp.com/)  
 [永久免费直链云盘](https://www.opendrive.com/)  
 [极客头条](http://geek.csdn.net/)  
