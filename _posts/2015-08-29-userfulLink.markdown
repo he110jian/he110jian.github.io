@@ -45,6 +45,8 @@ layout: post
 ###linux C编程###
 [http://songjinshan.com/akabook/](https://akaedu.github.io/book/)
 
+###虚函数###  
+[http://coolshell.cn/articles/12165.html](http://coolshell.cn/articles/12165.html)
 
 ---
 
