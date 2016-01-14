@@ -27,7 +27,6 @@ retain：释放（release）旧对象，将旧对象的值赋予输入对象，�
 
 Java中所说的按引用传递实质上是传递该对象的地址，该地址其实是按值传递的，通过这个地址可以修改其指向内存处对象的值。改变该地址的值毫无意义，只会失去对真实对象的掌控。
 
-[app应该这样设计](http://www.raywenderlich.com/90773/introducing-ios-design-patterns-in-swift-part-2)  
-http://blog.csdn.net/sanjunsheng/article/details/38071787(gb2312)
+[app应该这样设计](http://www.raywenderlich.com/86477/introducing-ios-design-patterns-in-swift-part-1)
 
 ----------
