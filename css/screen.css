@@ -164,7 +164,9 @@ right: 0;
   width:32%;
   padding:0 0.1em 0 0.1em;
 }
-      .site .footer .contact a {
+.contactItem p img{display:block;margin:0 auto;}
+
+.site .footer .contact a {
         color: #FF6100;
       }
 
