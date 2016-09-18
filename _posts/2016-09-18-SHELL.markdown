@@ -1,0 +1,167 @@
+---
+layout: post
+---
+
+<h2>{{ page.title }}</h2>
+<p class='meta'>{{ page.date | date_to_string }} - NanJing</p>
+
+---
+
+
+## Shell ##
+
+### find ###
+- find /home -name filename -type d
+- find /home -name filename -type f
+- find /home -name "*.java"
+
+### ps ###
+- ps -ef|grep tomcat  
+- ls -l /proc/{procId}
+
+###vim###
+- set number 显示行号
+- dd 删除行
+- p 粘贴（yy复制）
+- /string 查找
+- :%s/old/new/g 替换
+
+###df###
+磁盘使用情况
+
+###grep###
+- grep -n keyword filename
+- grep [tf] filename 含't'或'f'的行
+
+###tar###
+- tar -cvf test.tar test/ test2/
+- tar -tf test.tar 列出，不解压
+- tar -xvf test.tar
+
+###;###
+    $ date;who  
+    2016年 09月 18日 星期日 14:55:23 CST  
+    migujsj  pts/02016-09-18 14:34 (10.25.118.5)
+
+###chmod###
+> user   group   other  
+> -rwx   -rwx    -rwx
+
+###echo###
+- echo "hello shell" 换行  
+- echo -n "hello shell" 不换行 
+
+###变量###
+- name='value' 定义
+- echo $name  引用
+
+###反引号###
+将命令输出赋予变量  
+> now = \`date +%y%m%d\`
+
+###重定向###
+- > create
+- >> add
+- < 输出 `wc<test.java`(行，词，字节)
+
+###运算###
+    [migujsj@migu04 ~]$ expr $[1+2*3]
+    7
+
+###if-then###
+    if command;then
+    	commands
+    fi
+###for###
+    fileName='states'
+    for state in `cat $fileName`
+    do
+    	echo $state
+    done
+ 	
+	for((i=1;i<=10;i++))
+	do
+		echo $i
+	done
+
+###IFS###
+内部分隔符  
+>     #!/bin/bash
+>     IFS_old=$IFS  #将原IFS值保存，以便用完后恢复
+>     IFS=$’\n’#更改IFS值为$’\n’ ，注意，以回车做为分隔符，IFS必须为：$’\n’
+>     for i in `cat m.txt`
+>     do
+>         echo $i
+>     done
+>     IFS=$IFS_old  #恢复原IFS值
+
+###break###
+- break 1 跳出内循环
+- break 2 跳出外循环
+
+###test###
+    if test -n $1;then //如果有参数
+    do
+     echo $1;
+    done
+
+	if [-n $1];then ...
+-f(文件)，-d(文件夹)，-z(长度为0)，-e(存在)，-r(可读)，-n(长度非0)  
+${#var} 变量长度  
+字符串：=，！=，-z,-n
+数字：-eq,-ne,-gt,-ge,-lt,-le
+
+###read###
+    count=1
+    cat test | while read line
+    do
+     echo 'Line $count: $line'
+     count =$[$count+1]
+    done
+
+###定时任务###
+at corn  
+*　　*　　*　　*　　*　　command  
+分　时　日　月　周　命令
+
+###head/tail###
+head -n | filename
+
+###sed###
+- sed 's/old/new/g' filename（**替换**）
+- cat filename | sed 's/old/new/g'
+- 不会改变源文件
+- sed -n '/_ _/p' main.java 有连续两个空格？(**查找**)
+
+###查看系统版本###
+- uname -a
+- cat /etc/issue
+
+###gawk###
+- gawk -F: '{print $1}' /etc/password
+- | gawk '{$4="china";print $0}' 改变源文件
+
+###RE###
+- . 任意一个字符
+- * 前面的任意次数
+- [] [Yy]es,[^ch],[0-9]
+- ^ 首，^book
+- $ 尾，book$
+- {}可重复次数
+- + 至少一次
+- ？ 0次或1次
+- | 或
+- （）
+- | sed -n '/b[ae]*t/p'
+- | gawk '/b[ae]?t/{print $0}'
+- (c|b)a(b|t), cat(yes), bat(yes), tat(no)
+- Sat(urday)?, Sat(yes), Saturday(yes)
+
+###tr###
+translate，轻量级sed
+
+- tr ‘a-z’ ‘A-Z’ < word.txt 
+- tr ‘a-z’ ‘A-Z’ <<< "asda单行字符串" 
+
+---
+
