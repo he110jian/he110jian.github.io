@@ -161,5 +161,8 @@ translate，轻量级sed
 - tr ‘a-z’ ‘A-Z’ < word.txt 
 - tr ‘a-z’ ‘A-Z’ <<< "asda单行字符串" 
 
+### tailf ###
+tailf log.txt | grep exception
+
 ---
 
