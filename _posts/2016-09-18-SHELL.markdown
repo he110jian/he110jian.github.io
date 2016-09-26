@@ -165,5 +165,70 @@ translate，轻量级sed
 ### tailf ###
 >     tailf log.txt | grep exception
 
+### 括号 ###
+>     if ($i<5)  
+>     if [ $i -lt 5 ]  
+>     if [ $a -ne 1 -a $a != 2 ]  
+>     if [ $a -ne 1] && [ $a != 2 ]  
+>     if [[ $a != 1 && $a != 2 ]]  
+>     
+>     for i in $(seq 0 4);do echo $i;done  
+>     for i in `seq 0 4`;do echo $i;done  
+>     for ((i=0;i<5;i++));do echo $i;done  
+>     for i in {0..4};do echo $i;done 
+
+>     # ls {ex1,ex2}.sh
+>     ex1.sh  ex2.sh  
+>     # ls {ex{1..3},ex4}.sh  
+>     ex1.sh  ex2.sh  ex3.sh  ex4.sh  
+>     # ls {ex[1-3],ex4}.sh  
+>     ex1.sh  ex2.sh  ex3.sh  ex4.sh
+
+>     # var=testcase  
+>     # echo $var  
+>     testcase  
+>     # echo ${var%s*e} 
+>     testca  
+>     # echo $var  
+>     testcase 
+>     # echo ${var%%s*e} 
+>     te
+>     # echo ${var#?e}  
+>     stcase
+>     # echo ${var##?e}  
+>     stcase
+>     # echo ${var##*e}  
+> 
+>     # echo ${var##*s}  
+>     e  
+>     # echo ${var##test}  
+>     case  
+
+>     [root@centos ~]# var=/home/centos
+>     [root@centos ~]# echo $var
+>     /home/centos
+>     [root@centos ~]# echo ${var:5}
+>     /centos
+>     [root@centos ~]# echo ${var: -6}
+>     centos
+>     [root@centos ~]# echo ${var:(-6)}
+>     centos
+> 
+>     [root@centos ~]# var=/home/centos
+>     [root@centos ~]# echo $var
+>     /home/centos
+>     [root@centos ~]# echo ${var:5}
+>     /centos
+>     [root@centos ~]# echo ${var: -6}
+>     centos
+>     [root@centos ~]# echo ${var:(-6)}
+>     centos
+>     [root@centos ~]# echo ${var:1:4}
+>     home
+>     [root@centos ~]# echo ${var/o/h}
+>     /hhme/centos
+>     [root@centos ~]# echo ${var//o/h}
+>     /hhme/cenths
+
 ---
 
