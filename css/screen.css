@@ -156,6 +156,7 @@ right: 0;
     .site .footer .contact {
     
     display: -webkit-flex;
+    display: flex;
     flex-flow: row wrap;
     align-items: stretch;
     text-align: center;
