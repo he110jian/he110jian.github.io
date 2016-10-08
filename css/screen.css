@@ -112,6 +112,11 @@ right: 0;
   }
 }
 
+.paging {
+text-align: center;
+    margin-top: 10px;
+}
+
 .title {
   color: #a00;
   font-weight: bold;
