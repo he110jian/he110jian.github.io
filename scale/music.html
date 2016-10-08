@@ -21,7 +21,7 @@
 	<audio id="0" src="" autoplay=""></audio>
 	<audio id="3" src="" autoplay=""></audio>
 	<audio id="4" src="" autoplay=""></audio>
-        <div id="nine" style="z-index:9999;height:4%;width:4%;position:fixed;left:48%;bottom:61.8%;font-size:100px" class="text-center text-danger"></div>
+        <div id="nine" style="z-index:9999;height:4%;width:4%;position:fixed;left:48%;bottom:85%;font-size:100px" class="text-center text-danger"></div>
 
 <div id="nine49" style="z-index:9999;background:#8cc540;height:0px;width:5%;position:fixed;left:7.5%;bottom:-20px"></div>
 <div id="nine50" style="z-index:9999;background:#009f5d;height:0px;width:5%;position:fixed;left:17.5%;bottom:-20px"></div>
@@ -86,7 +86,7 @@ default:
 			divn.animate({opacity: '0' },"fast");
 			var div=$("#nine"+e.keyCode);
 			div.clearQueue();
-			div.animate({height:'61.8%',opacity:'0.8'},"fast");
+			div.animate({height:'85%',opacity:'0.8'},"fast");
 			div.animate({height:'0px',opacity:'0.4'},"fast");
             });
 </script>
@@ -100,7 +100,7 @@ for (var i=49;i<58;i++)
 	$("audio#"+c).attr("autoplay","autoplay");
 	var div=$("#nine"+i);
 	div.clearQueue();
-	div.animate({height:'61.8%',opacity:'0.8'},"fast");
+	div.animate({height:'85%',opacity:'0.8'},"fast");
 	div.animate({height:'0px',opacity:'0.4'},"fast");
 }
 </script>		
