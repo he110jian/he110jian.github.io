@@ -90,6 +90,25 @@ default:
 			div.animate({height:'0px',opacity:'0.4'},"fast");
             });
 </script>
-        </div>      
+        </div>   
+<script>
+for (var i=49;i<58;i++)
+{
+	c=i%5;
+	adr = i+".ogg";
+	$("audio#"+c).attr("src",adr);
+	$("audio#"+c).attr("autoplay","autoplay");
+	count++;
+	var divn = $("#nine");
+	divn.clearQueue();
+	divn.text(sca[e.keyCode-49]);
+	divn.animate({opacity: '1' },"fast");
+	divn.animate({opacity: '0' },"fast");
+	var div=$("#nine"+i);
+	div.clearQueue();
+	div.animate({height:'61.8%',opacity:'0.8'},"fast");
+	div.animate({height:'0px',opacity:'0.4'},"fast");
+}
+</script>		
 </body>
 </html>
