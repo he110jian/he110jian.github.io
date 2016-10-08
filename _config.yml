@@ -1,4 +1,4 @@
 highlighter: pygments
 mardown: redcarpet
-paginate: 9
+paginate: 19
 paginate_path: "page:num"
