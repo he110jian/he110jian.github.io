@@ -58,5 +58,51 @@ layout: post
 
 {% endhighlight %}
 
+### LeetCode - 415 ###
+
+{% highlight java %}
+
+	package addString;
+	
+	/*Given two non-negative numbers num1 and num2 represented as string, return the sum of num1 and num2.
+	
+	Note:
+	
+	The length of both num1 and num2 is < 5100.
+	Both num1 and num2 contains only digits 0-9.
+	Both num1 and num2 does not contain any leading zero.
+	You must not use any built-in BigInteger library or convert the inputs to integer directly.
+	*/
+	public class Solution {
+		public String addStrings(String num1, String num2) {
+			StringBuffer sum = new StringBuffer();
+			char[] numArray1 = num1.toCharArray();
+			char[] numArray2 = num2.toCharArray();
+			int length1 = num1.length();
+			int length2 = num2.length();
+			int maxlength = length1 > length2 ? length1 : length2;
+			int overf = 0;
+			while (maxlength > 0) {
+				int t = overf;
+				int sub1 = length1<1?0:numArray1[length1 - 1] - '0';
+				int sub2 = length2<1?0:numArray2[length2 - 1] - '0';;
+				t += sub1 + sub2;
+				overf = t/10;
+				t %= 10;
+				length1--;
+				length2--;
+				sum.append((char) (t + '0'));
+				maxlength--;
+			}
+			if (overf == 1) {
+				sum.append('1');
+			}
+			return sum.reverse().toString();
+		}
+	}
+
+
+{% endhighlight %}
+
 
 ----------
