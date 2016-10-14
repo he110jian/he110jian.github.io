@@ -192,7 +192,7 @@ text-align: center;
     padding: 0.4em;
     background-color: #333;
     color: white;
-	word-wrap:break-word;
+white-space: pre-wrap;
   }
 
   #post ul,
