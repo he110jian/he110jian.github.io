@@ -222,9 +222,6 @@ layout: post
 			<mybatis.version>3.3.0</mybatis.version>
 			<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 			<maven.compiler.encoding>UTF-8</maven.compiler.encoding>
-			<!-- log4j日志文件管理包版本 -->
-			<slf4j.version>1.7.7</slf4j.version>
-			<log4j.version>1.2.17</log4j.version>
 		</properties>
 	
 		<dependencies>
@@ -317,13 +314,6 @@ layout: post
 				<version>1.2</version>
 			</dependency>
 			<!-- 日志文件管理包 -->
-			<!-- log start -->
-			<dependency>
-				<groupId>log4j</groupId>
-				<artifactId>log4j</artifactId>
-				<version>${log4j.version}</version>
-			</dependency>
-	
 	
 			<!-- 格式化对象，方便输出日志 -->
 			<dependency>
@@ -332,19 +322,6 @@ layout: post
 				<version>1.1.41</version>
 			</dependency>
 	
-	
-			<dependency>
-				<groupId>org.slf4j</groupId>
-				<artifactId>slf4j-api</artifactId>
-				<version>${slf4j.version}</version>
-			</dependency>
-	
-			<dependency>
-				<groupId>org.slf4j</groupId>
-				<artifactId>slf4j-log4j12</artifactId>
-				<version>${slf4j.version}</version>
-			</dependency>
-			<!-- log end -->
 			<!-- 映入JSON -->
 			<dependency>
 				<groupId>com.fasterxml.jackson.core</groupId>
@@ -417,6 +394,7 @@ layout: post
 		</build>
 	
 	</project>
+
 
 7.多数据源配置
 
@@ -536,5 +514,110 @@ layout: post
 			proxy-target-class="true" />
 	
 	</beans>
+
+8、log
+
+pom
+
+	<dependency>
+		<groupId>org.apache.logging.log4j</groupId>
+		<artifactId>log4j-core</artifactId>
+		<version>2.5</version>
+	</dependency>
+	<dependency>
+		<groupId>org.apache.logging.log4j</groupId>
+		<artifactId>log4j-api</artifactId>
+		<version>2.5</version>
+	</dependency>
+	<dependency>
+		<groupId>org.apache.logging.log4j</groupId>
+		<artifactId>log4j-slf4j-impl</artifactId>
+		<version>2.5</version>
+	</dependency>
+
+log4j2.xml 
+
+	<?xml version="1.0" encoding="UTF-8"?>
+	<Configuration status="off">
+		<properties>
+			<property name="LOG_HOME">/jsj_logs</property>
+		</properties>
+	
+		<Appenders>
+			<Console name="Console" target="SYSTEM_OUT">
+				<PatternLayout
+					pattern="[%date{yyyy-MM-dd HH:mm:ss.SSS}][%thread][%level][%class][%line]:%message%n" />
+			</Console>
+	
+			<RollingRandomAccessFile name="infoLog"
+				fileName="${LOG_HOME}/app.log" filePattern="${LOG_HOME}/info.%d{yyyy-MM-dd}.log.gz"
+				append="true">
+				<PatternLayout
+					pattern="[%date{yyyy-MM-dd HH:mm:ss.SSS}][%thread][%level][%class][%line]:%message%n" />
+				<Filters>
+					<ThresholdFilter level="info" onMatch="ACCEPT"
+						onMismatch="NEUTRAL" />
+				</Filters>
+				<Policies>
+					<TimeBasedTriggeringPolicy interval="1"
+						modulate="true" />
+				</Policies>
+			</RollingRandomAccessFile>
+			<RollingRandomAccessFile name="warnLog"
+				fileName="${LOG_HOME}/warn.log" filePattern="${LOG_HOME}/warn.%d{yyyy-MM-dd}.log.gz"
+				append="true">
+				<Filters>
+					<ThresholdFilter level="error" onMatch="DENY"
+						onMismatch="NEUTRAL" />
+					<ThresholdFilter level="warn" onMatch="ACCEPT"
+						onMismatch="DENY" />
+				</Filters>
+				<PatternLayout
+					pattern="[%date{yyyy-MM-dd HH:mm:ss.SSS}][%thread][%level][%class][%line]:%message%n" />
+				<Policies>
+					<TimeBasedTriggeringPolicy interval="1"
+						modulate="true" />
+				</Policies>
+			</RollingRandomAccessFile>
+			<RollingRandomAccessFile name="errorLog"
+				fileName="${LOG_HOME}/error.log" filePattern="${LOG_HOME}/error.%d{yyyy-MM-dd}.log.gz"
+				append="true">
+				<Filters>
+					<ThresholdFilter level="ERROR" onMatch="ACCEPT"
+						onMismatch="DENY" />
+				</Filters>
+				<PatternLayout
+					pattern="[%date{yyyy-MM-dd HH:mm:ss.SSS}][%thread][%level][%class][%line]:%message%n" />
+				<Policies>
+					<TimeBasedTriggeringPolicy interval="1"
+						modulate="true" />
+				</Policies>
+			</RollingRandomAccessFile>
+	
+			<Cat name="catAppender">
+				<PatternLayout
+					pattern="[%date{yyyy-MM-dd HH:mm:ss.SSS}][%thread][%level][%class][%line]:%message%n" />
+			</Cat>
+		</Appenders>
+	
+		<Loggers>
+			<!-- 第三方的软件日志级别 --> 
+	        <logger name="org.springframework.core" level="info">  
+	        </logger>  
+	        <logger name="org.springframework.beans" level="info">  
+	        </logger>  
+	        <logger name="org.springframework.context" level="info">  
+	        </logger>  
+	        <logger name="org.springframework.web" level="info">  
+	        </logger>  
+	
+			<!-- 剩余其他的日志级别 -->
+			<Root level="DEBUG">
+				<AppenderRef ref="infoLog" />
+				<AppenderRef ref="Console" />
+				<AppenderRef ref="catAppender" />
+			</Root>
+		</Loggers>
+	</Configuration> 
 
 ----------
