@@ -1,0 +1,121 @@
+---
+layout: post
+---
+
+<h2>{{ page.title }}</h2>
+<p class='meta'>{{ page.date | date_to_string }} - NanJing</p>
+----------
+
+### java long(64bit) ###
+
+1.第三大数
+
+	package thirdMaximumNumber;
+	/*
+	 * Given a non-empty array of integers, 
+	 * return the third maximum number in this array. 
+	 * If it does not exist, return the maximum number. 
+	 * The time complexity must be in O(n).
+	 * */
+	public class Solution {
+	
+		public int thirdMax(int[] nums) {
+			long m = (long)Integer.MIN_VALUE-1;
+			long max1 = m;
+			long max2 = max1;
+			long max3 = max1;
+			for(int num:nums)
+			{
+				if(num>max1)
+				{
+					max3 = max2;
+					max2 = max1;
+					max1 = num;
+				}
+				else if(max1>num && num>max2)
+				{
+					max3 = max2;
+					max2 = num;
+				}
+				else if(max2 > num && num > max3)
+				{
+					max3 = num;
+				}
+			}
+			
+			return (int)((max3==m)?max1:max3);
+		}
+	}
+
+3.splitArrayLargestSum
+
+		package splitArrayLargestSum;
+	
+	/*Input:
+	nums = [7,2,5,10,8]
+	m = 2
+	
+	Output:
+	18
+	
+	Explanation:
+	There are four ways to split nums into two subarrays.
+	The best way is to split it into [7,2,5] and [10,8],
+	where the largest sum among the two subarrays is only 18.
+	*/
+	
+	public class Solution {
+		
+	    public int splitArray(int[] nums, int m) {
+	    	long max = 0L;
+	    	long sum=0L;
+	    	for(int num:nums)
+	    	{
+	    		sum += num;
+	    		max = max<num?num:max;
+	    	}
+	    	max = binarySplit(nums, m, max, sum);
+	    	
+	    	return (int) max;
+	    }
+		
+	    public long binarySplit(int[] nums, int m, long low, long high) {
+	    	
+	    	long mid = 0;
+	    	while(low<high)
+	    	{
+	    		mid = low+(high-low)/2;
+	    		if(valid(nums,m,mid))
+	    		{
+	    			high = mid;
+	    		}
+	    		else
+	    		{
+	    			low = mid+1;
+	    		}
+	    	}
+	    	
+	    	return high;
+	    	
+	    }
+	    
+	    public boolean valid(int[] nums, int m, long max)
+	    {
+	    	long cur = 0;
+	    	int count = 1;
+	    	for(int num:nums)
+	    	{
+	    		cur += num;
+	    		if(cur>max)
+	    		{
+	    			cur = num;
+	    			count++;
+	    			if(count>m)
+	    				return false;
+	    		}
+	    	}
+	    	return true;
+	    }
+	}
+
+----------
