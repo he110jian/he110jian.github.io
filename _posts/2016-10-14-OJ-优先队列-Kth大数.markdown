@@ -6,6 +6,35 @@ layout: post
 <p class='meta'>{{ page.date | date_to_string }} - NanJing</p>
 ----------
 
+### 队列，栈###
+
+{% highlight java %}
+
+	Stack<Integer> si = new Stack<Integer>();
+	si.push(1);
+	si.pop();
+	si.peek();
+
+	Queue<Integer> li = new LinkedList<Integer>();
+	li.offer(1);
+	li.poll();
+
+	Set<Integer> si = new HashSet<Integer>();
+	si.add(1);
+	si.add(2);
+	Iterator it = si.iterator();
+	while (it.hasNext()) {
+		Integer o = (Integer) it.next();
+		System.out.println(o);
+	}
+	
+	Map<String, String> mi = new HashMap<String, String>();
+	mi.put("name", "jane");
+	mi.get("name");
+
+{% endhighlight %}
+
+
 ### LeetCode - 215 ###
 
 {% highlight java %}
