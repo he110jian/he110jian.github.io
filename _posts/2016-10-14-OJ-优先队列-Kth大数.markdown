@@ -104,5 +104,52 @@ layout: post
 
 {% endhighlight %}
 
+### LeetCode - 415 ###
+
+{% highlight java %}
+
+	package queueReconstructionByHeight;
+	
+	import java.util.ArrayList;
+	import java.util.Comparator;
+	import java.util.List;
+	import java.util.PriorityQueue;
+	import java.util.Queue;
+	
+	public class Solution {
+	
+		public static Comparator<int[]> myCompare = new Comparator<int[]>() {
+	
+			@Override
+			public int compare(int[] c1, int[] c2) {
+				return c1[0]==c2[0]?c1[1]-c2[1]:c2[0]-c1[0];
+			}
+		};
+	
+		public int[][] reconstructQueue(int[][] people) {
+	
+			Queue<int[]> heap = new PriorityQueue<int[]>(people.length, myCompare);
+	//		Arrays.sort(people, myCompare);
+			
+			for(int[] p: people)
+			{
+				heap.add(p);
+			}
+			
+			List<int[]> rest = new ArrayList<int[]>();
+			
+			while(!heap.isEmpty())
+			{
+				int[] t = heap.poll();
+				rest.add(t[1], t);
+			}
+	
+			return rest.toArray(new int[people.length][]);
+		}
+	}
+
+
+
+{% endhighlight %}
 
 ----------

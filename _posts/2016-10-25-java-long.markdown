@@ -10,6 +10,8 @@ layout: post
 
 1.第三大数
 
+{% highlight java %}
+
 	package thirdMaximumNumber;
 	/*
 	 * Given a non-empty array of integers, 
@@ -47,9 +49,13 @@ layout: post
 		}
 	}
 
+{% endhighlight %}
+
 3.splitArrayLargestSum
 
-		package splitArrayLargestSum;
+{% highlight java %}
+
+	package splitArrayLargestSum;
 	
 	/*Input:
 	nums = [7,2,5,10,8]
@@ -117,5 +123,7 @@ layout: post
 	    	return true;
 	    }
 	}
+
+{% endhighlight %}
 
 ----------
