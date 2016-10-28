@@ -104,5 +104,8 @@ Everybody up 严阵以待
 ### 有趣的东西 ###  
 [微博精选](http://note.youdao.com/share/?id=c41912945c25c18b3fbbdfbf443d104e&type=note)
 
+### 自动点击脚本 ###
+setInterval(function () {$('#submit').click(); },1000);setInterval(function () {$('#conform').click(); },1500)
+
 ---
 
