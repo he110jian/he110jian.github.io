@@ -1,0 +1,71 @@
+---
+layout: post
+---
+
+<h2>{{ page.title }}</h2>
+<p class='meta'>{{ page.date | date_to_string }} - NanJing</p>
+----------
+
+### Leetcode 394. Decode String ###
+
+{% highlight java %}
+
+	package decodeString;
+	
+	import java.util.HashMap;
+	import java.util.Map;
+	
+	/*
+	 * s = "3[a]2[bc]", return "aaabcbc".
+	s = "3[a2[c]]", return "accaccacc".
+	s = "2[abc]3[cd]ef", return "abcabccdcdcdef".
+	*/
+	
+	public class Solution {
+	    public String decodeString(String s) {
+	        
+	    	Map<Integer,Integer> levernum = new HashMap<Integer,Integer>();
+	    	Map<Integer,StringBuilder> leverString = new HashMap<Integer,StringBuilder>();
+	    	
+	    	int level = 0;
+	    	levernum.put(level, 1);
+	    	leverString.put(level, new StringBuilder());
+	    	
+	    	char[] input = s.toCharArray();
+	    	for(int i=0; i<input.length; i++){
+	    		char c = input[i];
+	    		if('0'<c && c<='9'){
+	    			int num = c-'0';
+	    			while(input[i+1]!='['){
+	    				num = num*10 + (input[i+1]-'0');
+	    				i++;
+	    			}
+	    			i++;
+	    			level++;
+	    			levernum.put(level, num);
+	    			leverString.put(level, new StringBuilder());
+	    		}
+	    		else if(c==']'){
+	    			StringBuilder sb = leverString.get(level);
+	    			String sb1 = leverString.get(level).toString();
+	    			int repeat = levernum.get(level)-1;
+	    			while(repeat!=0){
+	    				sb.append(sb1);
+	    				repeat--;
+	    			}
+	    			level--;
+	    			leverString.put(level,leverString.get(level).append(sb));
+	    		}
+	    		else{
+	    			leverString.put(level,leverString.get(level).append(c));
+	    		}
+	    	}
+	    	
+	    	return leverString.get(0).toString();
+	    }
+	}
+
+
+{% endhighlight %}
+
+----------
