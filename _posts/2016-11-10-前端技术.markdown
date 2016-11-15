@@ -1,0 +1,102 @@
+---
+layout: post
+---
+
+<h2>{{ page.title }}</h2>
+<p class='meta'>{{ page.date | date_to_string }} - NanJing</p>
+----------
+
+### jquery ###
+
+	$("#cpcode").removeAttr("disabled");
+	$("#cpcode").attr("disabled","");
+
+	$("#groupFiltera").css("visibility","hidden");
+	$("#groupFiltera").css("visibility","visible");
+
+	$(".confirm").click(function() {
+		$(".shade").hide();
+		$(".change_content1").hide();
+	});
+
+	//$("#dataList tr[name='checkItem']:.trSelected")
+	var $checkBox = $("#dataList .trSelected");
+
+###seajs模块化封装js###
+
+封装jquery  
+
+	define(function () {
+	
+	   //这里放置jquery代码 把你喜欢的jquery版本放进来就好了 
+	
+	
+	return $.noConflict();
+	});
+
+引用：
+
+	define(function (require, exports, module) {
+	    var $ = require('./js/jquery');
+	  
+	
+	   // $(document).ready(function () {
+	     //   $("tr").wyhinterlaced({ "odd": "red", "even": "blue" });
+	     //   $("tr").wyhhover();
+	   // })
+	});
+
+自定义类封装：  
+
+	define(function (require, exports, module) {
+
+    var $ = require("../js/jquery");
+
+
+    var weekday = new Array(7)
+    weekday[0] = "星期一";
+    weekday[1] = "星期二";
+    weekday[2] = "星期三";
+    weekday[3] = "星期四";
+    weekday[4] = "星期五";
+    weekday[5] = "星期六";
+    weekday[6] = "星期日";
+
+    function GetType(arg) {
+	...
+	}
+	exports.GetTime = GetTime;
+	})
+
+调用：
+
+	define(function (require, exports, module) {
+	    var $ = require('./js/jquery');
+	    var a=require('./js/time');
+	
+	    alert(a.GetTime(3));
+	});
+
+jquery插件模块化
+
+	define(function(require) { 
+
+	return function(jQuery) {
+	...
+	    }//end of function
+
+	});
+
+调用：
+
+	define(function (require, exports, module) {
+	    var $ = require('./js/jquery');
+	    require('./js/jquery_tr')($);//共享给jquery
+	
+	    $(document).ready(function () {
+	        $("tr").wyhinterlaced({ "odd": "red", "even": "blue" });
+	        $("tr").wyhhover();
+	    })
+	});
+
+----------
