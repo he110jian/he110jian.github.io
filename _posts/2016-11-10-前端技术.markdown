@@ -8,6 +8,7 @@ layout: post
 
 ### jquery ###
 
+	//添加样式
 	$("#cpcode").removeAttr("disabled");
 	$("#cpcode").attr("disabled","");
 
@@ -22,9 +23,19 @@ layout: post
 	//$("#dataList tr[name='checkItem']:.trSelected")
 	var $checkBox = $("#dataList .trSelected");
 
+	//css选择器
+	#id
+	.class
 	.class1.class2{}
 	div p{}
 	.class2, class2{}
+	
+	append() - 在被选元素的结尾插入内容
+	prepend() - 在被选元素的开头插入内容
+	after() - 在被选元素之后插入内容
+	before() - 在被选元素之前插入内容
+	
+	$().remove()
 
 ###seajs模块化封装js###
 
