@@ -22,6 +22,10 @@ layout: post
 	//$("#dataList tr[name='checkItem']:.trSelected")
 	var $checkBox = $("#dataList .trSelected");
 
+	.class1.class2{}
+	div p{}
+	.class2, class2{}
+
 ###seajs模块化封装js###
 
 封装jquery  
