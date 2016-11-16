@@ -34,8 +34,218 @@ layout: post
 	prepend() - 在被选元素的开头插入内容
 	after() - 在被选元素之后插入内容
 	before() - 在被选元素之前插入内容
-	
+	html();
+	$("#dataList").empty();
 	$().remove()
+
+	//获取值
+	$("#tr").attr("data-prid");
+	$("#input").val();
+
+	//遍历
+	var $checkBox = $("#dataList tr[name='checkItem']:.trSelected");
+	var procIds = [];
+	$checkBox.each(function() {
+		procIds.push($(this).attr("data-procid"));
+	});
+
+	//绑定事件
+	$("#modify").click(_redobd);
+	$(".confirm").click(function() {
+		$(".shade").fadeOut(500);
+		$(".pass_content").fadeOut(500);
+		_resendcommit();
+	});
+	$("#bdtypecode").off('change').on('change',_bdservtypeChange);
+	$('.searchbar input').keypress(function (e) {
+    	if (e.which == 13) {
+			_queryData();
+		}
+	});
+
+	//显示 隐藏
+	fadeIn(500);
+	fadeOut(500);
+	show()
+	hide()
+
+####CSS####
+
+	//css控制内容不超宽度
+	td { 
+		width:50px; 
+		white-space:nowrap; 
+	    text-overflow:ellipsis; 
+	    overflow: hidden; 
+    }
+
+	//遮罩
+	.shade {
+	    display: none;
+	    width: 100%;
+	    height: 100%;
+	    position: fixed;
+	    top: 0;
+	    left: 0;
+	    background-color: #000;
+	    opacity: 0.6;
+	    filter: alpha(opacity=60);
+	    -ms-filter: "alpha(opacity=60)";
+	    z-index: 999;
+	}
+
+	//盒子模型
+	//定位
+	div、h1 或 p 元素常常被称为块级元素。这意味着这些元素显示为
+    一块内容，即“块框”。与之相反，span 和 strong 等元素称为“行
+    内元素”，这是因为它们的内容显示在行中，即“行内框”。    
+    CSS 有三种基本的定位机制：普通流、浮动和绝对定位。
+    除非专门指定，否则所有框都在普通流中定位。也就是说，普通流中
+    的元素的位置由元素在 (X)HTML 中的位置决定。
+    CSS position 属性：
+    static   relative     absolute   fixed
+
+    css相对定位
+    绝对定位使元素的位置与文档流无关，因此不占据空间。这一点与相
+    对定位不同，相对定位实际上被看作普通流定位模型的一部分，因为
+    元素的位置相对于它在普通流中的位置。
+    
+    css浮动
+    浮动的框可以向左或向右移动，直到它的外边缘碰到包含框或另一个
+    浮动框的边框为止。
+    由于浮动框不在文档的普通流中，所以文档的普通流中的块框表现得
+    就像浮动框不存在一样。
+    
+    inline：块级元素转行内元素
+    block：1、隐藏元素显示2、转块级元素
+    inline-block：两者都包含
+
+####js数组####
+	var colors = ["abc", "b", "d"];
+	for(var i = 0; i < arr.length; i++){//数组长度多长，就遍历多少次。  循环变量作为数组的下标
+	  console.log(arr[i]);
+	}
+	for (var index in arr) {
+	  console.log(num);  //循环输出： 0 1 2 3 4 5
+	}
+	//这里var 关键字也是可以省略的，但是不建议省略。
+	for(i in arr){
+	  console.log(arr[i]);
+	}
+
+####数组转换####
+	<script type="text/javascript">
+	  var arr = [50, 20, 10, 5, 15, 6];
+	  alert(arr.toString());  //  50,20,10,5,15,6
+	  alert(arr);  //  50,20,10,5,15,6   当把一个对象直接给alert，则会调用这个对象的toString方法，然后再输出。
+	</script>	
+
+	<script type="text/javascript">
+	    var arr = [50, 20, 10, 5, 15, 6];
+	    alert(arr.join(","));   //  50,20,10,5,15,6
+	</script>
+
+####栈操作数组####
+	<script type="text/javascript">
+	  var arr = ["张三", "李四", "王五"];
+	  //向栈中添加元素(最后添加的元素肯定在栈顶)   数组中的元素："张三", "李四", "王五", "志玲"   
+	  var len = arr.push("志玲");   //push方法返回添加成功后的数组的长度
+	  alert(len);  // 弹出：4
+	  arr.push("a", "b");  //也可以向在push方法中传入多个参数，这样每个参数都会添加到数组中。  栈顶元素是  "b"
+	
+	  //pop出栈，一次只能出栈一个元素
+	  var item = arr.pop();  //把栈顶的元素从栈(数组)中移除。并返回移除的这个元素
+	  alert(item); // 弹出：b
+	</script>
+	
+####队列操作数组####
+	<script type="text/javascript">
+	  //把arr当做队列对待，那么 队列头部元素就是 "张三", 队尾元素就是 "王五"
+	  var arr = ["张三", "李四", "王五"];
+	  var firstItem = arr.shift();  //把队首元素从队列中移除，并返回移除的这个元素
+	  alert(firstItem); //张三
+	  alert(arr);  // 李四, 王五
+	  var len = arr.unshift("志玲");  //向队列头部添加元素，并返回添加成功后队列(数组)的长度
+	  alert("数组长度：" + len);  // 数组长度：3
+	  alert(arr);  // 志玲, 李四, 王五
+	  arr.unshift("a", "b");
+	  alert(arr);  // a, b, 志玲, 李四, 王五
+	</script>
+
+####js数组API####
+	//倒置
+	<script type="text/javascript">     
+	    var arr = ["张三", "李四", "王五"];
+	    alert("数组倒置前：" + arr); 
+	    //对数组元素进行倒置。
+	    arr.reverse();  
+	    alert("数组倒置后：" + arr);  
+	</script>
+
+	//查找
+	<script type="text/javascript">     
+	    var arr = ["张三", "张三", "李四", "王五", "张三", "李四", "王五"];
+	    alert(arr.indexOf("张三"));  // 0
+	    alert(arr.lastIndexOf("张三"));  // 4
+	</script>
+	
+	//合并
+	var newArray = arr1.contact(arrayX,arrayX,……,arrayX)
+	
+	//截取
+	<script type="text/javascript">     
+	    var arr1 = ["a", "b", "c", "d", "e", "f"];
+	    // 从下标为0的位置开始截取，截取到下标2，但是不包括下标为2的元素. 原数组没有任何的变化
+	    var newArr = arr1.slice(0, 2);
+	    alert(newArr);// a, b
+	    alert(arr1.slice(1, 4)); // b,c,d
+	    //从下标为2的元素开始截取，一直到最后一个元素
+	    alert(arr1.slice(2));  //c,d,e,f
+	    //从倒数第5个元素，截取到倒数第2个
+	    alert(arr1.slice(-5, -2)); // b c d
+	</script>
+	
+	//删除
+	<script type="text/javascript">     
+	    var arr1 = ["a", "b", "c", "d", "e", "f"];
+	    //因为第2个参数不为0，所以表示删除元素：从小标为1的位置开始删除，共删除2个元素。(2个中包括下标为1的元素)
+	    var deleted = arr1.splice(1, 2);    //返回值为删除的元素组成的数组
+	    //原数组
+	    alert(arr1);  // a,d,e,f
+	    alert(deleted); // b,c
+	</script>
+	//插入
+	<script type="text/javascript">     
+	    var arr1 = ["a", "b", "c", "d", "e", "f"];
+	    //因为第2参数为0，所以表示添加元素：从下标为1的位置插入元素。其余的元素会自动向后移动
+	    var v = arr1.splice(1, 0, "m", "n");    // 因为是添加元素，所以返回的数组长度为 0
+	    alert(v.length);  // 0
+	    alert(arr1);    // a,m,n,b,c,d,e,f
+	</script>
+	//删除
+	<script type="text/javascript">     
+	    var arr1 = ["a", "b", "c", "d", "e", "f"];
+	    //因为第2个参数不为0，所以表示删除元素：从小标为1的位置开始删除，共删除2个元素。(2个中包括下标为1的元素)
+	    var deleted = arr1.splice(1, 2);    //返回值为删除的元素组成的数组
+	    //原数组
+	    alert(arr1);  // a,d,e,f
+	    alert(deleted); // b,c
+	</script>
+
+	//排序
+	function sortAsc(num1, num2){
+    	return num1 - num2;
+	}
+    var arr2 = [10, 8, 6, 20, 30, 15];
+    arr2.sort(sortAsc);
+
+####js 对象####
+
+	//http传参数
+	var o = {}; 
+	o.name = "Joey"; 
+	o.age = "27"; 
+	o.job = "ITE"; 
 
 ###seajs模块化封装js###
 
@@ -113,5 +323,38 @@ jquery插件模块化
 	        $("tr").wyhhover();
 	    })
 	});
+
+###前端优化###
+1、请求优化  
+
+- 图片延迟加载（尽量减少加载资源）
+- ajax局部加载数据
+- 预加载（判断可能要的资源，尽量去提前多加载）
+
+2、资源优化
+
+- 资源压缩(uglify-js,clean-css) 
+	- HTTP压缩，我们可以在web服务器内设置压缩输出的内容
+	- 对javascript代码，css样式代码进行语法压缩，减少文件大小
+
+- 资源合并
+	- 可以把多个脚本合并到一个js文件内，然后统一引用它就能减少http请求
+	- 也可以在web服务器内做了处理，请求多个文件，会自动合并
+
+- 图片合并csssprite 
+- iconfont 
+- 引用优化（引用css放在<head>内，引用js放在</body>结束标签前）
+- 单独域名存放资源 
+
+3、缓存
+	
+- 离线缓存（manifest） 
+- 本地存储localStorage
+
+
+4、其他
+
+- css3替换js动画
+- 替换flash
 
 ----------
