@@ -16,6 +16,8 @@ layout: post
 	$("#groupFiltera").css("visibility","hidden");
 	$("#groupFiltera").css("visibility","visible");
 
+	$().toggleClass("on")
+
 	$(".confirm").click(function() {
 		$(".shade").hide();
 		$(".change_content1").hide();
