@@ -125,7 +125,7 @@ layout: post
     block：1、隐藏元素显示2、转块级元素
     inline-block：两者都包含
 
-{% end highlight %}
+{% endhighlight %}
 
 ###js数组###
 
@@ -254,7 +254,7 @@ layout: post
     var arr2 = [10, 8, 6, 20, 30, 15];
     arr2.sort(sortAsc);
 
-{% end highlight %}
+{% endhighlight %}
 
 ###js 对象###
 
@@ -266,13 +266,14 @@ layout: post
 	o.age = "27"; 
 	o.job = "ITE"; 
 
-{% end highlight %}
+{% endhighlight %}
 
 ###seajs模块化封装js###
 
 封装jquery  
 
 {% highlight js %}
+
 	define(function () {
 	
 	   //这里放置jquery代码 把你喜欢的jquery版本放进来就好了 
@@ -280,11 +281,13 @@ layout: post
 	
 	return $.noConflict();
 	});
-{% end highlight %}
+
+{% endhighlight %}
 
 引用：
 
 {% highlight js %}
+
 	define(function (require, exports, module) {
 	    var $ = require('./js/jquery');
 	  
@@ -294,11 +297,13 @@ layout: post
 	     //   $("tr").wyhhover();
 	   // })
 	});
-{% end highlight %}
+
+{% endhighlight %}
 
 自定义类封装：  
 
 {% highlight js %}
+
 	define(function (require, exports, module) {
 
     var $ = require("../js/jquery");
@@ -318,20 +323,26 @@ layout: post
 	}
 	exports.GetTime = GetTime;
 	})
-{% end highlight %}
+
+{% endhighlight %}
 
 调用：
+
 {% highlight js %}
+
 	define(function (require, exports, module) {
 	    var $ = require('./js/jquery');
 	    var a=require('./js/time');
 	
 	    aalert(a.GetTime(3));
 	});
-{% end highlight %}
+
+{% endhighlight %}
 
 jquery插件模块化
+
 {% highlight js %}
+
 	define(function(require) { 
 
 	return function(jQuery) {
@@ -339,10 +350,12 @@ jquery插件模块化
 	    }//end of function
 
 	});
-{% end highligh %}
+
+{% endhighligh %}
 
 调用：
 {% highlight js %}
+
 	define(function (require, exports, module) {
 	    var $ = require('./js/jquery');
 	    require('./js/jquery_tr')($);//共享给jquery
@@ -352,7 +365,9 @@ jquery插件模块化
 	        $("tr").wyhhover();
 	    })
 	});
-{% end highlight %}
+
+{% endhighlight %}
+
 ###前端优化###
 1、请求优化  
 
