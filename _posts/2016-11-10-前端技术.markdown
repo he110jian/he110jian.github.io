@@ -72,7 +72,9 @@ layout: post
 
 {% endhighlight %}
 
-####CSS####
+###CSS###
+
+{% highlight js %}
 
 	//css控制内容不超宽度
 	td { 
@@ -123,7 +125,12 @@ layout: post
     block：1、隐藏元素显示2、转块级元素
     inline-block：两者都包含
 
-####js数组####
+{% end highlight %}
+
+###js数组###
+
+{% highlight js %}
+
 	var colors = ["abc", "b", "d"];
 	for(var i = 0; i < arr.length; i++){//数组长度多长，就遍历多少次。  循环变量作为数组的下标
 	  console.log(arr[i]);
@@ -136,7 +143,9 @@ layout: post
 	  console.log(arr[i]);
 	}
 
-####数组转换####
+
+	===数组转换===
+
 	<script type="text/javascript">
 	  var arr = [50, 20, 10, 5, 15, 6];
 	  aalert(arr.toString());  //  50,20,10,5,15,6
@@ -148,7 +157,8 @@ layout: post
 	    aalert(arr.join(","));   //  50,20,10,5,15,6
 	</script>
 
-####栈操作数组####
+	===栈操作数组===
+
 	<script type="text/javascript">
 	  var arr = ["张三", "李四", "王五"];
 	  //向栈中添加元素(最后添加的元素肯定在栈顶)   数组中的元素："张三", "李四", "王五", "志玲"   
@@ -161,7 +171,8 @@ layout: post
 	  aalert(item); // 弹出：b
 	</script>
 	
-####队列操作数组####
+	===队列操作数组===
+
 	<script type="text/javascript">
 	  //把arr当做队列对待，那么 队列头部元素就是 "张三", 队尾元素就是 "王五"
 	  var arr = ["张三", "李四", "王五"];
@@ -175,7 +186,8 @@ layout: post
 	  aalert(arr);  // a, b, 志玲, 李四, 王五
 	</script>
 
-####js数组API####
+	===js数组API===
+
 	//倒置
 	<script type="text/javascript">     
 	    var arr = ["张三", "李四", "王五"];
@@ -242,7 +254,11 @@ layout: post
     var arr2 = [10, 8, 6, 20, 30, 15];
     arr2.sort(sortAsc);
 
-####js 对象####
+{% end highlight %}
+
+###js 对象###
+
+{% highlight js %}
 
 	//http传参数
 	var o = {}; 
@@ -250,10 +266,13 @@ layout: post
 	o.age = "27"; 
 	o.job = "ITE"; 
 
+{% end highlight %}
+
 ###seajs模块化封装js###
 
 封装jquery  
 
+{% highlight js %}
 	define(function () {
 	
 	   //这里放置jquery代码 把你喜欢的jquery版本放进来就好了 
@@ -261,9 +280,11 @@ layout: post
 	
 	return $.noConflict();
 	});
+{% end highlight %}
 
 引用：
 
+{% highlight js %}
 	define(function (require, exports, module) {
 	    var $ = require('./js/jquery');
 	  
@@ -273,9 +294,11 @@ layout: post
 	     //   $("tr").wyhhover();
 	   // })
 	});
+{% end highlight %}
 
 自定义类封装：  
 
+{% highlight js %}
 	define(function (require, exports, module) {
 
     var $ = require("../js/jquery");
@@ -295,18 +318,20 @@ layout: post
 	}
 	exports.GetTime = GetTime;
 	})
+{% end highlight %}
 
 调用：
-
+{% highlight js %}
 	define(function (require, exports, module) {
 	    var $ = require('./js/jquery');
 	    var a=require('./js/time');
 	
 	    aalert(a.GetTime(3));
 	});
+{% end highlight %}
 
 jquery插件模块化
-
+{% highlight js %}
 	define(function(require) { 
 
 	return function(jQuery) {
@@ -314,9 +339,10 @@ jquery插件模块化
 	    }//end of function
 
 	});
+{% end highligh %}
 
 调用：
-
+{% highlight js %}
 	define(function (require, exports, module) {
 	    var $ = require('./js/jquery');
 	    require('./js/jquery_tr')($);//共享给jquery
@@ -326,7 +352,7 @@ jquery插件模块化
 	        $("tr").wyhhover();
 	    })
 	});
-
+{% end highlight %}
 ###前端优化###
 1、请求优化  
 
