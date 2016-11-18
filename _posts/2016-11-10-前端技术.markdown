@@ -131,6 +131,7 @@ layout: post
 
 ###js数组###
 
+
 {% highlight js %}
 
 	var colors = ["abc", "b", "d"];
