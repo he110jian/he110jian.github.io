@@ -29,6 +29,7 @@ layout: post
 ### grep ###
 >     grep -n keyword filename
 >     grep [tf] filename 含't'或'f'的行
+>     grep -20 ReleaseJF  catalina.out 显示前后20行
 
 ### tar ###
 >     tar -cvf test.tar test/ test2/
