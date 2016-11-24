@@ -128,6 +128,7 @@ ${#var} 变量长度
 >     head -n | filename
 
 ### sed ###
+>     sed -n '1000,3000p' filename 显示1000到3000行的数据
 >     sed 's/old/new/g' filename（**替换**）
 >     cat filename | sed 's/old/new/g'
 >     不会改变源文件
