@@ -71,6 +71,12 @@ layout: post
 	fadeOut(500);
 	show()
 	hide()
+	$("p").toggleClass("main");
+	$("p").toggle();
+	jQuery animate() 方法允许您创建自定义的动画。
+	slideDown()
+	slideUp()
+	slideToggle()
 
 {% endhighlight %}
 
