@@ -66,6 +66,10 @@ layout: post
 		}
 	});
 
+	//前端decode：内容选择器
+	$('td:contains(" 女 ")').css('background' , 'blue');
+	$('td:empty').css('background' , 'green'); 
+
 	//显示 隐藏
 	fadeIn(500);
 	fadeOut(500);
