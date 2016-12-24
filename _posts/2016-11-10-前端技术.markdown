@@ -7,363 +7,333 @@ layout: post
 ----------
 
 ### jquery ###
-{% highlight js %}
 
-	//添加样式
-	$("#cpcode").removeAttr("disabled");
-	$("#cpcode").attr("disabled","");
-
-	$("#groupFiltera").css("visibility","hidden");
-	$("#groupFiltera").css("visibility","visible");
-
-	$().toggleClass("on")
-
-	$(".confirm").click(function() {
-		$(".shade").hide();
-		$(".change_content1").hide();
-	});
-
-	//$("#dataList tr[name='checkItem']:.trSelected")
-	var $checkBox = $("#dataList .trSelected");
-
-	//css选择器
-	#id
-	.class
-	.class1.class2{}
-	div p{}
-	.class2, class2{}
-	
-	append() - 在被选元素的结尾插入内容
-	prepend() - 在被选元素的开头插入内容
-	after() - 在被选元素之后插入内容
-	before() - 在被选元素之前插入内容
-	html();
-	$("#dataList").empty();
-	$().remove()
-
-	//获取值
-	$("#tr").attr("data-prid");
-	$("#input").val();
-
-	//遍历
-	var $checkBox = $("#dataList tr[name='checkItem']:.trSelected");
-	var procIds = [];
-	$checkBox.each(function() {
-		procIds.push($(this).attr("data-procid"));
-	});
-
-	//绑定事件
-	$("#modify").click(_redobd);
-	$(".confirm").click(function() {
-		$(".shade").fadeOut(500);
-		$(".pass_content").fadeOut(500);
-		_resendcommit();
-	});
-	$("#bdtypecode").off('change').on('change',_bdservtypeChange);
-	$('.searchbar input').keypress(function (e) {
-    	if (e.which == 13) {
-			_queryData();
-		}
-	});
-
-	//前端decode：内容选择器
-	$('td:contains(" 女 ")').css('background' , 'blue');
-	$('td:empty').css('background' , 'green'); 
-
-	//显示 隐藏
-	fadeIn(500);
-	fadeOut(500);
-	show()
-	hide()
-	$("p").toggleClass("main");
-	$("p").toggle();
-	jQuery animate() 方法允许您创建自定义的动画。
-	slideDown()
-	slideUp()
-	slideToggle()
-
-{% endhighlight %}
+> 	//添加样式
+> 	$("#cpcode").removeAttr("disabled");
+> 	$("#cpcode").attr("disabled","");
+> 
+> 	$("#groupFiltera").css("visibility","hidden");
+> 	$("#groupFiltera").css("visibility","visible");
+> 
+> 	$().toggleClass("on")
+> 
+> 	$(".confirm").click(function() {
+> 		$(".shade").hide();
+> 		$(".change_content1").hide();
+> 	});
+> 
+> 	//$("#dataList tr[name='checkItem']:.trSelected")
+> 	var $checkBox = $("#dataList .trSelected");
+> 
+> 	//css选择器
+> 	#id
+> 	.class
+> 	.class1.class2{}
+> 	div p{}
+> 	.class2, class2{}
+> 	
+> 	append() - 在被选元素的结尾插入内容
+> 	prepend() - 在被选元素的开头插入内容
+> 	after() - 在被选元素之后插入内容
+> 	before() - 在被选元素之前插入内容
+> 	html();
+> 	$("#dataList").empty();
+> 	$().remove()
+> 
+> 	//获取值
+> 	$("#tr").attr("data-prid");
+> 	$("#input").val();
+> 
+> 	//遍历
+> 	var $checkBox = $("#dataList tr[name='checkItem']:.trSelected");
+> 	var procIds = [];
+> 	$checkBox.each(function() {
+> 		procIds.push($(this).attr("data-procid"));
+> 	});
+> 
+> 	//绑定事件
+> 	$("#modify").click(_redobd);
+> 	$(".confirm").click(function() {
+> 		$(".shade").fadeOut(500);
+> 		$(".pass_content").fadeOut(500);
+> 		_resendcommit();
+> 	});
+> 	$("#bdtypecode").off('change').on('change',_bdservtypeChange);
+> 	$('.searchbar input').keypress(function (e) {
+> 	if (e.which == 13) {
+> 			_queryData();
+> 		}
+> 	});
+> 
+> 	//前端decode：内容选择器
+> 	$('td:contains(" 女 ")').css('background' , 'blue');
+> 	$('td:empty').css('background' , 'green'); 
+> 
+> 	//显示 隐藏
+> 	fadeIn(500);
+> 	fadeOut(500);
+> 	show()
+> 	hide()
+> 	$("p").toggleClass("main");
+> 	$("p").toggle();
+> 	jQuery animate() 方法允许您创建自定义的动画。
+> 	slideDown()
+> 	slideUp()
+> 	slideToggle()
 
 ###CSS###
 
-{% highlight js %}
+>     	//css控制内容不超宽度
+>     	td { 
+>     		width:50px; 
+>     		white-space:nowrap; 
+>     	text-overflow:ellipsis; 
+>     	overflow: hidden; 
+>     }
+>     
+>     	//遮罩
+>     	.shade {
+>     	display: none;
+>     	width: 100%;
+>     	height: 100%;
+>     	position: fixed;
+>     	top: 0;
+>     	left: 0;
+>     	background-color: #000;
+>     	opacity: 0.6;
+>     	filter: alpha(opacity=60);
+>     	-ms-filter: "alpha(opacity=60)";
+>     	z-index: 999;
+>     	}
+>     
+>     	//盒子模型
+>     	//定位
+>     div、h1 或 p 元素常常被称为块级元素。这意味着这些元素显示为
+>     一块内容，即“块框”。与之相反，span 和 strong 等元素称为“行
+>     内元素”，这是因为它们的内容显示在行中，即“行内框”。
+>     CSS 有三种基本的定位机制：普通流、浮动和绝对定位。
+>     除非专门指定，否则所有框都在普通流中定位。也就是说，普通流中
+>     的元素的位置由元素在 (X)HTML 中的位置决定。
+>     CSS position 属性：
+>     static   relative absolute   fixed
+>     
+>     css相对定位
+>     绝对定位使元素的位置与文档流无关，因此不占据空间。这一点与相
+>     对定位不同，相对定位实际上被看作普通流定位模型的一部分，因为
+>     元素的位置相对于它在普通流中的位置。
+>     
+>     css浮动
+>     浮动的框可以向左或向右移动，直到它的外边缘碰到包含框或另一个
+>     浮动框的边框为止。
+>     由于浮动框不在文档的普通流中，所以文档的普通流中的块框表现得
+>     就像浮动框不存在一样。
+>     
+>     inline：块级元素转行内元素
+>     block：1、隐藏元素显示2、转块级元素
+>     inline-block：两者都包含
 
-	//css控制内容不超宽度
-	td { 
-		width:50px; 
-		white-space:nowrap; 
-	    text-overflow:ellipsis; 
-	    overflow: hidden; 
-    }
-
-	//遮罩
-	.shade {
-	    display: none;
-	    width: 100%;
-	    height: 100%;
-	    position: fixed;
-	    top: 0;
-	    left: 0;
-	    background-color: #000;
-	    opacity: 0.6;
-	    filter: alpha(opacity=60);
-	    -ms-filter: "alpha(opacity=60)";
-	    z-index: 999;
-	}
-
-	//盒子模型
-	//定位
-	div、h1 或 p 元素常常被称为块级元素。这意味着这些元素显示为
-    一块内容，即“块框”。与之相反，span 和 strong 等元素称为“行
-    内元素”，这是因为它们的内容显示在行中，即“行内框”。    
-    CSS 有三种基本的定位机制：普通流、浮动和绝对定位。
-    除非专门指定，否则所有框都在普通流中定位。也就是说，普通流中
-    的元素的位置由元素在 (X)HTML 中的位置决定。
-    CSS position 属性：
-    static   relative     absolute   fixed
-
-    css相对定位
-    绝对定位使元素的位置与文档流无关，因此不占据空间。这一点与相
-    对定位不同，相对定位实际上被看作普通流定位模型的一部分，因为
-    元素的位置相对于它在普通流中的位置。
-    
-    css浮动
-    浮动的框可以向左或向右移动，直到它的外边缘碰到包含框或另一个
-    浮动框的边框为止。
-    由于浮动框不在文档的普通流中，所以文档的普通流中的块框表现得
-    就像浮动框不存在一样。
-    
-    inline：块级元素转行内元素
-    block：1、隐藏元素显示2、转块级元素
-    inline-block：两者都包含
-
-{% endhighlight %}
 
 ###js数组###
 
-{% highlight js %}
 
-	var colors = ["abc", "b", "d"];
-	for(var i = 0; i < arr.length; i++){//数组长度多长，就遍历多少次。  循环变量作为数组的下标
-	  console.log(arr[i]);
-	}
-	for (var index in arr) {
-	  console.log(num);  //循环输出： 0 1 2 3 4 5
-	}
-	//这里var 关键字也是可以省略的，但是不建议省略。
-	for(i in arr){
-	  console.log(arr[i]);
-	}
-
-
-	===数组转换===
-
-	  var arr = [50, 20, 10, 5, 15, 6];
-	  aalert(arr.toString());  //  50,20,10,5,15,6
-	  aalert(arr);  //  50,20,10,5,15,6   当把一个对象直接给aalert，则会调用这个对象的toString方法，然后再输出。
-
-		var arr = [50, 20, 10, 5, 15, 6];
-	    aalert(arr.join(","));   //  50,20,10,5,15,6
-
-
-	===栈操作数组===
-
-	  var arr = ["张三", "李四", "王五"];
-	  //向栈中添加元素(最后添加的元素肯定在栈顶)   数组中的元素："张三", "李四", "王五", "志玲"   
-	  var len = arr.push("志玲");   //push方法返回添加成功后的数组的长度
-	  aalert(len);  // 弹出：4
-	  arr.push("a", "b");  //也可以向在push方法中传入多个参数，这样每个参数都会添加到数组中。  栈顶元素是  "b"
-	
-	  //pop出栈，一次只能出栈一个元素
-	  var item = arr.pop();  //把栈顶的元素从栈(数组)中移除。并返回移除的这个元素
-	  aalert(item); // 弹出：b
-	
-	===队列操作数组===
-
-	  //把arr当做队列对待，那么 队列头部元素就是 "张三", 队尾元素就是 "王五"
-	  var arr = ["张三", "李四", "王五"];
-	  var firstItem = arr.shift();  //把队首元素从队列中移除，并返回移除的这个元素
-	  aalert(firstItem); //张三
-	  aalert(arr);  // 李四, 王五
-	  var len = arr.unshift("志玲");  //向队列头部添加元素，并返回添加成功后队列(数组)的长度
-	  aalert("数组长度：" + len);  // 数组长度：3
-	  aalert(arr);  // 志玲, 李四, 王五
-	  arr.unshift("a", "b");
-	  aalert(arr);  // a, b, 志玲, 李四, 王五
-
-	===js数组API===
-
-	//倒置  
-	    var arr = ["张三", "李四", "王五"];
-	    aalert("数组倒置前：" + arr); 
-	    //对数组元素进行倒置。
-	    arr.reverse();  
-	    aalert("数组倒置后：" + arr);  
-
-	//查找
-	    var arr = ["张三", "张三", "李四", "王五", "张三", "李四", "王五"];
-	    aalert(arr.indexOf("张三"));  // 0
-	    aalert(arr.lastIndexOf("张三"));  // 4
-	
-	//合并
-	var newArray = arr1.contact(arrayX,arrayX,……,arrayX)
-	
-	//截取 
-	    var arr1 = ["a", "b", "c", "d", "e", "f"];
-	    // 从下标为0的位置开始截取，截取到下标2，但是不包括下标为2的元素. 原数组没有任何的变化
-	    var newArr = arr1.slice(0, 2);
-	    aalert(newArr);// a, b
-	    aalert(arr1.slice(1, 4)); // b,c,d
-	    //从下标为2的元素开始截取，一直到最后一个元素
-	    aalert(arr1.slice(2));  //c,d,e,f
-	    //从倒数第5个元素，截取到倒数第2个
-	    aalert(arr1.slice(-5, -2)); // b c d
-	
-	//删除    
-	    var arr1 = ["a", "b", "c", "d", "e", "f"];
-	    //因为第2个参数不为0，所以表示删除元素：从小标为1的位置开始删除，共删除2个元素。(2个中包括下标为1的元素)
-	    var deleted = arr1.splice(1, 2);    //返回值为删除的元素组成的数组
-	    //原数组
-	    aalert(arr1);  // a,d,e,f
-	    aalert(deleted); // b,c
-
-	//插入  
-	    var arr1 = ["a", "b", "c", "d", "e", "f"];
-	    //因为第2参数为0，所以表示添加元素：从下标为1的位置插入元素。其余的元素会自动向后移动
-	    var v = arr1.splice(1, 0, "m", "n");    // 因为是添加元素，所以返回的数组长度为 0
-	    aalert(v.length);  // 0
-	    aalert(arr1);    // a,m,n,b,c,d,e,f
-
-	//删除
-  
-	    var arr1 = ["a", "b", "c", "d", "e", "f"];
-	    //因为第2个参数不为0，所以表示删除元素：从小标为1的位置开始删除，共删除2个元素。(2个中包括下标为1的元素)
-	    var deleted = arr1.splice(1, 2);    //返回值为删除的元素组成的数组
-	    //原数组
-	   aalert(arr1);  // a,d,e,f
-	   aalert(deleted); // b,c
-
-
-	//排序
-	function sortAsc(num1, num2){
-    	return num1 - num2;
-	}
-    var arr2 = [10, 8, 6, 20, 30, 15];
-    arr2.sort(sortAsc);
-
-{% endhighlight %}
+> 	var colors = ["abc", "b", "d"];
+> 	for(var i = 0; i < arr.length; i++){//数组长度多长，就遍历多少次。  循环变量作为数组的下标
+> 	  console.log(arr[i]);
+> 	}
+> 	for (var index in arr) {
+> 	  console.log(num);  //循环输出： 0 1 2 3 4 5
+> 	}
+> 	//这里var 关键字也是可以省略的，但是不建议省略。
+> 	for(i in arr){
+> 	  console.log(arr[i]);
+> 	}
+> 
+> 	===数组转换===
+> 
+> 	  var arr = [50, 20, 10, 5, 15, 6];
+> 	  aalert(arr.toString());  //  50,20,10,5,15,6
+> 	  aalert(arr);  //  50,20,10,5,15,6   当把一个对象直接给aalert，则会调用这个对象的toString方法，然后再输出。
+> 
+> 		var arr = [50, 20, 10, 5, 15, 6];
+> 	    aalert(arr.join(","));   //  50,20,10,5,15,6
+> 
+> 
+> 	===栈操作数组===
+> 
+> 	  var arr = ["张三", "李四", "王五"];
+> 	  //向栈中添加元素(最后添加的元素肯定在栈顶)   数组中的元素："张三", "李四", "王五", "志玲"   
+> 	  var len = arr.push("志玲");   //push方法返回添加成功后的数组的长度
+> 	  aalert(len);  // 弹出：4
+> 	  arr.push("a", "b");  //也可以向在push方法中传入多个参数，这样每个参数都会添加到数组中。  栈顶元素是  "b"
+> 	
+> 	  //pop出栈，一次只能出栈一个元素
+> 	  var item = arr.pop();  //把栈顶的元素从栈(数组)中移除。并返回移除的这个元素
+> 	  aalert(item); // 弹出：b
+> 	
+> 	===队列操作数组===
+> 
+> 	  //把arr当做队列对待，那么 队列头部元素就是 "张三", 队尾元素就是 "王五"
+> 	  var arr = ["张三", "李四", "王五"];
+> 	  var firstItem = arr.shift();  //把队首元素从队列中移除，并返回移除的这个元素
+> 	  aalert(firstItem); //张三
+> 	  aalert(arr);  // 李四, 王五
+> 	  var len = arr.unshift("志玲");  //向队列头部添加元素，并返回添加成功后队列(数组)的长度
+> 	  aalert("数组长度：" + len);  // 数组长度：3
+> 	  aalert(arr);  // 志玲, 李四, 王五
+> 	  arr.unshift("a", "b");
+> 	  aalert(arr);  // a, b, 志玲, 李四, 王五
+> 
+> 	===js数组API===
+> 
+> 	//倒置  
+> 	    var arr = ["张三", "李四", "王五"];
+> 	    aalert("数组倒置前：" + arr); 
+> 	    //对数组元素进行倒置。
+> 	    arr.reverse();  
+> 	    aalert("数组倒置后：" + arr);  
+> 
+> 	//查找
+> 	    var arr = ["张三", "张三", "李四", "王五", "张三", "李四", "王五"];
+> 	    aalert(arr.indexOf("张三"));  // 0
+> 	    aalert(arr.lastIndexOf("张三"));  // 4
+> 	
+> 	//合并
+> 	var newArray = arr1.contact(arrayX,arrayX,……,arrayX)
+> 	
+> 	//截取 
+> 	    var arr1 = ["a", "b", "c", "d", "e", "f"];
+> 	    // 从下标为0的位置开始截取，截取到下标2，但是不包括下标为2的元素. 原数组没有任何的变化
+> 	    var newArr = arr1.slice(0, 2);
+> 	    aalert(newArr);// a, b
+> 	    aalert(arr1.slice(1, 4)); // b,c,d
+> 	    //从下标为2的元素开始截取，一直到最后一个元素
+> 	    aalert(arr1.slice(2));  //c,d,e,f
+> 	    //从倒数第5个元素，截取到倒数第2个
+> 	    aalert(arr1.slice(-5, -2)); // b c d
+> 	
+> 	//删除    
+> 	    var arr1 = ["a", "b", "c", "d", "e", "f"];
+> 	    //因为第2个参数不为0，所以表示删除元素：从小标为1的位置开始删除，共删除2个元素。(2个中包括下标为1的元素)
+> 	    var deleted = arr1.splice(1, 2);    //返回值为删除的元素组成的数组
+> 	    //原数组
+> 	    aalert(arr1);  // a,d,e,f
+> 	    aalert(deleted); // b,c
+> 
+> 	//插入  
+> 	    var arr1 = ["a", "b", "c", "d", "e", "f"];
+> 	    //因为第2参数为0，所以表示添加元素：从下标为1的位置插入元素。其余的元素会自动向后移动
+> 	    var v = arr1.splice(1, 0, "m", "n");    // 因为是添加元素，所以返回的数组长度为 0
+> 	    aalert(v.length);  // 0
+> 	    aalert(arr1);    // a,m,n,b,c,d,e,f
+> 
+> 	//删除
+>   
+> 	    var arr1 = ["a", "b", "c", "d", "e", "f"];
+> 	    //因为第2个参数不为0，所以表示删除元素：从小标为1的位置开始删除，共删除2个元素。(2个中包括下标为1的元素)
+> 	    var deleted = arr1.splice(1, 2);    //返回值为删除的元素组成的数组
+> 	    //原数组
+> 	   aalert(arr1);  // a,d,e,f
+> 	   aalert(deleted); // b,c
+> 
+> 
+> 	//排序
+> 	function sortAsc(num1, num2){
+>     	return num1 - num2;
+> 	}
+>     var arr2 = [10, 8, 6, 20, 30, 15];
+>     arr2.sort(sortAsc);
 
 ###js 对象###
 
-{% highlight js %}
-
-	//http传参数
-	var o = {}; 
-	o.name = "Joey"; 
-	o.age = "27"; 
-	o.job = "ITE"; 
-
-{% endhighlight %}
+> 	//http传参数
+> 	var o = {}; 
+> 	o.name = "Joey"; 
+> 	o.age = "27"; 
+> 	o.job = "ITE"; 
 
 ###seajs模块化封装js###
 
 封装jquery  
 
-{% highlight js %}
+> 	define(function () {
+> 	
+> 	   //这里放置jquery代码 把你喜欢的jquery版本放进来就好了 
+> 	
+> 	
+> 	return $.noConflict();
+> 	});
 
-	define(function () {
-	
-	   //这里放置jquery代码 把你喜欢的jquery版本放进来就好了 
-	
-	
-	return $.noConflict();
-	});
-
-{% endhighlight %}
 
 引用：
 
-{% highlight js %}
+> 	define(function (require, exports, module) {
+> 	    var $ = require('./js/jquery');
+> 	  
+> 	
+> 	   // $(document).ready(function () {
+> 	     //   $("tr").wyhinterlaced({ "odd": "red", "even": "blue" });
+> 	     //   $("tr").wyhhover();
+> 	   // })
+> 	});
 
-	define(function (require, exports, module) {
-	    var $ = require('./js/jquery');
-	  
-	
-	   // $(document).ready(function () {
-	     //   $("tr").wyhinterlaced({ "odd": "red", "even": "blue" });
-	     //   $("tr").wyhhover();
-	   // })
-	});
-
-{% endhighlight %}
 
 自定义类封装：  
 
-{% highlight js %}
-
-	define(function (require, exports, module) {
-
-    var $ = require("../js/jquery");
-
-
-    var weekday = new Array(7)
-    weekday[0] = "星期一";
-    weekday[1] = "星期二";
-    weekday[2] = "星期三";
-    weekday[3] = "星期四";
-    weekday[4] = "星期五";
-    weekday[5] = "星期六";
-    weekday[6] = "星期日";
-
-    function GetType(arg) {
-	...
-	}
-	exports.GetTime = GetTime;
-	})
-
-{% endhighlight %}
+> 	define(function (require, exports, module) {
+> 
+>     var $ = require("../js/jquery");
+> 
+> 
+>     var weekday = new Array(7)
+>     weekday[0] = "星期一";
+>     weekday[1] = "星期二";
+>     weekday[2] = "星期三";
+>     weekday[3] = "星期四";
+>     weekday[4] = "星期五";
+>     weekday[5] = "星期六";
+>     weekday[6] = "星期日";
+> 
+>     function GetType(arg) {
+> 	...
+> 	}
+> 	exports.GetTime = GetTime;
+> 	})
+> 
 
 调用：
+> 
+> 	define(function (require, exports, module) {
+> 	    var $ = require('./js/jquery');
+> 	    var a=require('./js/time');
+> 	
+> 	    aalert(a.GetTime(3));
+> 	});
 
-{% highlight js %}
-
-	define(function (require, exports, module) {
-	    var $ = require('./js/jquery');
-	    var a=require('./js/time');
-	
-	    aalert(a.GetTime(3));
-	});
-
-{% endhighlight %}
 
 jquery插件模块化
 
-{% highlight js %}
 
-	define(function(require) { 
-
-	return function(jQuery) {
-	...
-	    }//end of function
-
-	});
-
-{% endhighligh %}
+> 	define(function(require) { 
+> 
+> 	return function(jQuery) {
+> 	...
+> 	}//end of function
+> 
+> 	});
+> 
 
 调用：  
-{% highlight js %}
 
-	define(function (require, exports, module) {
-	    var $ = require('./js/jquery');
-	    require('./js/jquery_tr')($);//共享给jquery
-	
-	    $(document).ready(function () {
-	        $("tr").wyhinterlaced({ "odd": "red", "even": "blue" });
-	        $("tr").wyhhover();
-	    })
-	});
+> 	define(function (require, exports, module) {
+> 	    var $ = require('./js/jquery');
+> 	    require('./js/jquery_tr')($);//共享给jquery
+> 	
+> 	    $(document).ready(function () {
+> 	        $("tr").wyhinterlaced({ "odd": "red", "even": "blue" });
+> 	        $("tr").wyhhover();
+> 	    })
+> 	});
 
-{% endhighlight %}
 
 ###前端优化###
 1、请求优化  
@@ -424,9 +394,7 @@ jquery插件模块化
 > 		2、常用的浏览器内核。
 > 		4、String、Array常用方法。
 > 		6、DOM的默认事件、事件模型、事件委托、阻止默认事件、冒泡事件的方式等。
-> 		7、jQuery的bind、live、on、delegate的区别（考察点与上一条重叠，切入点不同）。
-
-304还是要发请求
-cache-control只要不过期就不发请求直接读缓存
+> 		7、jQuery的bind、live、on、delegate的区别（考察点与上一条重叠，切入点不同）
+> 		8、304还是要发请求, cache-control只要不过期就不发请求直接读缓存
 
 ----------
