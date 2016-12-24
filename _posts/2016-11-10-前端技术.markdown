@@ -141,7 +141,6 @@ layout: post
 
 ###js数组###
 
-
 {% highlight js %}
 
 	var colors = ["abc", "b", "d"];
@@ -159,20 +158,16 @@ layout: post
 
 	===数组转换===
 
-	<script type="text/javascript">
 	  var arr = [50, 20, 10, 5, 15, 6];
 	  aalert(arr.toString());  //  50,20,10,5,15,6
 	  aalert(arr);  //  50,20,10,5,15,6   当把一个对象直接给aalert，则会调用这个对象的toString方法，然后再输出。
-	</script>	
 
-	<script type="text/javascript">
-	    var arr = [50, 20, 10, 5, 15, 6];
+		var arr = [50, 20, 10, 5, 15, 6];
 	    aalert(arr.join(","));   //  50,20,10,5,15,6
-	</script>
+
 
 	===栈操作数组===
 
-	<script type="text/javascript">
 	  var arr = ["张三", "李四", "王五"];
 	  //向栈中添加元素(最后添加的元素肯定在栈顶)   数组中的元素："张三", "李四", "王五", "志玲"   
 	  var len = arr.push("志玲");   //push方法返回添加成功后的数组的长度
@@ -182,11 +177,9 @@ layout: post
 	  //pop出栈，一次只能出栈一个元素
 	  var item = arr.pop();  //把栈顶的元素从栈(数组)中移除。并返回移除的这个元素
 	  aalert(item); // 弹出：b
-	</script>
 	
 	===队列操作数组===
 
-	<script type="text/javascript">
 	  //把arr当做队列对待，那么 队列头部元素就是 "张三", 队尾元素就是 "王五"
 	  var arr = ["张三", "李四", "王五"];
 	  var firstItem = arr.shift();  //把队首元素从队列中移除，并返回移除的这个元素
@@ -197,31 +190,25 @@ layout: post
 	  aalert(arr);  // 志玲, 李四, 王五
 	  arr.unshift("a", "b");
 	  aalert(arr);  // a, b, 志玲, 李四, 王五
-	</script>
 
 	===js数组API===
 
-	//倒置
-	<script type="text/javascript">     
+	//倒置  
 	    var arr = ["张三", "李四", "王五"];
 	    aalert("数组倒置前：" + arr); 
 	    //对数组元素进行倒置。
 	    arr.reverse();  
 	    aalert("数组倒置后：" + arr);  
-	</script>
 
 	//查找
-	<script type="text/javascript">     
 	    var arr = ["张三", "张三", "李四", "王五", "张三", "李四", "王五"];
 	    aalert(arr.indexOf("张三"));  // 0
 	    aalert(arr.lastIndexOf("张三"));  // 4
-	</script>
 	
 	//合并
 	var newArray = arr1.contact(arrayX,arrayX,……,arrayX)
 	
-	//截取
-	<script type="text/javascript">     
+	//截取 
 	    var arr1 = ["a", "b", "c", "d", "e", "f"];
 	    // 从下标为0的位置开始截取，截取到下标2，但是不包括下标为2的元素. 原数组没有任何的变化
 	    var newArr = arr1.slice(0, 2);
@@ -231,34 +218,31 @@ layout: post
 	    aalert(arr1.slice(2));  //c,d,e,f
 	    //从倒数第5个元素，截取到倒数第2个
 	    aalert(arr1.slice(-5, -2)); // b c d
-	</script>
 	
-	//删除
-	<script type="text/javascript">     
+	//删除    
 	    var arr1 = ["a", "b", "c", "d", "e", "f"];
 	    //因为第2个参数不为0，所以表示删除元素：从小标为1的位置开始删除，共删除2个元素。(2个中包括下标为1的元素)
 	    var deleted = arr1.splice(1, 2);    //返回值为删除的元素组成的数组
 	    //原数组
 	    aalert(arr1);  // a,d,e,f
 	    aalert(deleted); // b,c
-	</script>
-	//插入
-	<script type="text/javascript">     
+
+	//插入  
 	    var arr1 = ["a", "b", "c", "d", "e", "f"];
 	    //因为第2参数为0，所以表示添加元素：从下标为1的位置插入元素。其余的元素会自动向后移动
 	    var v = arr1.splice(1, 0, "m", "n");    // 因为是添加元素，所以返回的数组长度为 0
 	    aalert(v.length);  // 0
 	    aalert(arr1);    // a,m,n,b,c,d,e,f
-	</script>
+
 	//删除
-	<script type="text/javascript">     
+  
 	    var arr1 = ["a", "b", "c", "d", "e", "f"];
 	    //因为第2个参数不为0，所以表示删除元素：从小标为1的位置开始删除，共删除2个元素。(2个中包括下标为1的元素)
 	    var deleted = arr1.splice(1, 2);    //返回值为删除的元素组成的数组
 	    //原数组
 	   aalert(arr1);  // a,d,e,f
 	   aalert(deleted); // b,c
-	</script>
+
 
 	//排序
 	function sortAsc(num1, num2){
