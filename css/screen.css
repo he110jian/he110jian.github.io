@@ -78,6 +78,7 @@ ul.posts {
     color: #aaa;
     font-family: Monaco, "Courier New", monospace;
     font-size: 80%;
+	float:right;
   }
 
 /*****************************************************************************/
@@ -88,9 +89,9 @@ ul.posts {
 
 .site {
   font-size: 110%;
-  width: 49em;
+  width: 666px;
   margin: 2em auto 2em auto;
-  padding: 1em;
+  padding: 13px;
   text-align:justify;
   border:1px solid #ccc;
   border-width:0 1px;
@@ -194,8 +195,8 @@ right: 0;
     padding: 0.4em;
     background-color: #333;
     color: white;
-white-space: pre-wrap;
-font-size: 1.9em;
+	white-space: pre-wrap;
+	font-size: 1.9em;
   }
 
   #post ul,
