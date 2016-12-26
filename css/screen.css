@@ -170,10 +170,13 @@ padding:5px;
     text-align: center;
     }
 .contactItem{
-  width:32%;
+  width:61%;
   padding:0 0.1em 0 0.1em;
 }
-.contactItem p img{margin:0 auto;}
+.contactItem1{
+  width:35%;
+  padding:0 0.1em 0 0.1em;
+}
 
 .site .footer .contact a {
         color: #FF6100;
