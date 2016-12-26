@@ -116,6 +116,9 @@ right: 0;
 text-align: center;
     margin-top: 10px;
 }
+.paging a,active{
+padding:5px;
+}
 
 .title {
   color: #a00;
