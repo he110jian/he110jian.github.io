@@ -102,22 +102,6 @@ position: absolute;
 top: 0; 
 right: 0;
 }
-@media screen and (max-width:600px) {
-  .site {
-	  background:white;
-     width:94%;
-     margin:auto;
-  }
-  .forkMe{
-  	display:none;
-  }
-  body{
-	background:#f8f8f8;
-  }
-   #post pre {
-	font-size: 1.2em;
-  }
-}
 
 .paging {
 text-align: center;
@@ -258,4 +242,20 @@ font-size: 1.9em;
     height: 12px;
     width: 8px;
     background: #3592DD;
+}
+@media screen and (max-width:600px) {
+  .site {
+	  background:white;
+     width:94%;
+     margin:auto;
+  }
+  .forkMe{
+  	display:none;
+  }
+  body{
+	background:#f8f8f8;
+  }
+   #post pre {
+	font-size: 1.2em;
+  }
 }
