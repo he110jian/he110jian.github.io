@@ -68,6 +68,7 @@ layout: post
 > 	//前端decode：内容选择器
 > 	$('td:contains(" 女 ")').css('background' , 'blue');
 > 	$('td:empty').html('无');
+> 	$("td:contains('0')[innerHTML='0']").removeAttr('name');
 > 	
 > 	$("div span") div下所有span
 > 	$("div > span")div下直接子元素
