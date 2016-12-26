@@ -114,6 +114,9 @@ right: 0;
   body{
 	background:#f8f8f8;
   }
+   #post pre {
+	font-size: 1.2em;
+  }
 }
 
 .paging {
