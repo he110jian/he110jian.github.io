@@ -6,6 +6,10 @@
 
 /* Global Reset */
 
+* {
+  padding: 0;
+}
+
 html, body {
   height: 100%;
 }
@@ -73,6 +77,7 @@ ul.posts {
     color: #aaa;
     font-family: Monaco, "Courier New", monospace;
     font-size: 80%;
+	float:right;
   }
 
 /*****************************************************************************/
