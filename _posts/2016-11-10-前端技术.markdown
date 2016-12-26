@@ -67,8 +67,24 @@ layout: post
 > 
 > 	//前端decode：内容选择器
 > 	$('td:contains(" 女 ")').css('background' , 'blue');
-> 	$('td:empty').css('background' , 'green'); 
-> 
+> 	$('td:empty').html('无');
+> 	
+> 	$("div span") div下所有span
+> 	$("div > span")div下直接子元素
+> 	$("div + p")匹配紧接在div元素后的第一个p元素，同级 
+> 	$("div ~ p")匹配紧接在div元素后的所有p元素 
+> 	$("p:not(.del)").css("color","red");
+> 	:even : 匹配偶数索引值的元素
+> 	:odd  : 匹配奇数索引值
+> 	:eq(index) : 匹配一个给定索引值的元素
+> 	:gt(index) : 匹配所有大于给定索引值的元素
+> 	$("div:has(p)").css("color","red");
+> 	$("div:parent").css("color","red");匹配含有子元素或者文本的元素，与empty相反
+> 	$("div[class!='myDiv']").css("color","red");
+> 	$("div[class^='my']").css("color","red");
+> 	[attribute$=value] : 匹配给定的属性是以某些值结尾的元素
+> 	[attribute*=value] : 匹配给定的属性是以包含某些值的元素
+> 	
 > 	//显示 隐藏
 > 	fadeIn(500);
 > 	fadeOut(500);
