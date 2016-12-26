@@ -69,13 +69,6 @@ layout: post
 > 	$('td:contains(" 女 ")').css('background' , 'blue');
 > 	$('td:empty').html('无');
 > 	$("td:contains('0')[innerHTML='0']").removeAttr('name');
-> 	//精确匹配
-> 	var $option =$("td:contains('null')").map(function(){
-> 		if ($(this).text() == "null") {
-> 			return this;
-> 		}
-> 	);
-> 	$option.html('空');
 > 	
 > 	$("div span") div下所有span
 > 	$("div > span")div下直接子元素
