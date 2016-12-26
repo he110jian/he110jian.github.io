@@ -104,11 +104,15 @@ right: 0;
 }
 @media screen and (max-width:600px) {
   .site {
+	  background:white;
      width:94%;
      margin:auto;
   }
   .forkMe{
   	display:none;
+  }
+  body{
+	background:#f8f8f8;
   }
 }
 
