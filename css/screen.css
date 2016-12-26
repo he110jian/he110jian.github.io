@@ -88,13 +88,12 @@ ul.posts {
 
 .site {
   font-size: 110%;
-  width: 49em;
+  width: 50em;
   margin: 2em auto 2em auto;
-  padding: 1em;
-  text-align:justify;
+  padding: 0.5em;
+  text-align:left;
   border:1px solid #ccc;
   border-width:0 1px;
-  line-height:1.5em;
 }
 .forkMe{
 position: absolute;
