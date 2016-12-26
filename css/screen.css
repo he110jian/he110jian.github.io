@@ -202,6 +202,7 @@ padding:5px;
     color: white;
 white-space: pre-wrap;
 font-size: 1.9em;
+    border-radius: 0.2em;
   }
 
   #post ul,
