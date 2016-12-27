@@ -412,6 +412,7 @@ jquery插件模块化
 - 使用匈牙利命名法，在变量前加$前缀，便于识别出jQuery对象。
 - 使用 Var 链（单 Var 模式）
 - 精简javascript
+
 >     // 糟糕
 >     $first.click(function(){
 >     $first.css('border','1px solid red');
@@ -429,6 +430,7 @@ jquery插件模块化
 - 请使用‘On’，在之前的版本中 on() 就是 bind()
 - 链式操作，jQuery实现方法的链式操作是非常容易的。下面利用这一点。
 - 选择捷径
+
 >     // 糟糕
 >     function initVar($myVar) {
 >     if(!$myVar) {
