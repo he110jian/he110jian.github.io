@@ -105,6 +105,9 @@ layout: post
 > 	slideUp()
 > 	slideToggle()
 
+### cookie ###
+>     document.cookie="docName"+"="+($("input id='docName']").val()+";path=/");
+
 ### CSS ###
 
 >     	//css控制内容不超宽度
@@ -460,6 +463,7 @@ jquery插件模块化
 > 
    
 - 坚持最新版本，摒弃弃用方法（live）
+
 ### 前端面试 ###
  
 - 	弹出层 编辑功能 自动填充表单 获取参数提交 布局两列
