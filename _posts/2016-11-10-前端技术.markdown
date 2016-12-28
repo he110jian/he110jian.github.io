@@ -474,7 +474,6 @@ jquery插件模块化
 - 	js对象
 - 	线上作品
 - 	前端安全
-- 	
 - 	HTML+CSS
 - 		1、盒子模型，块级元素和行内元素特性与区别。
 - 		2、行内块的使用，兼容性解决。
@@ -491,5 +490,10 @@ jquery插件模块化
 - 		6、DOM的默认事件、事件模型、事件委托、阻止默认事件、冒泡事件的方式等。
 - 		7、jQuery的bind、live、on、delegate的区别（考察点与上一条重叠，切入点不同）
 - 		8、304还是要发请求, cache-control只要不过期就不发请求直接读缓存
+
+### 安全 ###
+- sql注入
+- xss [http://www.cnblogs.com/glyx/p/5798096.html](http://www.cnblogs.com/glyx/p/5798096.html)
+- csrf [http://www.cnblogs.com/hyddd/archive/2009/04/09/1432744.html](http://www.cnblogs.com/hyddd/archive/2009/04/09/1432744.html)
 
 ----------
