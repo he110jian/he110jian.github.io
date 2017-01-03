@@ -493,6 +493,7 @@ jquery插件模块化
 
 ### ajax 文件上传、下载 ###
 -	使用ajax，ajax的返回值类型是json,text,html,xml类型，或者可以说ajax的发送，接受都只能是string字符串，不能流类型，所以无法实现文件下载，强用会出现response冲突。
+
 >     var form=$("<form>");//定义一个form表单
 >     form.attr("style","display:none");
 >     form.attr("target","");
