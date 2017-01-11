@@ -53,8 +53,8 @@ layout: post
 >     name='value' 定义
 >     echo $name  引用
 
-### 反引号 ###
-将命令输出赋予变量  
+### 反引号 ###	
+>     将命令输出赋予变量  
 >     now = \`date +%y%m%d\`
 
 ### 重定向 ###
@@ -65,6 +65,7 @@ layout: post
 ### 运算 ###
     [migujsj@migu04 ~]$ expr $[1+2*3]
     7
+	cnt=`expr $cnt + 1`
 
 ### if-then ###
     if command;then
