@@ -134,6 +134,9 @@ layout: post
 >     cat filename | sed 's/old/new/g'
 >     不会改变源文件
 >     sed -n '/_ _/p' main.java 有连续两个空格？(**查找**)
+>     //截取version
+>     $ReqFileTmp = "<Version>1.1.1</Version>"
+>     sed -n '/Version/'p $ReqFileTmp|sed 's/\///g'|sed 's/<Version>//g'
 
 ### 查看系统版本 ###
 >     uname -a
