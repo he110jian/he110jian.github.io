@@ -132,6 +132,7 @@ layout: post
 
 ### sed ###
 [http://coolshell.cn/articles/9104.html](http://coolshell.cn/articles/9104.html)
+
 >     sed -n '1000,3000p' filename 显示1000到3000行的数据
 >     sed 's/old/new/g' filename（**替换**）
 >     cat filename | sed 's/old/new/g'
@@ -147,6 +148,7 @@ layout: post
 
 ### gawk ###
 [http://coolshell.cn/articles/9070.html](http://coolshell.cn/articles/9070.html)
+
 >     gawk -F: '{print $1}' /etc/password
 >     | gawk '{$4="china";print $0}' 改变源文件
 
