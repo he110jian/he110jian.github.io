@@ -30,6 +30,8 @@ layout: post
 >     grep -n keyword filename
 >     grep [tf] filename 含't'或'f'的行
 >     grep -20 ReleaseJF  catalina.out 显示前后20行
+>     // (xxx) xxx-xxxx or xxx-xxx-xxxx. (x means a digit)
+>     cat file.txt | grep -Eo '^(\([0-9]{3}\) ){1}[0-9]{3}-[0-9]{4}$|^([0-9]{3}-){2}[0-9]{4}$'
 
 ### tar ###
 >     tar -cvf test.tar test/ test2/
@@ -129,6 +131,7 @@ layout: post
 >     head -n | filename
 
 ### sed ###
+[http://coolshell.cn/articles/9104.html](http://coolshell.cn/articles/9104.html)
 >     sed -n '1000,3000p' filename 显示1000到3000行的数据
 >     sed 's/old/new/g' filename（**替换**）
 >     cat filename | sed 's/old/new/g'
@@ -143,6 +146,7 @@ layout: post
 >     cat /etc/issue
 
 ### gawk ###
+[http://coolshell.cn/articles/9070.html](http://coolshell.cn/articles/9070.html)
 >     gawk -F: '{print $1}' /etc/password
 >     | gawk '{$4="china";print $0}' 改变源文件
 
@@ -167,6 +171,7 @@ translate，轻量级sed
 
 >     tr ‘a-z’ ‘A-Z’ < word.txt 
 >     tr ‘a-z’ ‘A-Z’ <<< "asda单行字符串" 
+>     cat words.txt | tr -s ' ' '\n' | sort | uniq -c | sort -rn | awk '{print $2" "$1}' //统计词频
 
 ### tailf ###
 >     tailf log.txt | grep exception
