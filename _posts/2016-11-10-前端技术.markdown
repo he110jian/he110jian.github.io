@@ -516,4 +516,42 @@ jquery插件模块化
 - xss [http://www.cnblogs.com/glyx/p/5798096.html](http://www.cnblogs.com/glyx/p/5798096.html)
 - csrf [http://www.cnblogs.com/hyddd/archive/2009/04/09/1432744.html](http://www.cnblogs.com/hyddd/archive/2009/04/09/1432744.html)
 
+### js脚本 ###
+
+    $("[data-ibiz-tag=SBSY]").click();
+    setTimeout(function(){$(window.frames["layui-layer-iframe3"].document).find('.radio-inline')[1].click();
+    $(window.frames["layui-layer-iframe3"].document).find('.ibiz-id-menuitem')[2].click();
+    $(window.frames["layui-layer-iframe3"].document).find('#okbtn').click();},3000)
+    
+    var data = [];
+    var timer = setInterval(function(){
+    if(data.length>1000){
+    console.log(data);
+    clearInterval(timer);
+    }
+    $(".programName").each(function(){data.push($(this).html())});
+    $('.nextPageBtn').click();
+    },3000);
+    
+    data.join("|")
+
+### 应用 ###
+
+    行首添加字段
+    sed 's/^/HEAD/g' test.file
+    行末添加字段
+    sed -i 's/$/,"1234567890"/g' content.csv
+    
+    去除重复
+    echo "获取第一列含id...";
+    cat contentOLD.csv | awk -F "," '{print $1}' > id1.csv;
+    cat contentNEW.csv | awk -F "," '{print $1}' > id2.csv;
+    echo "去重..."
+    sort id1.csv | uniq > id11.csv;
+    sort id2.csv | uniq > id22.csv;
+    echo "获得id1有的id2没有的..."
+    sort id11.csv id2.csv id22.csv | uniq -u > idminus.csv;
+    echo "done!"
+
+
 ----------

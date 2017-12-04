@@ -244,5 +244,21 @@ translate，轻量级sed
 >     [root@centos ~]# echo ${var//o/h}
 >     /hhme/cenths
 
+### curl ###
+
+    curl 118.184.176.13/dyndns/getip
+    
+    curl -l -H "sign:a696009a85ff4e7136df2e37e0ce7bf1" -H "appKey:cdd138c25c8248ccabffd9ff6a984649" -H "bodyType:json"  -X POST -d '{"data":{"reqSrc":"USE","listType":"1","channelId":"","contentType":"10"}}' http://223.111.8.15:9081/aogs_forward/listRecommend
+    
+       service crond start//启动服务
+    　　service crond stop //关闭服务
+    　　service crond restart  //重启服务
+    　　service crond reload   //重新载入配置
+    　　service crond status   //查看服务状态 
+    
+    30 7 * * * /home/migu/sftp/hj/bin/hotUpdate.sh
+    */30 * * * * /home/migu/sftp/hj/bin/importData.sh
+
+
 ---
 
