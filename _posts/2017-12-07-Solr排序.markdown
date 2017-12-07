@@ -7,18 +7,21 @@ layout: post
 
 ---
 
+
+https://www.cnblogs.com/rcfeng/p/4067896.html 
+ 
 http://10.124.0.109:8888/solr/f8564dfb90874dcdad56e48b1d13115c_shard1_replica2/select?q=坦克+坦克*%5E5&sort=score+desc&fl=ID%2CNAME%2Cname_s%2Cscore%2Cdoc&wt=json&indent=true&debugQuery=true&defType=edismax&qf=NAME+name_s%5E10&stopwords=true&lowercaseOperators=true&debug.explain.structured=true
 
-完全匹配使用fq进行过滤即可
-其中name_s为不分词字段，NAME为分词字段
-查询域NAME name_s^10
-name_s字段中包含“坦克”的文档数(docFreq=1, maxDocs=4393217)
-NAME字段中包含“坦克”的文档数 (docFreq=793, maxDocs=4393217)
+完全匹配使用fq进行过滤即可  
+其中name_s为不分词字段，NAME为分词字段  
+查询域NAME name_s^10	 
+name_s字段中包含“坦克”的文档数(docFreq=1, maxDocs=4393217)  
+NAME字段中包含“坦克”的文档数 (docFreq=793, maxDocs=4393217)  
 
-weight(name_s:坦克^10.0 in 32002)，因为name_s为不分词字段，当目标文档的name_s为“坦克”时，得分最大，为其他时无匹配，不得分。
-weight(NAME:坦克 in 32002)，因为NAME为分词字段，当目标文档的NAME包含“坦克”时，匹配并得分，但由于idf太大，此时得分较低。
-weight(name_s:坦克*^10.0 in 32002)，因为name_s为不分词字段，当目标文档的name_s以“坦克”开头时，得分，其他不得分。
-weight(NAME:坦克*^10.0 in 32002)，因为NAME为分词字段，当目标文档的NAME包含“坦克”时，匹配并得分，且得分相同。
+weight(name_s:坦克^10.0 in 32002)，因为name_s为不分词字段，当目标文档的name_s为“坦克”时，得分最大，为其他时无匹配，不得分。  
+weight(NAME:坦克 in 32002)，因为NAME为分词字段，当目标文档的NAME包含“坦克”时，匹配并得分，但由于idf太大，此时得分较低。  
+weight(name_s:坦克*^10.0 in 32002)，因为name_s为不分词字段，当目标文档的name_s以“坦克”开头时，得分，其他不得分。  
+weight(NAME:坦克*^10.0 in 32002)，因为NAME为分词字段，当目标文档的NAME包含“坦克”时，匹配并得分，且得分相同。  
 其中，当包含*时，默认相似度得分仅来源queryNorm，与tf，idf无关。
 
     {
