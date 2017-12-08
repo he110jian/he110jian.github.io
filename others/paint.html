@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" /> 
+<title>paint</title>
+<style>
+    body { background-color:gray;}
+	#c1 { background-color: black;}
+</style>
+<script>
+window.onload = function() {
+	var h = document.documentElement.clientHeight-20;
+    var w = document.documentElement.clientWidth-20;
+    var oC = document.getElementById('c1');
+    oC.setAttribute('width', w);
+	oC.setAttribute('height', h);
+
+	
+	var oCG = oC.getContext('2d');
+	oC.onmousedown = function(ev) {
+		var ev = ev || window.event;
+		oCG.moveTo(ev.clientX-oC.offsetLeft,ev.clientY-oC.offsetTop); 	//ev.clientX-oC.offsetLeft,ev.clientY-oC.offsetTop鼠标在当前画布上X,Y坐标
+		document.onmousemove = function(ev) {
+			var ev = ev || window.event;//获取event对象
+			oCG.lineTo(ev.clientX-oC.offsetLeft,ev.clientY-oC.offsetTop);
+			oCG.strokeStyle="white";
+			oCG.lineWidth = 7;//线条的宽度
+			oCG.stroke();
+		};
+		oC.onmouseup = function() {
+			document.onmousemove = null;
+			document.onmouseup = null;
+		};
+	};
+};
+</script>
+</head>
+ 
+<body>
+	<section>
+		<canvas id="c1" width="1200px" height="600px"> <!--宽高写在html里，写在css里有问题-->
+			<span>该浏览器不支持canvas内容</span> <!--对于不支持canvas的浏览器显示-->
+		</canvas>
+	</section>
+</body>
+</html>
