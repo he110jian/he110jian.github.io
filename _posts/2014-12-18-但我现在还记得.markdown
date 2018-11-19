@@ -96,7 +96,8 @@ Everybody up 严阵以待
 52724 89122 79381 83011 94912  
 
 ### 魔方秘籍 ###
-![](http://www.opendrive.com/files/MzdfNDIyNF9IREEwOA/magicCube.jpg)
+顶层十字: UnRsUnUnRnUnRnUn
+
 
 ### 百度动画 ###
 黑洞，旋转，抖动，反转，跳跃，闪烁，打雷  
@@ -112,3 +113,15 @@ setInterval(function () {$('#submit').click(); },1000);setInterval(function () {
 
 ---
 
+### 听 ###
+http://music.163.com/playlist?id=25261430&userid=33620577
+
+### 看 ###
+老友记
+权力的游戏
+搞笑一家人
+legal high
+我爱我家
+琅琊榜
+伪装者
+铁齿铜牙纪晓岚4
