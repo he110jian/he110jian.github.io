@@ -1,0 +1,77 @@
+---
+layout: post
+---
+
+<h2>{{ page.title }}</h2>
+<p class='meta'>{{ page.date | date_to_string }} - NanJing</p>
+
+---
+
+
+### volatile ###
+1、运行结果并不依赖变量的当前值，或者能够确保只有单一的线程修改变量的值。  
+2、变量不需要与其他的状态变量共同参与不变约束。  
+    
+    volatile static int start = 3;
+    volatile static int end = 6;
+    
+    线程A执行如下代码：
+    while (start < end){
+      //do something
+    }
+    
+    线程B执行如下代码：
+    start+=3;
+    end+=3;
+    
+    这种情况下，一旦在线程A的循环中执行了线程B，start有可能先更新成6，造成了一瞬间 start == end，从而跳出while循环的可能性。
+3、阻止指令重排
+
+    boolean contextReady = false;
+    
+    在线程A中执行:
+    context = loadContext();
+    contextReady = true;
+     
+    在线程B中执行:
+    while( ! contextReady ){ 
+       sleep(200);
+    }
+    doAfterContextReady (context);
+    
+    
+    以上程序看似没有问题。线程B循环等待上下文context的加载，一旦context加载完成，contextReady == true的时候，才执行doAfterContextReady 方法。
+    
+    但是，如果线程A执行的代码发生了指令重排，初始化和contextReady的赋值交换了顺序：
+
+
+### Atomic/AtomicReference ###
+CAS的缺点：
+
+1.CPU开销较大  
+在并发量比较高的情况下，如果许多线程反复尝试更新某一个变量，却又一直更新不成功，循环往复，会给CPU带来很大的压力。
+
+2.不能保证代码块的原子性  
+CAS机制所保证的只是一个变量的原子性操作，而不能保证整个代码块的原子性。比如需要保证3个变量共同进行原子性的更新，就不得不使用Synchronized了。
+
+3.ABA问题  
+1.Java语言CAS底层如何实现？  
+利用unsafe提供了原子性操作方法。
+
+2.什么是ABA问题？怎么解决？  
+当一个值从A更新成B，又更新会A，普通CAS机制会误判通过检测。利用版本号比较可以有效解决ABA问题，如JAVA中AtomicReference类。
+
+### redis ###
+1、缓存穿透  
+2、缓存血崩
+
+- setnx key value	#赋值如果不存在，否则返回0（分布式锁）
+- incr key	#自增（点击量）
+- smembers key	#所有元素
+- spop key count	#随机返回n个元素，并删除
+- srandmember key count	##随机返回n个元素，不删除
+- sdiff #差集
+- sinter #交集
+
+---
+
