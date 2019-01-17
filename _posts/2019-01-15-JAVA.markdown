@@ -11,7 +11,9 @@ layout: post
 ## volatile ##
 1、运行结果并不依赖变量的当前值，或者能够确保只有单一的线程修改变量的值。  
 2、变量不需要与其他的状态变量共同参与不变约束。  
-    
+
+{% highlight java %}
+
     volatile static int start = 3;
     volatile static int end = 6;
     
@@ -23,9 +25,13 @@ layout: post
     线程B执行如下代码：
     start+=3;
     end+=3;
+
+{% endhighlight %}
     
-    这种情况下，一旦在线程A的循环中执行了线程B，start有可能先更新成6，造成了一瞬间 start == end，从而跳出while循环的可能性。
+这种情况下，一旦在线程A的循环中执行了线程B，start有可能先更新成6，造成了一瞬间 start == end，从而跳出while循环的可能性。  
 3、阻止指令重排
+
+{% highlight java %}
 
     boolean contextReady = false;
     
@@ -38,7 +44,8 @@ layout: post
        sleep(200);
     }
     doAfterContextReady (context);
-    
+
+{% endhighlight %}
     
     以上程序看似没有问题。线程B循环等待上下文context的加载，一旦context加载完成，contextReady == true的时候，才执行doAfterContextReady 方法。
     
@@ -74,6 +81,9 @@ CAS机制所保证的只是一个变量的原子性操作，而不能保证整�
 - sinter #交集
 
 ## Optional ##
+
+{% highlight java %}
+
     import java.util.Optional;
      
     public class Java8Tester {
@@ -110,51 +120,77 @@ CAS机制所保证的只是一个变量的原子性操作，而不能保证整�
        }
     }
 
+{% endhighlight %}
+
 ## 函数式接口 ##
 ### Function ###
-	#接受一个输入参数，返回一个结果
+
+{% highlight java %}
+
+	//接受一个输入参数，返回一个结果
 	Function<Integer, String> function1 = (x) -> "result: " + x;
 	function1.apply(6);
 
+{% endhighlight %}
+
 ### Predicate ###
-	#接受一个输入参数，返回布尔值
+
+{% highlight java %}
+
+	//接受一个输入参数，返回布尔值
 	Predicate<Integer> predicate = n -> n%2==0;
-	#实现1
+	//实现1
 	for(Integer n: list) {
          if(predicate.test(n)) {
             System.out.println(n + " ");
          }
       }	
-	#实现2
+	//实现2
     list.stream().filter(predicate).forEach(System.out::println);
-	#实现3
+	//实现3
 	list.stream().filter(n -> n%2==0).forEach(System.out::println);
 
+{% endhighlight %}
+
 ### Consumer ###
-    #接受一个输入参数，无返回值
+
+{% highlight java %}
+
+	//接受一个输入参数，无返回值
 	Consumer<String> consumer = (x) -> System.out.println("consumer: " + x);
 	consumer.accept("Hello");
 
+{% endhighlight %}
+
 ### Supplier ###
-	#无输入参数，返回一个结果
+
+{% highlight java %}
+
+	//无输入参数，返回一个结果
 	Supplier<String> supplier = () -> "Test supplier";
 	supplier.get();
+
+{% endhighlight %}
 
 ## ? super/extend ##
 PECS（product extends customer super）,消费其他通配符集合（添加其他类型数据）  
 [http://www.importnew.com/8966.html](http://www.importnew.com/8966.html)
 
-	#生产
+{% highlight java %}
+
+	//生产
 	public void pushAll(Iterable<? extends E> src){
     	for (E e: src)
     		push(e);
     }
-    #消费
+    //消费
     public void popAll(Collection<? super E> dst){
        if(!isEmpty()){
     		dst.add(pop());
    		}
    	}
+
+{% endhighlight %}
 
 https://www.toutiao.com/c/user/97405874399/#mid=1620255950917639
 
