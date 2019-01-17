@@ -47,11 +47,9 @@ layout: post
 
 {% endhighlight %}
     
-    以上程序看似没有问题。线程B循环等待上下文context的加载，一旦context加载完成，contextReady == true的时候，才执行doAfterContextReady 方法。
-    
-    但是，如果线程A执行的代码发生了指令重排，初始化和contextReady的赋值交换了顺序：
+以上程序看似没有问题。线程B循环等待上下文context的加载，一旦context加载完成，contextReady == true的时候，才执行doAfterContextReady 方法。但是，如果线程A执行的代码发生了指令重排，初始化和contextReady的赋值交换了顺序：
 
-
+  
 ## Atomic/AtomicReference ##
 CAS的缺点：
 
@@ -121,6 +119,7 @@ CAS机制所保证的只是一个变量的原子性操作，而不能保证整�
     }
 
 {% endhighlight %}
+  
 
 ## 函数式接口 ##
 ### Function ###
@@ -132,6 +131,7 @@ CAS机制所保证的只是一个变量的原子性操作，而不能保证整�
 	function1.apply(6);
 
 {% endhighlight %}
+  
 
 ### Predicate ###
 
@@ -152,6 +152,8 @@ CAS机制所保证的只是一个变量的原子性操作，而不能保证整�
 
 {% endhighlight %}
 
+  
+
 ### Consumer ###
 
 {% highlight java %}
@@ -161,6 +163,7 @@ CAS机制所保证的只是一个变量的原子性操作，而不能保证整�
 	consumer.accept("Hello");
 
 {% endhighlight %}
+  
 
 ### Supplier ###
 
@@ -171,6 +174,7 @@ CAS机制所保证的只是一个变量的原子性操作，而不能保证整�
 	supplier.get();
 
 {% endhighlight %}
+  
 
 ## ? super/extend ##
 PECS（product extends customer super）,消费其他通配符集合（添加其他类型数据）  
