@@ -178,16 +178,22 @@ PECS（product extends customer super）,消费其他通配符集合（添加其
     	for (E e: src)
     		push(e);
     }
-    //消费
-    public void popAll(Collection<? super E> dst){
-       if(!isEmpty()){
-    		dst.add(pop());
-   		}
+	//消费
+	public void popAll(Collection<? super E> dst){
+       if(!isEmpty())
+			dst.add(pop());
    	}
 
 {% endhighlight %}
 
+### B/B+树 ###
+[http://blog.jobbole.com/111757/](http://blog.jobbole.com/111757/)
+
+### 设计模式 ###
+http://blog.jobbole.com/111799/
+
 https://www.toutiao.com/c/user/97405874399/#mid=1620255950917639
+
 
 ---
 
