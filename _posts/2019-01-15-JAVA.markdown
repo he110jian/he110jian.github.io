@@ -8,7 +8,7 @@ layout: post
 ---
 
 
-### volatile ###
+## volatile ##
 1、运行结果并不依赖变量的当前值，或者能够确保只有单一的线程修改变量的值。  
 2、变量不需要与其他的状态变量共同参与不变约束。  
     
@@ -45,7 +45,7 @@ layout: post
     但是，如果线程A执行的代码发生了指令重排，初始化和contextReady的赋值交换了顺序：
 
 
-### Atomic/AtomicReference ###
+## Atomic/AtomicReference ##
 CAS的缺点：
 
 1.CPU开销较大  
@@ -61,10 +61,10 @@ CAS机制所保证的只是一个变量的原子性操作，而不能保证整�
 2.什么是ABA问题？怎么解决？  
 当一个值从A更新成B，又更新会A，普通CAS机制会误判通过检测。利用版本号比较可以有效解决ABA问题，如JAVA中AtomicReference类。
 
-### redis ###
+## redis ##
 1、缓存穿透  
-2、缓存血崩
-
+2、缓存血崩  
+3、应用：[https://mp.weixin.qq.com/s/ASzGn4op1ItKJxTn5ZJZHA](https://mp.weixin.qq.com/s/ASzGn4op1ItKJxTn5ZJZHA)  
 - setnx key value	#赋值如果不存在，否则返回0（分布式锁）
 - incr key	#自增（点击量）
 - smembers key	#所有元素
@@ -72,6 +72,91 @@ CAS机制所保证的只是一个变量的原子性操作，而不能保证整�
 - srandmember key count	##随机返回n个元素，不删除
 - sdiff #差集
 - sinter #交集
+
+## Optional ##
+    import java.util.Optional;
+     
+    public class Java8Tester {
+       public static void main(String args[]){
+       
+      Java8Tester java8Tester = new Java8Tester();
+      Integer value1 = null;
+      Integer value2 = new Integer(10);
+    
+      // Optional.ofNullable - 允许传递为 null 参数
+      Optional<Integer> a = Optional.ofNullable(value1);
+    
+      // Optional.of - 如果传递的参数是 null，抛出异常 NullPointerException
+      Optional<Integer> b = Optional.of(value2);
+      System.out.println(java8Tester.sum(a,b));
+       }
+    
+       public Integer sum(Optional<Integer> a, Optional<Integer> b){
+    
+      // Optional.isPresent - 判断值是否存在
+    
+      System.out.println("第一个参数值存在: " + a.isPresent());
+      System.out.println("第二个参数值存在: " + b.isPresent());
+    
+      // Optional.orElse - 如果值存在，返回它，否则返回默认值
+      Integer value1 = a.orElse(new Integer(0));
+
+	  // Optional.ifPresent - 如果存在则调用Consumer方法
+	  b.ifPresent(System.out::println)
+    
+      //Optional.get - 获取值，值需要存在
+      Integer value2 = b.get();
+      return value1 + value2;
+       }
+    }
+
+## 函数式接口 ##
+### Function ###
+	#接受一个输入参数，返回一个结果
+	Function<Integer, String> function1 = (x) -> "result: " + x;
+	function1.apply(6);
+
+### Predicate ###
+	#接受一个输入参数，返回布尔值
+	Predicate<Integer> predicate = n -> n%2==0;
+	#实现1
+	for(Integer n: list) {
+         if(predicate.test(n)) {
+            System.out.println(n + " ");
+         }
+      }	
+	#实现2
+    list.stream().filter(predicate).forEach(System.out::println);
+	#实现3
+	list.stream().filter(n -> n%2==0).forEach(System.out::println);
+
+### Consumer ###
+    #接受一个输入参数，无返回值
+	Consumer<String> consumer = (x) -> System.out.println("consumer: " + x);
+	consumer.accept("Hello");
+
+### Supplier ###
+	#无输入参数，返回一个结果
+	Supplier<String> supplier = () -> "Test supplier";
+	supplier.get();
+
+## ? super/extend ##
+PECS（product extends customer super）,消费其他通配符集合（添加其他类型数据）  
+[http://www.importnew.com/8966.html](http://www.importnew.com/8966.html)
+
+	#生产
+	public void pushAll(Iterable<? extends E> src){
+    	for (E e: src)
+    		push(e);
+    }
+    #消费
+    public void popAll(Collection<? super E> dst){
+       if(!isEmpty()){
+    		dst.add(pop());
+   		}
+   	}
+
+https://www.toutiao.com/c/user/97405874399/#mid=1620255950917639
 
 ---
 
