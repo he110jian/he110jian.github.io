@@ -118,6 +118,9 @@ CAS机制所保证的只是一个变量的原子性操作，而不能保证整�
 
 {% endhighlight %}
 
+### java8函数式编程 ###
+[https://www.jianshu.com/p/538bfe8f814e](https://www.jianshu.com/p/538bfe8f814e)
+
 ### Function ###
 
 {% highlight java %}
@@ -191,6 +194,15 @@ PECS（product extends customer super）,消费其他通配符集合（添加其
 
 ### 设计模式 ###
 http://blog.jobbole.com/111799/
+
+### 双亲委派 ###
+[https://www.jianshu.com/p/5f79217f2e18](https://www.jianshu.com/p/5f79217f2e18)
+
+### git ###
+[https://www.jianshu.com/p/620bca700f61](https://www.jianshu.com/p/620bca700f61)
+![git命令速查](https://upload-images.jianshu.io/upload_images/3251891-bf95c93f50ba5927.png)
+
+
 
 https://www.toutiao.com/c/user/97405874399/#mid=1620255950917639
 
