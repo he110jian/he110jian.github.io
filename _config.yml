@@ -1,5 +1,3 @@
 highlighter: pygments
 mardown: redcarpet
 paginate: 19
-paginate_path: "page:num"
-my_url: "https://he110jian.github.io/"
