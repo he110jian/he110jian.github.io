@@ -12,13 +12,17 @@ title: 美哉仙來
   <div class="paging">
   {% if paginator.total_pages > 1 %}
 	{% if paginator.previous_page %}
-		<a href="/page{{ paginator.previous_page }}/">上一页</a>
+        {% if paginator.previous_page == 1 %}
+		<a href="/">上一页</a>
+        {% else %}
+        <a href="/page{{ paginator.previous_page }}/">上一页</a>
+        {% endif %}
 	{% endif %}
 	{% for page in (1..paginator.total_pages) %}
 		{% if page == paginator.page %}
 		  <span class="active">{{ page }}</span>
 		{% elsif page == 1 %}
-		  <a href='/index.html'>{{ page }}</a>
+		  <a href='/'>{{ page }}</a>
 		{% else %}
 		  <a href="/page{{ page }}/">{{ page }}</a>
 		{% endif %}
