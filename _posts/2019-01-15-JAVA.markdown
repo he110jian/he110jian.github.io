@@ -205,6 +205,24 @@ http://blog.jobbole.com/111799/
 ### Spring ###
 [https://www.jianshu.com/p/619fe7164afb](https://www.jianshu.com/p/619fe7164afb)
 
+### 最左匹配原则 ###
+- mysql会一直向右匹配直到遇到范围查询(>、<、between、like)就停止匹配，比如a = 1 and b = 2 and c> 3 and d = 4如果建立(a,b,c,d)顺序的索引，d是用不到索引的，如果建立(a,b,d,c)的索引则都可以用到，a,b,d的顺序可以任意调整。
+- 尽量选择区分度高的列作为索引
+
+### 数据库隔离级别 ###
+
+| 事务隔离级别 | 脏读 | 不可重复读 | 幻读 |
+| ------ | ------ | ------ |
+| Read uncommitted | √ | √ | √ |
+| Read committed--Oracle | x| √ | √ |
+| Repeatable read--MySQL | × | × | √ |
+| Serializable | × | × | × |
+
+- select ... ：快照读，不加锁
+- select ... in share mode：当前读，加读锁
+- select ... for update：当前读，加写锁
+
+
 https://www.toutiao.com/c/user/97405874399/#mid=1620255950917639
 
 
