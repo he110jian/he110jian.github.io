@@ -222,8 +222,53 @@ http://blog.jobbole.com/111799/
 - select ... in share mode：当前读，加读锁
 - select ... for update：当前读，加写锁
 
+### 一致性哈希 ###
+一致性哈希可以有效地解决分布式存储结构下动态增加和删除节点所带来的问题（%n）
+
+### 最大公约数 ###
+更相减损术、辗转相除（取模性能差）
+
+{% highlight python %}
+
+	def gcd(a, b):
+	    if a == b:
+	        return a
+	    if a < b:
+	        return gcd(b, a)
+	    if (a & 1 == 0) & (b & 1 == 0):
+	        return gcd(a >> 1, b >> 1) << 1
+	    elif (a & 1 == 1) & (b & 1 == 0):
+	        return gcd(a, b >> 1)
+	    elif (a & 1 == 0) & (b & 1 == 1):
+	        return gcd(a >> 1, b)
+	    else:
+	        return gcd(a - b, b)
+	
+	num_a, num_b = 25, 10
+	print(gcd(num_a, num_b));
+
+{% endhighlight %}
 
 https://www.toutiao.com/c/user/97405874399/#mid=1620255950917639
+
+### Random ###
+Random里其实是一个数列，这个数列每一位的数字接近随机分布，种子决定起始位置
+
+### CopyOnWrite容器 ###
+读写分离，只能一个写（加锁），当往容器添加元素时，将当前容器进行Copy，并往新的容器里添加元素，再将原容器的引用指向新的容器。读无锁。不会抛出ConcurrentModificationException异常（fail-fast机制）
+
+### Guava-RateLimiter ###
+限流
+
+### 编程规范 ###
+
+[https://www.jianshu.com/p/34ad6bb1876c](https://www.jianshu.com/p/34ad6bb1876c)
+
+### 分页 ###
+当offset太大时，需改写sql
+
+    SELECT a.* FROM 表 1 a, (select id from 表 1 where 条件 LIMIT 100000,20 ) b where a.id=b.id
+
 
 
 ---
