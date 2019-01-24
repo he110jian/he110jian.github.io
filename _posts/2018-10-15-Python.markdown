@@ -23,6 +23,16 @@ layout: post
     else:
     print(-a)
     
+	#enumerate
+	li = [12,24,35,70,88,120,155]
+	li = [x for (i,x) in enumerate(li) if i not in (0,4,5)]
+	print li
+
+	#逆序
+	s[::-1]	
+
+	#dict默认get不存在
+	dic.get(s,0)+1
     
     #格式化
     print('hello,%s' % 'world')
@@ -302,6 +312,10 @@ layout: post
     print(reduce(fn, map(char2num, '13579')))
 
 {% endhighlight %}
+
+
+### 练习册 ###
+[https://github.com/zhiwehu/Python-programming-exercises/blob/master/100%2B%20Python%20challenging%20programming%20exercises.txt](https://github.com/zhiwehu/Python-programming-exercises/blob/master/100%2B%20Python%20challenging%20programming%20exercises.txt)
 
 ---
 
