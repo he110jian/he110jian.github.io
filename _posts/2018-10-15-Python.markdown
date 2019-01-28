@@ -310,6 +310,12 @@ layout: post
     return digits[s]
     
     print(reduce(fn, map(char2num, '13579')))
+	
+
+	#count
+	list.count(obj)
+	str.count(sub,start,end)
+	str.count(sub)
 
 {% endhighlight %}
 
