@@ -317,5 +317,11 @@ Kafka：Kafka只支持消息持久化，消费端为拉模型，消费状态和�
 大数据判定存在
 ![](http://oss.lanjingdejia.com/file/2018/7/d2fb6f30cbe3430db4eeb6bb7752c0be-image.png)
 
+### 大数据 ###
+[列式存储+数据压缩](https://www.cnblogs.com/ajianbeyourself/p/7771682.html)  
+druid  
+kylin 
+spark streaming
+
 ---
 
