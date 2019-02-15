@@ -516,7 +516,7 @@ jquery插件模块化
 - xss [http://www.cnblogs.com/glyx/p/5798096.html](http://www.cnblogs.com/glyx/p/5798096.html)
 - csrf [http://www.cnblogs.com/hyddd/archive/2009/04/09/1432744.html](http://www.cnblogs.com/hyddd/archive/2009/04/09/1432744.html)
 
-### js脚本 ###
+### js脚本（公文自动审批） ###
 
     $("[data-ibiz-tag=SBSY]").click();
     setTimeout(function(){$(window.frames["layui-layer-iframe3"].document).find('.radio-inline')[1].click();
@@ -553,5 +553,8 @@ jquery插件模块化
     sort id11.csv id2.csv id22.csv | uniq -u > idminus.csv;
     echo "done!"
 
+### juice ###
+<td>{@if item.spcount>=5}<span style="color:red">${item.spcount}</span>{@else}${item.spcount}{@/if}</td>
+http://www.cnblogs.com/kuler/p/3802413.html
 
 ----------

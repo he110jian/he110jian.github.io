@@ -6,9 +6,6 @@ layout: post
 <p class='meta'>{{ page.date | date_to_string }} - NanJing</p>
 
 ---
-
-
-https://www.cnblogs.com/rcfeng/p/4067896.html 
  
 http://10.124.0.109:8888/solr/f8564dfb90874dcdad56e48b1d13115c_shard1_replica2/select?q=坦克+坦克*%5E5&sort=score+desc&fl=ID%2CNAME%2Cname_s%2Cscore%2Cdoc&wt=json&indent=true&debugQuery=true&defType=edismax&qf=NAME+name_s%5E10&stopwords=true&lowercaseOperators=true&debug.explain.structured=true
 
@@ -953,6 +950,19 @@ weight(NAME:坦克*^10.0 in 32002)，因为NAME为分词字段，当目标文档
       "time":0.0},
     "debug":{
       "time":2.0}}}}}
+
+### 一些优化 ###
+
+OR 得分由sum改为max（5.3.1）不行  
+     org.apache.lucene.search.DisjunctionSumScorer.score()
+     org.apache.lucene.search.BooleanScorer.scoreDocument()
+     org.apache.lucene.search.BooleanScorer.collect()
+
+重写DF-IDF相似度算法，屏蔽fileldLength、tf、idf影响（6..6.0）
+
+修复查询解析器mm，只对分词有效（英文搜索受影响）（6..6.0）
+org.apache.solr.search.ExtendDismaxQparser.parseOriginalQuery()
+solr start -p 8888 -f -a "-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=8888
 
 ---
 
