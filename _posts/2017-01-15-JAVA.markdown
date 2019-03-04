@@ -76,6 +76,9 @@ CAS机制所保证的只是一个变量的原子性操作，而不能保证整�
 - sdiff #差集
 - sinter #交集
 
+### ThreadPoolExcutor ###
+[https://blog.csdn.net/zhouhl_cn/article/details/7392607](https://blog.csdn.net/zhouhl_cn/article/details/7392607)
+
 ### Optional ###
 
 {% highlight java %}
