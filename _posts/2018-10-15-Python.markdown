@@ -323,6 +323,8 @@ layout: post
 ### 练习册 ###
 [https://github.com/zhiwehu/Python-programming-exercises/blob/master/100%2B%20Python%20challenging%20programming%20exercises.txt](https://github.com/zhiwehu/Python-programming-exercises/blob/master/100%2B%20Python%20challenging%20programming%20exercises.txt)
 
+[https://github.com/kenwoodjw/python_interview_question](https://github.com/kenwoodjw/python_interview_question)
+
 ### 实用 ###
 
 	#获取当前文件所在目录  
