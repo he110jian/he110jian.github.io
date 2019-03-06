@@ -329,7 +329,7 @@ kylin
 spark streaming
 
 ### 并查集 ###
-检查可达性、联通性，如`{{1,2},{2,3},{4,5}}`,则其构成并查集为：`int[] ufs={-1,-3,1,1,-2,4}`
+检查可达性、联通性，如`{1,2},{2,3},{4,5}`,则其构成并查集为：`int[] ufs={-1,-3,1,1,-2,4}`
 
 ### programing ###
 [https://github.com/CyC2018/CS-Notes/blob/master/docs/notes/Leetcode%20%E9%A2%98%E8%A7%A3.md](https://github.com/CyC2018/CS-Notes/blob/master/docs/notes/Leetcode%20%E9%A2%98%E8%A7%A3.md)
