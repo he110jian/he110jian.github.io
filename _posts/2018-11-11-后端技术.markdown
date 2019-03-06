@@ -357,7 +357,7 @@ ConcurrentHashMap put(CAS机制),多线程协助数据迁移
 ### session ###
 - 当向Session中存取登录信息时，一般建议：HttpSession session =request.getSession();
 - 当从Session中获取登录信息时，一般建议：HttpSession session =request.getSession(false);
-- session共享，spring session
+- session共享，spring session.
 
 ---
 
