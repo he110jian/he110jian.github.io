@@ -34,6 +34,9 @@ layout: post
 	#dict默认get不存在
 	dic.get(s,0)+1
     
+	#二维数组5*5
+	print ([[x for x in range(1,26)] [i:i+5] for i in range(0,25,5)])
+
     #格式化
     print('hello,%s' % 'world')
     print('Hi, %s, you have $%d.' % ('Michael', 1000000))
@@ -265,26 +268,28 @@ layout: post
     #复杂生成器yield
     #这里，最难理解的就是generator和函数的执行流程不一样。函数是顺序执行，遇到return语句或者最后一行函数语句就返回。而变成generator的函数，在每次调用next()的时候执行，遇到yield语句返回，再次执行时从上次返回的yield语句处继续执行。
     def fib(max):
-    n,a,b=0,0,1
-    while n<max:
-    yield b
-    a,b=b,a+b
-    n=n+1
+    	n,a,b=0,0,1
+    	while n<max:
+    		yield b
+    		a,b=b,a+b
+    		n=n+1
     #杨辉三角
     def triangles():
-    L = [1]
-    while True:
-    yield L
-    L = [1]+[L[i]+L[i+1] for i in range(len(L)-1)]+[1]
-    n = 0
-    results = []
+    	L = [1]
+    	while True:
+    		yield L
+    		L = [1]+[L[i]+L[i+1] for i in range(len(L)-1)]+[1]
+    		n = 0
+    
+	results = []
     for t in triangles():
-    print(t)
-    results.append(t)
-    n = n + 1
-    if n == 10:
-    break
-    if results == [
+    	print(t)
+    	results.append(t)
+    	n = n + 1
+    	if n == 10:
+    		break
+    
+	if results == [
     [1],
     [1, 1],
     [1, 2, 1],
@@ -296,11 +301,11 @@ layout: post
     [1, 8, 28, 56, 70, 56, 28, 8, 1],
     [1, 9, 36, 84, 126, 126, 84, 36, 9, 1]
     ]:
-    print('测试通过!')
+    	print('测试通过!')
     else:
-    print('测试失败!')
+    	print('测试失败!')
     
-    #map reduce
+    #map reduce filter
     from functools import reduce
     def fn(x, y):
     return x * 10 + y
@@ -310,6 +315,8 @@ layout: post
     return digits[s]
     
     print(reduce(fn, map(char2num, '13579')))
+	
+	[x for x in filter(lambda x: x % 2 == 0, range(10))] 
 	
 
 	#count
@@ -338,6 +345,62 @@ layout: post
 
 	#使用全局变量
 	global
+
+### python装饰器 ###
+类似切面代理实现（闭包）
+    
+{% highlight python %}
+
+	#早期写法
+	def debug(func):
+    	def wrapper():
+    		print "[DEBUG]: enter {}()".format(func.__name__)
+    		return func()
+    	return wrapper
+    
+    def say_hello():
+    	print "hello!"
+    
+    say_hello = debug(say_hello)  # 添加功能并保持原函数名不变
+
+	#语法糖写法
+	def debug(func):
+	    def wrapper(*args, **kwargs):  # 指定宇宙无敌参数
+	        print "[DEBUG]: enter {}()".format(func.__name__)
+	        print 'Prepare and say...',
+	        return func(*args, **kwargs)
+	    return wrapper  # 返回
+	
+	@debug
+	def say(something):
+	    print "hello {}!".format(something)
+
+
+	# 探索functools模块wraps装饰器的用途
+	import time
+	from functools import wraps
+	
+	def timeit(func):
+	    @wraps(func)
+	    def wrapper(*args, **kwargs):
+	        start = time.clock()
+	        ret = func(*args, **kwargs)
+	        end = time.clock()
+	        print('used:', end - start)
+	        return ret
+	
+	    return wrapper
+	
+	
+	@timeit
+	def foo():
+	    print('in foo()')
+	foo()
+	#输出
+	in foo()
+	used: 3.0344449665474756e-05
+	
+{% endhighlight %}
 
 ---
 
