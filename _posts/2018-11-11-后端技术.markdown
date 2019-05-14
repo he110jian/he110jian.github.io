@@ -381,7 +381,7 @@ ResourceUtils.getFile("classpath:a.csv")
 监测gc：jstat -gctril PID MILLSEC  
 查看堆内存详细信息：jmap -heap pid  
 查看线程情况：jstack PID
-输出GC日志jmap -histo PID>xxx.log，jmap -dump:live,format=b,file=m.hprof PID
+输出GC日志jmap -histo PID>xxx.log，jmap -dump:**live,**format=b,file=m.hprof PID，live可选，表示只转储活动对象
 
 
 ---
