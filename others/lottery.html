@@ -22,6 +22,7 @@
                             <input id="cont" type="text" class="form-control" id="ct" value="3">
                         </div>
                         <button type="button" id="btn" class="btn btn-primary">START</button>
+                        <button type="button" id="btn-stop" class="btn btn-danger">STOP</button>
                     </form>
                     <div class="form-group">
                         <label for="name">WINNERS</label>
@@ -31,7 +32,9 @@
         </div>            
 </body>
 <script type="text/javascript">
-
+    
+    var stop_loop = false;
+    
     function getRandomArrayElements(arr, count) {
         var shuffled = arr.slice(0), i = arr.length, min = i - count, temp, index;
         while (i-- > min) {
@@ -43,17 +46,41 @@
         return shuffled.slice(min);
     }
     
+    function getRandomColor(){
+        return '#' +
+		(function(color) {
+			return(color += '5678956789defdef' [Math.floor(Math.random() * 16)]) &&
+				(color.length == 6) ? color : arguments.callee(color);
+		})('');
+    }
+    
+    function getWinners(can_list, limit) {
+        var winners = getRandomArrayElements(can_list, limit);
+        $("#finals").val(winners.join("\n"));
+        $("#cont").css({'background' : getRandomColor()})
+        if(stop_loop) {
+            $("#cont").removeAttr("style","");
+            return;
+        }
+        setTimeout(getWinners, 500, can_list, limit);
+    }
+    
     $("#btn").click(function(event){
+        console.log("start")
+        stop_loop=false;
         var candidates = $("#candidates").val();
-        var can_list = candidates.split("\n")
-        console.log(can_list);
+        console.log(stop_loop);
+        var can_list = candidates.split("\n");
+        var limit = $("#cont").val();
         
-        var cont = $("#cont").val();
-        console.log(cont);
+        getWinners(can_list, limit);
         
-        var finals = getRandomArrayElements(can_list, cont)
-        console.log(finals);
-        $("#finals").val(finals.join("\n"));
     });
+    
+    $("#btn-stop").click(function(event){
+        stop_loop = true;
+        console.log("end")
+    });
+    
 </script>
 </html>
