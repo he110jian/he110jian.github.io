@@ -11,7 +11,7 @@
 </head>
     
 	<body>
-        <div class="container" style="margin-top:30px">
+        <div class="container" style="margin-top:10px">
                     <div class="form-group">
                         <label for="name">CANDIDATES</label>
                         <textarea id="candidates" class="form-control" rows="10">
@@ -38,6 +38,8 @@
                         <label for="name">WINNERS</label>
                         <textarea id="finals" class="form-control" rows="10"></textarea>
                     </div>
+                    <button type="button" id="btn-rm" class="btn btn-default">CLEAR</button>
+                    <div id="results" style="margin-top:10px"></div>
                 
         </div>            
 </body>
@@ -70,10 +72,16 @@
         $("#cont").css({'background' : getRandomColor()})
         if(stop_loop) {
             $("#cont").removeAttr("style","");
+            $("#results").append("<p>" + winners.join(" | ") + "</p>")
             return;
         }
         setTimeout(getWinners, 500, can_list, limit);
     }
+    
+    $("#btn-rm").click(function(event){
+        $("#results").empty();
+        
+    });
     
     $("#btn").click(function(event){
         console.log("start")
