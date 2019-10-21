@@ -1,0 +1,59 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" /> 
+<title>LOTTERY</title>
+<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+<script src="https://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    
+</head>
+    
+	<body>
+        <div class="container">
+                    <div class="form-group">
+                        <label for="name">候选名单</label>
+                        <textarea id="candidates" class="form-control" rows="10" style="min-width: 30%"></textarea>
+                    </div>
+                    <form class="form-inline" style="margin-bottom:10px">
+                        <div class="form-group">
+                            <label for="ct">个数</label>
+                            <input id="cont" type="text" class="form-control" id="ct" value="3">
+                        </div>
+                        <button type="button" id="btn" class="btn btn-primary">开 始</button>
+                    </form>
+                    <div class="form-group">
+                        <label for="name">中奖名单</label>
+                        <textarea id="finals" class="form-control" rows="10"></textarea>
+                    </div>
+                
+        </div>            
+</body>
+<script type="text/javascript">
+
+    function getRandomArrayElements(arr, count) {
+        var shuffled = arr.slice(0), i = arr.length, min = i - count, temp, index;
+        while (i-- > min) {
+            index = Math.floor((i + 1) * Math.random());
+            temp = shuffled[index];
+            shuffled[index] = shuffled[i];
+            shuffled[i] = temp;
+        }
+        return shuffled.slice(min);
+    }
+    
+    $("#btn").click(function(event){
+        var candidates = $("#candidates").val();
+        var can_list = candidates.split("\n")
+        console.log(can_list);
+        
+        var cont = $("#cont").val();
+        console.log(cont);
+        
+        var finals = getRandomArrayElements(can_list, cont)
+        console.log(finals);
+        $("#finals").val(finals.join("\n"));
+    });
+</script>
+</html>

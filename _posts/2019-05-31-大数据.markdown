@@ -1,0 +1,388 @@
+---
+layout: post
+---
+
+<h2>{{ page.title }}</h2>
+<p class='meta'>{{ page.date | date_to_string }} - NanJing</p>
+
+---
+
+### volatile ###
+1、运行结果并不依赖变量的当前值，或者能够确保只有单一的线程修改变量的值。  
+2、变量不需要与其他的状态变量共同参与不变约束。  
+
+{% highlight java %}
+
+    volatile static int start = 3;
+    volatile static int end = 6;
+    
+    线程A执行如下代码：
+    while (start < end){
+      //do something
+    }
+    
+    线程B执行如下代码：
+    start+=3;
+    end+=3;
+
+{% endhighlight %}
+    
+这种情况下，一旦在线程A的循环中执行了线程B，start有可能先更新成6，造成了一瞬间 start == end，从而跳出while循环的可能性。  
+3、阻止指令重排
+
+{% highlight java %}
+
+    boolean contextReady = false;
+    
+    在线程A中执行:
+    context = loadContext();
+    contextReady = true;
+     
+    在线程B中执行:
+    while( ! contextReady ){ 
+       sleep(200);
+    }
+    doAfterContextReady (context);
+
+{% endhighlight %}
+    
+以上程序看似没有问题。线程B循环等待上下文context的加载，一旦context加载完成，contextReady == true的时候，才执行doAfterContextReady 方法。但是，如果线程A执行的代码发生了指令重排，初始化和contextReady的赋值交换了顺序：
+
+### Atomic/AtomicReference ###
+CAS的缺点：
+
+1.CPU开销较大  
+在并发量比较高的情况下，如果许多线程反复尝试更新某一个变量，却又一直更新不成功，循环往复，会给CPU带来很大的压力。
+
+2.不能保证代码块的原子性  
+CAS机制所保证的只是一个变量的原子性操作，而不能保证整个代码块的原子性。比如需要保证3个变量共同进行原子性的更新，就不得不使用Synchronized了。
+
+3.ABA问题  
+1.Java语言CAS底层如何实现？  
+利用unsafe提供了原子性操作方法。
+
+2.什么是ABA问题？怎么解决？  
+当一个值从A更新成B，又更新会A，普通CAS机制会误判通过检测。利用版本号比较可以有效解决ABA问题，如JAVA中AtomicReference类。
+
+### redis ###
+1、缓存穿透  
+2、缓存血崩  
+3、应用：[https://mp.weixin.qq.com/s/ASzGn4op1ItKJxTn5ZJZHA](https://mp.weixin.qq.com/s/ASzGn4op1ItKJxTn5ZJZHA)  
+- setnx key value	#赋值如果不存在，否则返回0（分布式锁）
+- incr key	#自增（点击量）
+- smembers key	#所有元素
+- spop key count	#随机返回n个元素，并删除
+- srandmember key count	##随机返回n个元素，不删除
+- sdiff #差集
+- sinter #交集
+- zset 实现前缀补全
+更新复杂时，高可用使用双缓存（有新的将老的过期，使用版本号做key）
+4、持久化，AOF（指令重放），RDB（写快照文件）
+
+### ThreadPoolExcutor ###
+[https://blog.csdn.net/zhouhl_cn/article/details/7392607](https://blog.csdn.net/zhouhl_cn/article/details/7392607)
+
+### Optional ###
+
+{% highlight java %}
+
+    import java.util.Optional;
+     
+    public class Java8Tester {
+       public static void main(String args[]){
+       
+      Java8Tester java8Tester = new Java8Tester();
+      Integer value1 = null;
+      Integer value2 = new Integer(10);
+    
+      // Optional.ofNullable - 允许传递为 null 参数
+      Optional<Integer> a = Optional.ofNullable(value1);
+    
+      // Optional.of - 如果传递的参数是 null，抛出异常 NullPointerException
+      Optional<Integer> b = Optional.of(value2);
+      System.out.println(java8Tester.sum(a,b));
+       }
+    
+       public Integer sum(Optional<Integer> a, Optional<Integer> b){
+    
+      // Optional.isPresent - 判断值是否存在
+    
+      System.out.println("第一个参数值存在: " + a.isPresent());
+      System.out.println("第二个参数值存在: " + b.isPresent());
+    
+      // Optional.orElse - 如果值存在，返回它，否则返回默认值
+      Integer value1 = a.orElse(new Integer(0));
+
+	  // Optional.ifPresent - 如果存在则调用Consumer方法
+	  b.ifPresent(System.out::println)
+    
+      //Optional.get - 获取值，值需要存在
+      Integer value2 = b.get();
+      return value1 + value2;
+       }
+    }
+
+{% endhighlight %}
+
+### java8函数式编程 ###
+[https://www.jianshu.com/p/538bfe8f814e](https://www.jianshu.com/p/538bfe8f814e)
+
+### Function ###
+
+{% highlight java %}
+
+	//接受一个输入参数，返回一个结果
+	Function<Integer, String> function1 = (x) -> "result: " + x;
+	function1.apply(6);
+
+{% endhighlight %}
+
+### Predicate ###
+
+{% highlight java %}
+
+	//接受一个输入参数，返回布尔值
+	Predicate<Integer> predicate = n -> n%2==0;
+	//实现1
+	for(Integer n: list) {
+         if(predicate.test(n)) {
+            System.out.println(n + " ");
+         }
+      }	
+	//实现2
+    list.stream().filter(predicate).forEach(System.out::println);
+	//实现3
+	list.stream().filter(n -> n%2==0).forEach(System.out::println);
+
+{% endhighlight %}
+
+### Consumer ###
+
+{% highlight java %}
+
+	//接受一个输入参数，无返回值
+	Consumer<String> consumer = (x) -> System.out.println("consumer: " + x);
+	consumer.accept("Hello");
+
+{% endhighlight %}
+
+### Supplier ###
+
+{% highlight java %}
+
+	//无输入参数，返回一个结果
+	Supplier<String> supplier = () -> "Test supplier";
+	supplier.get();
+
+{% endhighlight %}
+
+### ? super/extend ###
+PECS（product extends customer super）,消费其他通配符集合（添加其他类型数据）  
+[http://www.importnew.com/8966.html](http://www.importnew.com/8966.html)
+
+{% highlight java %}
+
+	//生产
+	public void pushAll(Iterable<? extends E> src){
+    	for (E e: src)
+    		push(e);
+    }
+	//消费
+	public void popAll(Collection<? super E> dst){
+       if(!isEmpty())
+			dst.add(pop());
+   	}
+
+{% endhighlight %}
+
+### B/B+树 ###
+[http://blog.jobbole.com/111757/](http://blog.jobbole.com/111757/)
+
+### 设计模式 ###
+http://blog.jobbole.com/111799/
+
+### 双亲委派 ###
+[https://www.jianshu.com/p/5f79217f2e18](https://www.jianshu.com/p/5f79217f2e18)
+
+### git ###
+[https://www.jianshu.com/p/620bca700f61](https://www.jianshu.com/p/620bca700f61)
+![git命令速查](https://upload-images.jianshu.io/upload_images/3251891-bf95c93f50ba5927.png)
+
+### Spring ###
+[https://www.jianshu.com/p/619fe7164afb](https://www.jianshu.com/p/619fe7164afb)
+
+### 最左匹配原则 ###
+- mysql会一直向右匹配直到遇到范围查询(>、<、between、like)就停止匹配，比如a = 1 and b = 2 and c> 3 and d = 4如果建立(a,b,c,d)顺序的索引，d是用不到索引的，如果建立(a,b,d,c)的索引则都可以用到，a,b,d的顺序可以任意调整。
+- 尽量选择区分度高的列作为索引
+
+### 数据库隔离级别 ###
+
+| 事务隔离级别 | 脏读 | 不可重复读 | 幻读 |
+| ------ | ------ | ------ |
+| Read uncommitted | √ | √ | √ |
+| Read committed--Oracle | x| √ | √ |
+| Repeatable read--MySQL | × | × | √ |
+| Serializable | × | × | × |
+
+- select ... ：快照读，不加锁
+- select ... in share mode：当前读，加读锁
+- select ... for update：当前读，加写锁
+
+### 一致性哈希 ###
+一致性哈希可以有效地解决分布式存储结构下动态增加和删除节点所带来的问题（%n）
+
+### 最大公约数 ###
+更相减损术、辗转相除（取模性能差）
+
+{% highlight python %}
+
+	def gcd(a, b):
+	    if a == b:
+	        return a
+	    if a < b:
+	        return gcd(b, a)
+	    if (a & 1 == 0) & (b & 1 == 0):
+	        return gcd(a >> 1, b >> 1) << 1
+	    elif (a & 1 == 1) & (b & 1 == 0):
+	        return gcd(a, b >> 1)
+	    elif (a & 1 == 0) & (b & 1 == 1):
+	        return gcd(a >> 1, b)
+	    else:
+	        return gcd(a - b, b)
+	
+	num_a, num_b = 25, 10
+	print(gcd(num_a, num_b));
+
+{% endhighlight %}
+
+https://www.toutiao.com/c/user/97405874399/#mid=1620255950917639
+
+### Random ###
+Random里其实是一个数列，这个数列每一位的数字接近随机分布，种子决定起始位置
+
+### CopyOnWrite容器 ###
+读写分离，只能一个写（加锁），当往容器添加元素时，将当前容器进行Copy，并往新的容器里添加元素，再将原容器的引用指向新的容器。读无锁。不会抛出ConcurrentModificationException异常（fail-fast机制）
+
+### Guava-RateLimiter ###
+限流
+
+### 编程规范 ###
+
+[https://www.jianshu.com/p/34ad6bb1876c](https://www.jianshu.com/p/34ad6bb1876c)
+
+### 分页 ###
+当offset太大时，需改写sql
+
+    SELECT a.* FROM 表 1 a, (select id from 表 1 where 条件 LIMIT 100000,20 ) b where a.id=b.id
+
+### 缓存和数据一致性（分布式事务） ###
+2PC，3PC，paxos  
+[https://www.toutiao.com/a6622065756290941454/](https://www.toutiao.com/a6622065756290941454/)
+[https://www.cnblogs.com/littlecharacter/p/9341804.html](https://www.cnblogs.com/littlecharacter/p/9341804.html)
+[https://tech.antfin.com/docs/2/46886](https://tech.antfin.com/docs/2/46886)
+
+- 接口同步调用模式，服务调用方查询重试方案和TCC方案。
+- 接口异步调用模式，服务被调方最大努力处理方案。
+- 消息异步处理模式，生产者最大努力通知（确保发送成功）+消费者最大努力处理方案（确保消费成功，注意幂等）。
+- 任何服务操作都需要提供一个查询接口，用来向外部输出操作执行的状态。
+- 永远不要在本地事务中调用远程服务，在这种场景下如果远程服务出现了问题，则会拖长事务，导致应用服务器占用太多的数据库连接，让服务器负载迅速攀升，在严重情况下会压垮数据库。
+- 最后一道防线 对账系统。
+- 同步和异步的抉择：
+- 可以异步的地方，就应该异步实现。如果业务逻辑允许，则我们可以将一些耗时较长的、用户对响应没有特别要求的操作异步化，以此来减少核心链路的层级，释放系统的压力。
+- 能用同步解决的问题，不要引入异步。如果性能不是问题，或者所处理的操作是短小的轻量级处理逻辑，那么同步调用方式是最理想不过的，因为这样不需要引入异步化的复杂处理流程。
+
+下完订单后，订单状态为DRAFT，在TCC事务中TRY阶段，订单支付服务将订单状态变成PAYING，同时远程调用红包帐户服务和资金帐户服务,将付款方的余额减掉（预留业务资源);如果在TRY阶段，任何一个服务失败，tcc-transaction将自动调用这些服务对应的cancel方法，订单支付服务将订单状态变成PAY_FAILED,同时远程调用红包帐户服务和资金帐户服务,将付款方余额减掉的部分增加回去；如果TRY阶段正常完成，则进入CONFIRM阶段，在CONFIRM阶段（tcc-transaction自动调用）,订单支付服务将订单状态变成CONFIRMED,同时远程调用红包帐户服务和资金帐户服务对应的CONFIRM方法，将收款方的余额增加。特别说明下，由于是示例，在CONFIRM和CANCEL方法中没有实现幂等性，如果在真实项目中使用，需要保证CONFIRM和CANCEL方法的幂等性。
+
+XA两阶段提交的不足  
+1.性能问题  
+XA协议遵循强一致性。在事务执行过程中，各个节点占用着数据库资源，只有当所有节点准备完毕，事务协调者才会通知提交，参与者提交后释放资源。这样的过程有着非常明显的性能问题。  
+2.协调者单点故障问题  
+事务协调者是整个XA模型的核心，一旦事务协调者节点挂掉，参与者收不到提交或是回滚通知，参与者会一直处于中间状态无法完成事务。  
+3.丢失消息导致的不一致问题。  
+在XA协议的第二个阶段，如果发生局部网络问题，一部分事务参与者收到了提交消息，另一部分事务参与者没收到提交消息，那么就导致了节点之间数据的不一致。
+
+1.XA三阶段提交  
+XA三阶段提交在两阶段提交的基础上增加了CanCommit阶段，并且引入了超时机制。一旦事物参与者迟迟没有接到协调者的commit请求，会自动进行本地commit。这样有效解决了协调者单点故障的问题。但是性能问题和不一致的问题仍然没有根本解决。  
+2.MQ事务  
+利用消息中间件来异步完成事务的后一半更新，实现系统的最终一致性。这个方式避免了像XA协议那样的性能问题。  
+3.TCC事务  
+TCC事务是Try、Commit、Cancel三种指令的缩写，其逻辑模式类似于XA两阶段提交，但是实现方式是在代码层面来人为实现。
+
+
+### 消息队列 ###
+两种消息模型：
+
+- 点对点（point to point， queue）
+- 发布/订阅（publish/subscribe，topic）
+
+传统企业型消息队列ActiveMQ遵循了JMS规范，实现了点对点和发布订阅模型，但其他流行的消息队列RabbitMQ、Kafka并没有遵循JMS规范。  
+RabbitMQ：消费端为推模型，消费状态和订阅关系由服务端负责维护，消息消费完后立即删除，不保留历史消息。  
+Kafka：Kafka只支持消息持久化，消费端为拉模型，消费状态和订阅关系由客户端端负责维护，消息消费完后不会立即删除，会保留历史消息。因此支持多订阅时，消息只会存储一份就可以了。但是可能产生重复消费的情况。
+
+### BloomFilter ###
+大数据判定存在
+![](http://oss.lanjingdejia.com/file/2018/7/d2fb6f30cbe3430db4eeb6bb7752c0be-image.png)
+
+### 大数据 ###
+[列式存储+数据压缩](https://www.cnblogs.com/ajianbeyourself/p/7771682.html)  
+druid  
+kylin 
+spark streaming
+
+### 并查集 ###
+检查可达性、联通性，如`{1,2},{2,3},{4,5}`,则其构成并查集为：`int[] ufs={-1,-3,1,1,-2,4}`
+
+### programing ###
+[https://github.com/CyC2018/CS-Notes/blob/master/docs/notes/Leetcode%20%E9%A2%98%E8%A7%A3.md](https://github.com/CyC2018/CS-Notes/blob/master/docs/notes/Leetcode%20%E9%A2%98%E8%A7%A3.md)
+
+### Hashmap ###
+Array[ListNode]-->Array[ListNode|TreeNode]  
+红黑树：平衡二叉树，数据库索引使用b+树（多路查找，连续数据查找），减少IO次数  
+ConcurrentHashMap put(CAS机制),多线程协助数据迁移
+
+### 代理 ###
+正向代理（代理客户端，翻墙），反向代理（代理服务器，负载转发）
+
+### lucene集合合并 ###
+[https://www.cnblogs.com/bonelee/p/6394451.html](https://www.cnblogs.com/bonelee/p/6394451.html)，其他类似实现bitmap
+
+### 高并发解决方案 ###
+1. 动态资源和静态资源分离；
+1. CDN；
+1. 负载均衡；
+1. 分布式缓存；
+1. 数据库读写分离或数据切分（垂直或水平）；
+1. 服务分布式部署。
+![](http://p9.pstatp.com/large/pgc-image/8ebaafe1206d49468b550933b6958892)
+
+### session ###
+- 当向Session中存取登录信息时，一般建议：HttpSession session =request.getSession();
+- 当从Session中获取登录信息时，一般建议：HttpSession session =request.getSession(false);
+- session共享，spring session.
+
+### 聚簇索引、非聚簇索引 ###
+聚簇索引：数据行的物理顺序与列值（一般是主键的那一列）的逻辑顺序相同，一个表中只能拥有一个聚集索引。  
+非聚集索引和聚集索引的区别在于， 通过聚集索引可以查到需要查找的数据， 而通过非聚集索引可以查到记录对应的主键值 ，再使用主键的值通过聚集索引查找到需要的数据。  
+普通索引，唯一索引，组合索引（当查询的列为组合索引时可解决单索引的二次查询问题）
+
+### 读取文件 ###
+Class.getResource("")获取的是相对于当前类的相对路径  
+Class.getResource("／")获取的是classpath的根路径  
+ClassLoader.getResource("")获取的是classpath的根路径   
+getResource / getResourceAsStream  
+Resource res = new ClassPathResource("resource/ApplicationContext.xml");  
+InputStream input = res.getInputStream();  
+ResourceUtils.getFile("classpath:a.csv")
+
+
+### jvm问题定位 ###
+1. - 获取进程号：ps -ef | grep project_name、jps  
+1. - 查看cpu利用率：top -p PID，大写H切换到该进程的线程状态,将问题线程转成16进制，到5只查看  
+1. - 监测gc：jstat -gctril PID MILLSEC  
+1. - 查看堆内存详细信息：jmap -heap pid  
+1. - 查看线程情况：jstack -l PID
+1. - 输出GC日志jmap -histo PID>xxx.log，jmap -dump:**live,**format=b,file=m.hprof PID，live可选，表示只转储活动对象
+
+
+---
+
