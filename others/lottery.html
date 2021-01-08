@@ -33,12 +33,13 @@
                         </div>
                         <button type="button" id="btn" class="btn btn-primary">START</button>
                         <button type="button" id="btn-stop" class="btn btn-danger">STOP</button>
+                        <label><input type="checkbox" name="rd" value="1">no-repeat(reset to work)</label>
                     </form>
                     <div class="form-group">
                         <label for="name">WINNERS</label>
                         <textarea id="finals" class="form-control" rows="10"></textarea>
                     </div>
-                    <button type="button" id="btn-rm" class="btn btn-default">CLEAR</button>
+                    <button type="button" id="btn-rm" class="btn btn-default">RESET</button>
                     <div id="results" style="margin-top:10px"></div>
                 
         </div>            
@@ -46,6 +47,9 @@
 <script type="text/javascript">
     
     var stop_loop = false;
+    var repeat_allowed = "1";
+    var can_list = []
+    
     
     function getRandomArrayElements(arr, count) {
         var shuffled = arr.slice(0), i = arr.length, min = i - count, temp, index;
@@ -66,32 +70,42 @@
 		})('');
     }
     
-    function getWinners(can_list, limit) {
+    function getWinners(limit) {
         var winners = getRandomArrayElements(can_list, limit);
+        
         $("#finals").val(winners.join("\n"));
         $("#cont").css({'background' : getRandomColor()})
         if(stop_loop) {
             $("#cont").removeAttr("style","");
             $("#results").append("<p>" + winners.join(" | ") + "</p>")
+            if(repeat_allowed=="1"){
+                console.log("update can_list");
+                can_list=$(can_list).not(winners).toArray();
+                console.log(can_list);
+            }
             return;
         }
-        setTimeout(getWinners, 50, can_list, limit);
+        setTimeout(getWinners, 50, limit);
     }
     
     $("#btn-rm").click(function(event){
         $("#results").empty();
-        
+        var candidates = $("#candidates").val();
+        console.log(stop_loop);
+        can_list = candidates.split("\n");
+        repeat_allowed=$("input[name='rd']:checked").val();
+        console.log(repeat_allowed);
     });
     
     $("#btn").click(function(event){
         console.log("start")
         stop_loop=false;
-        var candidates = $("#candidates").val();
-        console.log(stop_loop);
-        var can_list = candidates.split("\n");
-        var limit = $("#cont").val();
         
-        getWinners(can_list, limit);
+        var limit = $("#cont").val();
+        if(limit>can_list.length){
+            limit=can_list.length
+        }
+        getWinners(limit);
         
     });
     
@@ -99,6 +113,7 @@
         stop_loop = true;
         console.log("end")
     });
+    $("#btn-rm").trigger("click");
     
 </script>
 </html>
