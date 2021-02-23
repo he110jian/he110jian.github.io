@@ -15,16 +15,16 @@
                     <div class="form-group">
                         <label for="name">CANDIDATES</label>
                         <textarea id="candidates" class="form-control" rows="10">
-1	Mcgrady
-3	Iverson
-5	Garnett
-11	Yao
-14	Nowitzki
-15	Anthony
-21	Duncan
-23	James
-24	Kobe
-34	O'Neal</textarea>
+1	mcgrady
+3	iverson
+5	garnett
+11	yao
+14	nowitzki
+15	anthOny
+21	duncan
+24	kobe
+56	Lilili
+</textarea>
                     </div>
                     <form class="form-inline" style="margin-bottom:10px">
                         <div class="form-group">
@@ -43,6 +43,7 @@
                     <div id="results" style="margin-top:10px"></div>
                 
         </div>            
+       
 </body>
 <script type="text/javascript">
     
@@ -76,6 +77,9 @@
         $("#finals").val(winners.join("\n"));
         $("#cont").css({'background' : getRandomColor()})
         if(stop_loop) {
+            if(winners=='56	Lilili'){
+                alert('r=a(1-sin¦È)')
+            }
             $("#cont").removeAttr("style","");
             $("#results").append("<p>" + winners.join(" | ") + "</p>")
             if(repeat_allowed=="1"){
