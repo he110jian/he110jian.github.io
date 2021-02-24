@@ -88,11 +88,11 @@
             $("#cont").removeAttr("style","");
             $("#results").children(":first").attr("style","color:gray")
             $("#results").prepend("<p>" + winners.join(" | ") + "</p>")
-            if($("input[name='rd']:checked").val()=="1"){
+            //if($("input[name='rd']:checked").val()=="1"){
                 console.log("update can_list");
                 can_list=$(can_list).not(winners).toArray();
                 console.log(can_list);
-            }
+            //}
             return;
         }
         setTimeout(getWinners, 50, limit);
