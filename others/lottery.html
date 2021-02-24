@@ -50,12 +50,10 @@
 <script type="text/javascript">
     var running = false;
     var stop_loop = false;
+    var init = true;
     //var repeat_allowed = "1";
     var can_list = []
-    $("#results").empty();
-    var candidates = $("#candidates").val();
-    console.log(stop_loop);
-    can_list = candidates.split("\n");
+    
     
     function getRandomArrayElements(arr, count) {
         var shuffled = arr.slice(0), i = arr.length, min = i - count, temp, index;
@@ -108,6 +106,13 @@
     });
     
     $("#btn").click(function(event){
+        if(init){
+            $("#results").empty();
+            var candidates = $("#candidates").val();
+            console.log(stop_loop);
+            can_list = candidates.split("\n");
+            init = false;
+        }
         if(running){
             stop_loop = true;
             console.log("end")
